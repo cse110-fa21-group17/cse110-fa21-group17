@@ -14,8 +14,7 @@ Baijun Chen: Hi, my name is Baijun Chen. I am a third-year computer science stud
 
 Mingkai Li: Hi, I am Mingkai(Thomas) Li, I am a third-year computer science student. My research interest includes: cryptography, embedded software engineering. I love playing basketball in my free time! Checkout my web portfolio here: [Resume](https://thomas-web-esume.herokuapp.com/), [Github](https://github.com/ThomasLiARDJAVA) 
 
-
-Eric Peng: A16584700
+Eric Peng: Hi I’m Eric, I’m a senior in Computer Science. I love boxing, MMA and any sport that involves blood. Link to my [GitHub](https://github.com/3ricpeng)
 
 Jackie Kwok: Hi, I'm Jackie and I'm a 4th year COGS Design major with a minor in CSE. In my free time I like playing video games, watching anime, and reading manga. I'm interested in app and web development.  Check out my [GitHub](https://github.com/jkwok626)
 
