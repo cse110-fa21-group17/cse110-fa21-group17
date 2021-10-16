@@ -1,6 +1,6 @@
-<table cellspacing="10">
+<table cellspacing="20">
     <tr>
-        <td><img src="branding/Hot%20Dawg%20Logo.png" alt="brand" width ="170"></td>
+        <td><img src="branding/Hot%20Dawg%20Logo.png" alt="brand" width ="150"></td>
         <td>
             <h1>Hot Dawg - Group 17</h1>
         </td>
