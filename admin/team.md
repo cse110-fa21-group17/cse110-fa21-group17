@@ -1,11 +1,6 @@
-<table cellspacing="20">
-    <tr>
-        <td><img src="branding/Hot%20Dawg%20Logo.png" alt="brand" width ="150"></td>
-        <td>
-            <h1>Hot Dawg - Group 17</h1>
-        </td>
-    </tr>
-</table>
+
+
+# Hot Dawg Group 17 <img src="branding/Hot%20Dawg%20Logo.png" width="150">
 
 
 #### Roster:
