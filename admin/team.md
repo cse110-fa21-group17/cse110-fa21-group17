@@ -14,7 +14,8 @@ Baijun Chen: Hi, my name is Baijun Chen. I am a third-year computer science stud
 
 Mingkai Li: Hi, I am Mingkai(Thomas) Li, I am a third-year computer science student. My research interest includes: cryptography, embedded software engineering. I love playing basketball in my free time! Checkout my web portfolio here: [Resume](https://thomas-web-esume.herokuapp.com/), [Github](https://github.com/ThomasLiARDJAVA) 
 
-Eric Peng: Hi I’m Eric, I’m a senior in Computer Science. I love boxing, MMA and any sport that involves blood. Link to my [GitHub](https://github.com/3ricpeng)
+
+Eric Peng: A16584700
 
 Jackie Kwok: Hi, I'm Jackie and I'm a 4th year COGS Design major with a minor in CSE. In my free time I like playing video games, watching anime, and reading manga. I'm interested in app and web development.  Check out my [GitHub](https://github.com/jkwok626)
 
@@ -25,3 +26,7 @@ Xinchen Zhang: Hi, my name is Xinchen Zhang. I am a senior student right now and
 Allan Sun: Hi, I'm Allan Sun. I'm a third-year computer engineering student. I'm interested in embedded system, operating system and machine learning. When I'm not working I like to travel. Check out my landing page [here](https://s8sun.github.io/gitPage/)
 
 Raghav Cherukuru: Hi! My name is Raghav. I am an international transfer student and this my final year at UCSD. In my free time I like to workout, spend time with friends and family, and play video games. Click [here](https://github.com/rcherukuru2000) for my personal github page.
+
+
+
+
