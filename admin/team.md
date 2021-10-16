@@ -1,9 +1,7 @@
-
-
  <table>
     <tr>
-    <td> Hot Dawg Group 17  </td>
-    <td> <img src="branding/Hot%20Dawg%20Logo.png" width="100"> </td>
+    <td><h1> Hot Dawg Group 17 </h1></td>
+    <td> <img src="branding/Hot%20Dawg%20Logo.png" width="110"> </td>
     </tr>
 </table>
 
