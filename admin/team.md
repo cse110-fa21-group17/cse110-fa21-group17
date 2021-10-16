@@ -1,5 +1,6 @@
 # *Hot Dawg - Group 17*
 ![brand](branding/Hot%20Dawg%20Logo.png)
+<img src="branding/Hot%20Dawg%20Logo.png" alt="brand" width="200"/>
 
 
 #### Roster:
