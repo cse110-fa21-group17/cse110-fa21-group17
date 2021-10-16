@@ -1,8 +1,8 @@
 <table cellspacing="10">
     <tr>
-        <td><img src="branding/Hot%20Dawg%20Logo.png" alt="brand" width ="150"></td>
+        <td><img src="branding/Hot%20Dawg%20Logo.png" alt="brand" width ="170"></td>
         <td>
-            <h1>Hot Dawg</h1>
+            <h1>Hot Dawg - Group 17</h1>
         </td>
     </tr>
 </table>
