@@ -1,4 +1,4 @@
-# Second Group Meeting
+# Brainstorm Meeting (Second Group Meeting)
 
 ## Agenda
 * Decide on roles
