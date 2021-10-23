@@ -8,7 +8,7 @@
 ## Participants
 * Allan Sun
 * Eric Peng
-* Raghav Cheruku
+* Raghav Cherukuru
 * Aditya Moghe
 * Baijun Chen
 * Benjamin Kuo
