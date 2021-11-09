@@ -1,5 +1,7 @@
-# cse110-fa21-group17
+# *Hot Dawg* - Group 17
 
-  -> Add something here about the project <-
+* WIP
+
+
 
 Click [here](admin/team.md) for team page
