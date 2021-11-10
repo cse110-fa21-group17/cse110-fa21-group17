@@ -1,0 +1,32 @@
+# Fifth Standup Meeting
+
+## Agenda
+*	Distribution of workload
+* Assignments due in the coming week
+* Upcoming lab revolves around unit testing
+
+## Participants (10/11)
+*	Baijun Chen
+*	Raghav Cherukuru
+*	Benjamin Kuo
+*	Jackie Kwok
+*	Chenghao Li
+*	Mingkai Li
+*	Aditya Moghe
+*	Eric Peng
+*	Yinghui Sun
+*	Xinchen Zhang
+
+## Recording
+* The progress that has been made on the database by Mingkai (Thomas)
+* Have detailed documentation of the meetings
+* Work on CI/CD pipeline and ADR (Architectural Design Decisions)
+* How the login feature wille be implemented
+
+## Action items
+* Document our design decisions
+* Fix up a team for the backend
+
+## To-do list
+* Checkpoint 1 for ADR due 11/14
+* CI/CD Pipeline due 11/30
