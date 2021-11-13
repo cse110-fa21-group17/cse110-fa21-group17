@@ -1,24 +1,23 @@
-Decision to use Database
+# Decision to use Spoonacular API
+* Status: accepted
 
-Status: accepted
-Context and Problem Statement
+## Context and Problem Statement
+We needed to decide what part of the recipe we can use the Spoonacular API. Since Spoonacular does not support all CRUD actions, we need to make it compatible with our web app.
 
-We needed to decide how we would allow users to add/delete recipes. Since we also wanted to have a login system, we also needed to decide how we wanted to store users' login credentials.
+## Considered Options
+* Use Spoonacular API at all time.
+* Use Sppoonacular API to only access the recipes platform provides.
+* Make some random recipes insdead of Sppoonacular API.
 
-Considered Options
+## Decision Outcome
+We decided to use Spoonacular API to access the recipes because the API offers access to more than 365,000 recipes and nutritional information. 
 
-MySQL Database
-Local Storage
-Add recipes to Spoonacular's database
-Don't allow users to add or delete recipes
-Decision Outcome
+With Spoonacular's food search engine, we could soon find everything from the server, hence Spoonacular API can easily satisfies the basic recipe searching function.
 
-We decided to use a MySQL database because we thought it would provide a better user experience than using local storage. If we were to use local storage, the user's recipes would only be stored on their local machine, so they won't persist if they switch to a different device.
+There will also be another API assists with Spoonacular to do a better job on add and delete new recipe based on users' operations. 
 
-We would also have to come up with a different way to store user credentials if we were to use local storage. With the MySQL database, we could have a table that stores user credentials.
+Two more advantages of using Spoonacular:
 
-From a development standpoint, we thought that the testing process might be easier if we all worked with the same data on a single database rather than if we had individual data on each of our local machines.
+1. By simply applies Spoonacular API's functions including getSimilar and getRandom, We can shape our landing Page with pecipe of the day.
 
-We found out that we can't add recipes to Spoonacular's database of recipes so we decided that this option wasn't viable.
-
-Not allowing users to add or delete recipes was the simplest solution, but we would've had to think of a different way to implement CRUD features, which would've taken more time.
+2. Spoonacular API provides nutrition facts on individual recipe. The meal planner/ food tracker counts your calories, protein, fat, carbs, sugar, and other nutrients for you.
