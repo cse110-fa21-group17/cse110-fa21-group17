@@ -20,4 +20,4 @@ Two more advantages of using Spoonacular:
 
 1. By simply applies Spoonacular API's functions including getSimilar and getRandom, We can shape our landing Page with pecipe of the day.
 
-2. Spoonacular API provides nutrition facts on individual recipe. The meal planner/ food tracker counts your calories, protein, fat, carbs, sugar, and other nutrients for you.
+2. Spoonacular API provides nutrition facts on individual recipe. The meal planner/ food tracker will count your calories, protein, fat, carbs, sugar, and all other nutrients for you directly.
