@@ -3,7 +3,7 @@
 Hosted on Github Action
 ## Linter: super linter
 
-Configuration file: `.github/workflows/linter.yml`
+Configuration file: `.github/workflows/linter.yml`\
 Super Linter official documentation:
 https://help.github.com/en/articles/workflow-syntax-for-github-actions
 
@@ -55,7 +55,7 @@ Version: v2
 Supported note versions: 12.x, 14.x, 16.x\
 Configuration:\
 - working dir: `./app`
-- 
+
 Workflow:
 ``` bash
 npm ci
