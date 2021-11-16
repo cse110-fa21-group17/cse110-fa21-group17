@@ -13,7 +13,7 @@ async function getById(id){
 }
 
 /**
- * get user by id
+ * get user by email
  * @param id
  * @returns array []
  */
