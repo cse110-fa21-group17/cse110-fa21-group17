@@ -13,6 +13,18 @@ async function getById(id){
 }
 
 /**
+ * get user by id
+ * @param id
+ * @returns array []
+ */
+async function getByEmail(email){
+    const rows = await db('users')
+        .where({email})
+        .select('*');
+    return rows;
+}
+
+/**
  * insert user into users table
  * @param user
  * @returns {Promise<{status: string}>}
@@ -28,4 +40,4 @@ async function insert(user){
     }
 }
 
-module.exports={getById, insert};
+module.exports={getById, getByEmail, insert};
