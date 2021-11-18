@@ -82,6 +82,8 @@ form{
     margin-left: 10px;
     margin-right: 10px;
     background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0), rgba(0,0,0,0.8));
+    width: 400px;
+    height: 290px;
 }
 .recipeCard:first-child{
     margin-left:0px;
@@ -130,3 +132,12 @@ form{
     text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
+/*Changes arrow colors in Bootstrap carousel;*/
+/*Source: https://stackoverflow.com/a/49017805*/
+.carousel-control-prev-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+   
+.carousel-control-next-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
