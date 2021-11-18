@@ -2,158 +2,232 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
 
 * {
-    font-family: 'Nunito', sans-serif;
-    margin:0px;
-    padding:0px;
+  font-family: 'Nunito', sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 body {
-    margin: 2em 5em 2em 5em; /**top right botom left**/
-    background-color: #FFFFFF;
+  margin: 2em 5em 2em 5em; /**top right botom left**/
+  background-color: #ffffff;
 }
 
-a{
-    color:inherit;
-    text-decoration: none;
-}
-a:hover{
-    color:inherit;
-    text-decoration:none;
-    cursor:pointer;
+/** hard coded a margin bottom cuz the carousel is position absolute**/
+main {
+  margin-bottom: 500px;
 }
 
-header{
-    width:100%;
-    position:relative;
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.nav-container{
-    width:100%;
+header {
+  width: 100%;
+  position: relative;
 }
 
-form{
-    display:inline-block;
-    width:100%;
-    position:relative;
+form {
+  display: inline-block;
+  position: relative;
 }
 
-.form-control{
-    display:inline-block;
-    width:auto;
+.form-control {
+  display: inline-block;
+  width: 500px;
 }
 
-#right{
-    position: absolute;
-    right:0px;
+#right {
+  position: absolute;
+  right: 0px;
 }
 
-.nav-profile{
-    border-radius:50px;
-    width:3em;
+.nav-profile {
+  border-radius: 50px;
+  width: 3em;
 }
 
-.nav-link{
-    color:black;
+.nav-link {
+  color: black;
 }
 
-.header-title{
-        font-weight: 800;
-        font-size:2em;
-        margin: 0.5em 0 0.5em 0;
+.nav-title {
+  font-weight: 800;
+  font-size: 2em;
+  margin: 0.5em 0 0.5em 0;
 }
 
-.flex-container{
-    display:flex;
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-.card{
-    margin:10px;
-    display:grid;
-    gap: 2rem 1rem;
-    padding-bottom: 3rem;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+.navbar-nav {
+  justify-content: space-around;
+  width: 500px;
+}
+
+.navbar-collapse {
+  justify-content: space-between;
+  flex-grow: 0;
+  width: 1500px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-expand-lg {
+  width: 1817.77px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 2em;
+  margin: 0.5em 0 0.5em 0;
+}
+
+.top-recipes {
+  margin-top: 100px;
+  flex-basis: 100%;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/** hard coded the width of the carousel cuz its position absolute**/
+.card-flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1817.77px;
+}
+.card {
+  margin: 10px;
+  display: grid;
+  gap: 2rem 1rem;
+  padding-bottom: 3rem;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 .recipeCard {
-    position: relative;
-    text-align: left;
-    color: white;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    border-radius: 0.8em;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0), rgba(0,0,0,0.8));
-    width: 400px;
-    height: 290px;
+  position: relative;
+  text-align: left;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 0.8em;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.8)
+  );
+  width: 400px;
+  height: 290px;
 }
-.recipeCard:first-child{
-    margin-left:0px;
+.recipeCard:first-child {
+  margin-left: 0px;
 }
-.recipeCard:hover{
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    border-radius: 0.8em;
+.recipeCard:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 0.8em;
 }
 
-.card-text{
+.card-text {
   color: white;
-  text-shadow: -2px 4px 0 rgba(0,0,0,0.3);
+  text-shadow: -2px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
 .cardImage {
-    border-radius: 0.8em; 
-    position: relative;
-    z-index: -1;
-    width: 400px;
-    height: 290px;
-    object-fit:cover; 
+  border-radius: 0.8em;
+  position: relative;
+  z-index: -1;
+  width: 400px;
+  height: 290px;
+  object-fit: cover;
 }
 
 .cardText {
-    position: absolute;
-    bottom: 0.5em;
-    left: 1em;
+  position: absolute;
+  bottom: 0.5em;
+  left: 1em;
 }
 
-.card-tags{
-    margin:0px;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-    font-weight: 400;
+.card-tags {
+  margin: 0px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
 }
 
-.card-details{
-    margin-top:10px;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-    font-weight: 400;
+.card-details {
+  margin-top: 10px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
 }
 
 .recipeTitle {
-    font-weight: 700;
-    font-size:1.5em;    
-    margin: 0px;
-    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+  font-weight: 700;
+  font-size: 1.5em;
+  margin: 0px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 /*Changes arrow colors in Bootstrap carousel;*/
 /*Source: https://stackoverflow.com/a/49017805*/
 .carousel-control-prev-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
 }
-   
+
 .carousel-control-next-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
-#carouselExampleControls{
-    display:flex;
-    position:absolute;
-    width: 1700px;
+#carouselExampleControls {
+  display: flex;
+  position: absolute;
+  width: 1700px;
 }
 
-
-.carousel-control-prev, .carousel-control-next{
-    position: inherit;
-    width: 100px;
+.carousel-control-prev,
+.carousel-control-next {
+  position: inherit;
+  width: 100px;
 }
 
-.row>*{
-    padding-right: 0px;
+.carousel-inner {
+  width: auto; /*this makes the margin/spacing between each card of carousel to be same as the spacing in Top Recipes*/
+}
+
+.carousel-item {
+  width: auto;
+}
+
+/**approximated the position of the right arrow. it got messed up cuz of changing the width of other css elements**/
+.carousel-control-next {
+  right: 70px;
+}
+
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
+.col-sm {
+  padding-left: 0px;
+}
+
+.row > * {
+  padding-right: 0px;
 }
