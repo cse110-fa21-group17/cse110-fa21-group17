@@ -3,9 +3,28 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+
+    <script>
+    function ValidatePassword (){
+        const myForm = document.getElementById('myForm');
+        const password = myForm.elements['password'].value;
+        const confirm_password = myForm.elements['confirm_password'].value;
+        //alert(password);
+        //alert(confirm_password);
+    
+        if(password !== confirm_password){
+            alert("Please make sure passwords match.");
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    </script>
+
 </head>
 <body>
-<form action="/signup" method="post">
+<form action="/signup" method="post" id="myForm" onsubmit="return ValidatePassword();">
     <input type="text" name="first_name" placeholder="First Name:" required />
     <input type="text" name="last_name" placeholder="Last Name:" required />
     <input type="email" name="email" placeholder="Email:" required />

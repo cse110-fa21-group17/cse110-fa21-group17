@@ -33,7 +33,7 @@ router.post('/signup', async function(req, res, next){
       return res.status(401)
           .json({status: 'failed', message: 'Another account using this email was found'});
     }
-
+    
     //encrypt password
     new_user.password = bcrypt.hashSync(new_user.password, null, null);
 
