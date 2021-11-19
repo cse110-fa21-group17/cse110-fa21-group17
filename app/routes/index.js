@@ -14,7 +14,29 @@ router.get('/login', async function(req, res, next){
 });
 
 router.post('/login', async function(req, res, next){
-  // TODO: fill in login logic
+  try {
+
+    const user = req.body;
+    const user_in_db = await usersModel.getByEmail(user.email);
+
+    if(user_in_db.length === 0){
+      // eventually need to make a better page and redirect them to signup.
+      return res.status(401)
+          .json({status: 'failed', message: 'Email not found, user does not exist in database'});
+    }
+
+    // TODO: add password comparison bcrypt.compareSync(user.password, user_in_db[0].password) returns boolean
+    // TODO: include the auth/token.js file, call the generate token use await and store it in a token variable
+    // TODO: add it in cookie, but first clear cookie, then add it under the key userInfo
+    // ex: res.clearCookie('userInfo');
+    //     res.cookie("userInfo", token);
+
+
+  } catch (err){
+    console.error(err);
+    return res.status(500)
+        .json({err, data: 'Unable to signup user, internal server error'});
+  }
 });
 
 router.get('/signup', async function(req, res, next){
@@ -43,7 +65,8 @@ router.post('/signup', async function(req, res, next){
   } catch(err){
     console.error(err);
     return res.status(500)
-        .json({err, data: 'Unable to signup user, internal server error'});  }
+        .json({err, data: 'Unable to signup user, internal server error'});
+  }
 });
 
 module.exports = router;
