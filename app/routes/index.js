@@ -19,7 +19,7 @@ router.post('/login', async function(req, res, next){
     const user = req.body;
     const user_in_db = await usersModel.getByEmail(user.email);
 
-    if(user_in_db.length === 0){
+    if (user_in_db.length === 0){
       // eventually need to make a better page and redirect them to signup.
       return res.status(401)
           .json({status: 'failed', message: 'Email not found, user does not exist in database'});

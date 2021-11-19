@@ -6,25 +6,25 @@ const jwt = require('jsonwebtoken');
  * @returns {Promise<user json>}
  */
 async function validateToken(token){
-    return jwt.verify(token, process.env.SECRETKEY, async function(err, authData) {
-        if(err) {
-            return null;
-        } else {
-            return authData;
-        }
-    });
+  return jwt.verify(token, process.env.SECRETKEY, async function(err, authData) {
+        if (err) {
+      return null;
+    } else {
+      return authData;
+    }
+  });
 }
 
 /**
  * generate a token with the given user.
  * @param userDataPacket
- * @returns {Promise<token|*>}
+ * @return {Promise<token|*>}
  */
 async function generateToken(user){
-    return jwt.sign(user, process.env.SECRETKEY);
+  return jwt.sign(user, process.env.SECRETKEY);
 }
 
 module.exports = {
-    validateToken,
-    generateToken
+  validateToken,
+  generateToken
 };
