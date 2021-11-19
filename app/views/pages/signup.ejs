@@ -3,25 +3,7 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-
-    <script>  
-    function ValidatePassword (){
-        const myForm = document.getElementById('myForm');
-        const password = myForm.elements['password'].value;
-        const confirm_password = myForm.elements['confirm_password'].value;
-        //alert(password);
-        //alert(confirm_password);
-    
-        if(password !== confirm_password){
-            alert("Please make sure passwords match.");
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
-    </script>
-
+    <script src="/javascripts/passValid.js"></script>
 </head>
 <body>
 <form action="/signup" method="post" id="myForm" onsubmit="return ValidatePassword();">
