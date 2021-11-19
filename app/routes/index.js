@@ -7,7 +7,7 @@ const usersModel = require('../database/models/usersModel');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' }); 
-});
+}); 
 
 router.get('/login', async function(req, res, next){
   res.render('pages/login', {title: 'Log In'});
