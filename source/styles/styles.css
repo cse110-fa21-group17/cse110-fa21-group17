@@ -13,6 +13,11 @@ body {
     background-color: #FFFFFF;
 }
 
+h1 {
+    font-weight: bold;
+    padding-top: 10px;
+}
+
 a {
     color: inherit;
     text-decoration: none;
@@ -140,6 +145,7 @@ form {
 
 .p_with_new_line {
     white-space: pre;
+    text-align: left;
 }
 
 /*light grey (211, 211, 211) or #D3D3D3*/
@@ -157,25 +163,75 @@ form {
     margin-right: 10px;
 }
 
-.item2 {
+
+/*steps*/
+
+.ing {
     grid-area: ing;
     text-align: left;
 }
-.item2,.item3,.item4,.item5 h1 {
+.ing,.steps,.nut,.timer h1 {
     text-align: center;
 }
 
-.item3 {
+.steps {
     grid-area: steps;
 }
 
-.item4 {
+.nut {
     grid-area: nutrition;
 }
 
-.item5 {
-    grid-area: timer;
+.nut >.p_with_new_line{
+    text-align: center;
 }
+
+
+.timer {
+    grid-area: timer;
+    
+}
+
+/*start of timer*/
+.timer {
+    font-family: 'Nunito', sans-serif;
+    display: inline-block;
+    padding: 24px 32px;
+    border-radius: 30px;
+    background: #d3d3d3;
+    text-align: center;
+}
+.timer__part {
+    font-size: 36px;
+    font-weight: bold;
+}
+  
+.timer__btn {
+    width: 50px;
+    height: 50px;
+    margin-left: 16px;
+    border-radius: 50%;
+    border: none;
+    color: white;
+    background: #808080;
+    cursor: pointer;
+}
+  
+.timer__btn--start {
+    background: #000000;
+}
+  
+.timer__btn--stop {
+    background: #808080;
+}
+  
+/* .timer_t {
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 10px;
+} */
+/* end of timer */
+
 
 .grid-container {
     display: grid;
@@ -188,7 +244,7 @@ form {
     padding: 10px;
 }
 
-.grid-container > .item2,.item3,.item4,.item5  {
+.grid-container > .ing,.steps,.nut,.timer  {
     background-color: #D3D3D3;
     border-radius: 0.8em;
     margin-left: 10px;
@@ -199,3 +255,5 @@ form {
     height: auto;
     width: auto;
 }
+
+
