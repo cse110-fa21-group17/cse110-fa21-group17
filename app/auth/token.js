@@ -7,7 +7,7 @@ const jwt = require('jsonwebtoken');
  */
 async function validateToken(token){
   return jwt.verify(token, process.env.SECRETKEY, async function(err, authData) {
-    if(err) {
+        if (err) {
       return null;
     } else {
       return authData;
