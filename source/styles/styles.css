@@ -232,3 +232,43 @@ form {
   padding-right: 0px;
 }
 
+.button {
+  border: thick double black;
+  border-radius: 15px;
+  background-color: rgb(238, 241, 221);
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.recipeNew {
+  position: relative;
+  text-align: left;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 0.8em;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.8)
+  );
+  width: 400px;
+  height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hidden {
+  display: none;
+}
