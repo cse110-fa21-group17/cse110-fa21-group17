@@ -41,7 +41,7 @@
                 <span class="nav-title">HOT DAWG</span>
               </a>
             </div>
-  
+
             <button
               class="navbar-toggler"
               type="button"
@@ -53,7 +53,7 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-  
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <form class="form-inline my-2 my-lg-0">
                 <input
@@ -110,7 +110,7 @@
                   </div>
                 </li>
               </ul>
-  
+
               <img
                 class="nav-profile"
                 src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
@@ -124,65 +124,39 @@
 
     <main>
         <!-- Name of the recipe goes here -->
-        <h1 class="header-title">Pumpkin Pie</h1>
+        <h1 class="header-title"><%=recipe.title%></h1>
 
 
         <div class="grid-container">
 
-            
+
             <div class="item1">
               <div class="recipeCard2">
                 <img
-                  src="https://joyfoodsunshine.com/wp-content/uploads/2018/02/best-chocolate-chip-cookies-recipe-1.jpg"
+                  src="<%=recipe.image%>"
                   class="cardImage2"
                 />
               </div>
             </div>
-          
+
 
 
 
 
             <div class="ing">
                 <h1>Ingredients</h1>
-                <p class="p_with_new_line">
-                    1 cup sugar
-                    1/2 teaspoons pumpkin pie spice
-                    1/2 teaspoon salt
-                    1 can (15 oz) pumpkin (not pumpkin pie mix)
-                    1 1/4
-                    cups evaporated milk or half and half
-                    2 eggs, beaten
-                    1 crust from 1 package (12 oz) frozen Pillsbury™
-                    Deep Dish Pie Crusts (2 Count)</p>
+                <p class="p_with_new_line"><%=recipe.ingredients%></p>
             </div>
             <div class="steps">
                 <h1>Steps</h1>
                 <p class="p_with_new_line">
-                    Steps: 🗣 ️(Press buttom to read steps)
-
-                    1. Heat oven to 425°F. In medium bowl, mix flour, 1/2 teaspoon salt and the oil with fork until
-                    all flour is moistened. Sprinkle with cold water, 1 tablespoon at a time, tossing with fork
-                    until all water is absorbed. Shape pastry into a ball. Press in bottom and up side of 9-inch
-                    glass pie plate.
-
-                    2. In large bowl, beat eggs slightly with wire whisk or hand beater. Beat in 1/2 cup sugar, the
-                    cinnamon, 1/2 teaspoon salt, ginger, cloves, pumpkin and milk.
-
-                    3. To prevent spilling, place pastry-lined pie plate on oven rack before adding filling.
-                    Carefully pour pumpkin filling into pie plate. Bake 15 minutes.
-
-                    4. Reduce oven temperature to 350°F. Bake about 45 minutes longer or until knife inserted in
-                    center comes out clean. Place pie on cooling rack. Cool completely, about 2 hours.
-
-                    5. In chilled medium bowl, beat whipping cream and 2 tablespoons sugar with electric mixer on
-                    high speed until stiff peaks form. Serve pie with whipped cream. Store in refrigerator.
+                    <%=recipe.instruction%>
             </div>
             <div class="nut">
                 <h1>Nutrition Facts</h1>
                 <p class="p_with_new_line">
 
-                    185 Calories, 2 g Total Fat, 7 g Protein, 37 g Total Carbohydrate
+                   <%=recipe.fat%> Total Fat, <%=recipe.protein%> Protein, <%=recipe.carbs%> Total Carbohydrate
             </div>
             <div class="timer">
 
@@ -195,7 +169,7 @@
                     1Hour 20 Minutes -->
         </div>
         <!-- <div class="timer"></div> -->
-        
+
 
 
         <!-- <img src="https://joyfoodsunshine.com/wp-content/uploads/2018/02/best-chocolate-chip-cookies-recipe-1.jpg"> -->
