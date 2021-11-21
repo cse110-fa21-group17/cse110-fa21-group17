@@ -4,6 +4,8 @@ const bcrypt = require("bcrypt-nodejs");
 
 const usersModel = require('../database/models/usersModel');
 
+const token = require('../auth/token');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -25,12 +27,19 @@ router.post('/login', async function(req, res, next){
           .json({status: 'failed', message: 'Email not found, user does not exist in database'});
     }
 
-    // TODO: add password comparison bcrypt.compareSync(user.password, user_in_db[0].password) returns boolean
-    // TODO: include the auth/token.js file, call the generate token use await and store it in a token variable
-    // TODO: add it in cookie, but first clear cookie, then add it under the key userInfo
-    // ex: res.clearCookie('userInfo');
-    //     res.cookie("userInfo", token);
+    // add password comparison bcrypt.compareSync(user.password, user_in_db[0].password) returns boolean
+    if(!bcrypt.compareSync(user.password, user_in_db[0].password)){
+      return res.status(401)
+          .json({status: 'forbidden', message: 'password not correct'});
+    }
+    // include the auth/token.js file, call the generate token use await and store it in a token variable
+    const user_token = await token.generateToken(user_in_db[0]);
 
+    // add it in cookie, but first clear cookie, then add it under the key userInfo
+    res.clearCookie('token');
+    res.cookie("token", user_token);
+
+    res.end('sign in successfully');
 
   } catch (err){
     console.error(err);

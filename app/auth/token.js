@@ -21,7 +21,7 @@ async function validateToken(token){
  * @return {Promise<token|*>}
  */
 async function generateToken(user){
-  return jwt.sign(user, process.env.SECRETKEY);
+  return jwt.sign({user}, process.env.SECRETKEY);
 }
 
 module.exports = {
