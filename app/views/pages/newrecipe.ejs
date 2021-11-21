@@ -6,18 +6,30 @@
 </head>
 <body>
     <h1 class="header-title top-recipes">Add recipes</h1>
-    <form action="/new_recipe" method="post">
+    <form action="/dashboard/new_recipe" method="post">
         <h3 class = "header-title add-recipes">Recipe name:</h3>
-        <input type="name" name="name" placeholder="Recipe Name:" required />
+        <input type="text" name="title" placeholder="Recipe Name:" required />
         <br>
         <h3 class = "header-title add-recipes">Recipe ingredient:</h3>
-        <input type="ingredient" name="ingredient" placeholder="Recipe ingredient:" required />
+        <textarea name="ingredients" placeholder="Recipe ingredient:" required></textarea>
         <br>
         <h3 class = "header-title add-recipes">Recipe Steps:</h3>
-        <input type="step" name="step" placeholder="Recipe Steps:" required />
+        <textarea name="instruction" placeholder="Recipe Instructions:" required ></textarea>
+        <br>
+        <h3 class = "header-title add-recipes">Prep time:</h3>
+        <input type="number" name="ready_in_minutes" placeholder="Prep-time:" required />
+        <br>
+        <h3 class = "header-title add-recipes">Total Fat:</h3>
+        <input type="number" name="fat" placeholder="Total Fat (g)" required />
+        <br>
+        <h3 class = "header-title add-recipes">Total Carbs:</h3>
+        <input type="number" name="carbs" placeholder="Total Carbs (g)" required />
+        <br>
+        <h3 class = "header-title add-recipes">Total Protein:</h3>
+        <input type="number" name="protein" placeholder="Total Protein (g)" required />
         <br>
         <h3 class = "header-title add-recipes">Add Picture URL:</h3>
-        <input type="picture" name="picture" placeholder="Add Picture URL:" required />
+        <input type="text" name="image" placeholder="Add Picture URL:" required />
         <br>
         <br>
         <button type="submit">Add</button>
