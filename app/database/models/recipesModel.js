@@ -31,3 +31,5 @@ async function insertAsCreator(recipe, uid){
     });
     return result;
 }
+
+module.exports={insertAsCreator};
