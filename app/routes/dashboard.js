@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const recipesModel = require('../database/models/recipesModel');
 
 /* GET users listing. */
 router.get('/new_recipe', async function(req, res, next){
