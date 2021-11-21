@@ -82,7 +82,7 @@ form {
 }
 
 .recipeCard {
-    position: absolute;
+    position: fixed;
     text-align: left;
     color: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -151,17 +151,45 @@ form {
 /*light grey (211, 211, 211) or #D3D3D3*/
 
 
-.item1 img {
-   
-    width: 400px;
-    height: 290px;
-    border-radius: 0.8em;
-    grid-area: img;
-    text-align: center;
+.item1 {
     position: relative;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 0.8em;
     margin-left: 10px;
     margin-right: 10px;
-}
+    width: 1200px;
+    height: 377px;
+    grid-area: img;
+  }
+  
+  .cardImage2 {
+    border-radius: 0.8em;
+    position: relative;
+    z-index: -1;
+    width: 1200px;
+    height: 377px;
+    object-fit: cover;
+  }
+  .recipeCard2 {
+    position: relative;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-radius: 0.8em;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0),
+      rgba(0, 0, 0, 0.8)
+    );
+    width: 1200px;
+    height: 377px;
+  }
+
+
 
 
 /*steps*/
@@ -236,9 +264,9 @@ form {
 .grid-container {
     display: grid;
     grid-template-areas:
-        'img img steps steps steps steps'
-        'ing ing nutrition nutrition nutrition nutrition'
-        'ing ing timer timer timer timer';
+        'img img img img img img'
+        'ing ing steps steps steps steps'
+        'timer timer nutrition nutrition nutrition nutrition';
     grid-gap: 10px;
     background-color: white;
     padding: 10px;
