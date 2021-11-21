@@ -8,8 +8,8 @@ const token = require('../auth/token');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' }); 
-}); 
+  res.render('index', { title: 'Express' });
+});
 
 router.get('/login', async function(req, res, next){
   res.render('pages/login', {title: 'Log In'});
@@ -64,7 +64,7 @@ router.post('/signup', async function(req, res, next){
       return res.status(401)
           .json({status: 'failed', message: 'Another account using this email was found'});
     }
-    
+
     //encrypt password
     new_user.password = bcrypt.hashSync(new_user.password, null, null);
 
@@ -78,7 +78,15 @@ router.post('/signup', async function(req, res, next){
   }
 });
 
-router.get('/recipe_page', function(req, res, next){
+router.get('/recipe_page/:id/:is_database', function(req, res, next){
+  const id = req.params.id;
+  const is_database = req.params.is_database;
+  if(is_database){
+    // TODO: fetch from our database
+  } else {
+    // TODO: fetch from spoon
+
+  }
   res.render('pages/recipe_page', {title: 'recipe page'});
 });
 
