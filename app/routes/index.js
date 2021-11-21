@@ -4,17 +4,48 @@ const bcrypt = require("bcrypt-nodejs");
 
 const usersModel = require('../database/models/usersModel');
 
+const token = require('../auth/token');
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  res.render('index', { title: 'Express' }); 
+}); 
 
 router.get('/login', async function(req, res, next){
   res.render('pages/login', {title: 'Log In'});
 });
 
 router.post('/login', async function(req, res, next){
-  // TODO: fill in login logic
+  try {
+
+    const user = req.body;
+    const user_in_db = await usersModel.getByEmail(user.email);
+
+    if (user_in_db.length === 0){
+      // eventually need to make a better page and redirect them to signup.
+      return res.status(401)
+          .json({status: 'failed', message: 'Email not found, user does not exist in database'});
+    }
+
+    // add password comparison bcrypt.compareSync(user.password, user_in_db[0].password) returns boolean
+    if(!bcrypt.compareSync(user.password, user_in_db[0].password)){
+      return res.status(401)
+          .json({status: 'forbidden', message: 'password not correct'});
+    }
+    // include the auth/token.js file, call the generate token use await and store it in a token variable
+    const user_token = await token.generateToken(user_in_db[0]);
+
+    // add it in cookie, but first clear cookie, then add it under the key userInfo
+    res.clearCookie('token');
+    res.cookie("token", user_token);
+
+    res.end('sign in successfully');
+
+  } catch (err){
+    console.error(err);
+    return res.status(500)
+        .json({err, data: 'Unable to signup user, internal server error'});
+  }
 });
 
 router.get('/signup', async function(req, res, next){
@@ -33,7 +64,7 @@ router.post('/signup', async function(req, res, next){
       return res.status(401)
           .json({status: 'failed', message: 'Another account using this email was found'});
     }
-
+    
     //encrypt password
     new_user.password = bcrypt.hashSync(new_user.password, null, null);
 
@@ -43,7 +74,8 @@ router.post('/signup', async function(req, res, next){
   } catch(err){
     console.error(err);
     return res.status(500)
-        .json({err, data: 'Unable to signup user, internal server error'});  }
+        .json({err, data: 'Unable to signup user, internal server error'});
+  }
 });
 
 router.get('/new_recipe', async function(req, res, next){

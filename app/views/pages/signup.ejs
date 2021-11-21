@@ -3,9 +3,10 @@
 <head>
     <title><%= title %></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="/javascripts/passValid.js"></script>
 </head>
 <body>
-<form action="/signup" method="post">
+<form action="/signup" method="post" id="myForm" onsubmit="return ValidatePassword();">
     <input type="text" name="first_name" placeholder="First Name:" required />
     <input type="text" name="last_name" placeholder="Last Name:" required />
     <input type="email" name="email" placeholder="Email:" required />
