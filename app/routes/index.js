@@ -46,4 +46,17 @@ router.post('/signup', async function(req, res, next){
         .json({err, data: 'Unable to signup user, internal server error'});  }
 });
 
+router.get('/new_recipe', async function(req, res, next){
+  res.render('pages/newrecipe', {title: 'Create Recipe'});
+});
+
+router.post('/new_recipe', async function(req, res, next){
+  const new_rec = req.body;
+  new_rec.name = 
+  new_rec.ingredient = 
+  new_rec.step = 
+  new_rec.picture = 
+  
+})
+
 module.exports = router;
