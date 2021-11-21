@@ -9,8 +9,8 @@ const token = require('../auth/token');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' }); 
-}); 
+  res.render('index', { title: 'Express' });
+});
 
 router.get('/login', async function(req, res, next){
   res.render('pages/login', {title: 'Log In'});
@@ -65,7 +65,7 @@ router.post('/signup', async function(req, res, next){
       return res.status(401)
           .json({status: 'failed', message: 'Another account using this email was found'});
     }
-    
+
     //encrypt password
     new_user.password = bcrypt.hashSync(new_user.password, null, null);
 
@@ -77,22 +77,6 @@ router.post('/signup', async function(req, res, next){
     return res.status(500)
         .json({err, data: 'Unable to signup user, internal server error'});
   }
-});
-
-router.get('/new_recipe', async function(req, res, next){
-  res.render('pages/newrecipe', {title: 'Create Recipe'});
-});
-
-router.post('/new_recipe', async function(req, res, next){
-  try {
-    const new_rec = req.body;
-    const uid = req.user.id;
-    await recipesModel.insertAsCreator(new_rec, uid);
-    return res.render('pages/AddRecipeSuccess', {title: 'Add Recipe Successful'});
-  } catch(err){
-    console.error(err);
-    return res.status(500)
-        .json({err, data: 'Unable to add recipe, internal server error'});  }
 });
 
 module.exports = router;
