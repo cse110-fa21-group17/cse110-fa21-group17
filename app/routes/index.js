@@ -78,4 +78,8 @@ router.post('/signup', async function(req, res, next){
   }
 });
 
+router.get('/recipe_page', function(req, res, next){
+  res.render('pages/recipe_page', {title: 'recipe page'});
+});
+
 module.exports = router;
