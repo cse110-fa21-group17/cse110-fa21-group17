@@ -94,6 +94,10 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
   let recipe = {};
   if(is_database==='true'){
     const rows = await recipesModel.getById(id);
+    if(rows.length === 0){
+      return res.status(404)
+          .json({message: 'recipe not found'});
+    }
     recipe = rows[0];
   } else {
     const response = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.SPOON_API}`);
@@ -105,7 +109,8 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
         recipe.ingredients += ingredient.original+'\n';
     });
     const instruction_response = await axios.get(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.SPOON_API}`);
-    const instructions = instruction_response.data[0].steps;
+    const instructions = instruction_response.data.length !== 0?instruction_response.data[0].steps:[{number: '1', step:'No instruction available'}];
+
     instructions.map((instruction) => {
       recipe.instruction += instruction.number+'. '+instruction.step+'\n';
     });
@@ -114,7 +119,6 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
     recipe.carbs = nutrition.data.carbs;
     recipe.protein = nutrition.data.protein;
   }
-  console.log(recipe);
   res.render('pages/recipe_page', {title: 'recipe page', recipe});
 });
 
