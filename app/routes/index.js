@@ -6,8 +6,8 @@ const usersModel = require('../database/models/usersModel');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+  res.render('index', { title: 'Express' }); 
+}); 
 
 router.get('/login', async function(req, res, next){
   res.render('pages/login', {title: 'Log In'});
@@ -33,7 +33,7 @@ router.post('/signup', async function(req, res, next){
       return res.status(401)
           .json({status: 'failed', message: 'Another account using this email was found'});
     }
-
+    
     //encrypt password
     new_user.password = bcrypt.hashSync(new_user.password, null, null);
 
