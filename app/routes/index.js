@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require("bcrypt-nodejs");
 
 const usersModel = require('../database/models/usersModel');
+const recipesModel = require('../database/models/recipesModel');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -51,7 +52,15 @@ router.get('/new_recipe', async function(req, res, next){
 });
 
 router.post('/new_recipe', async function(req, res, next){
-  const new_rec = req.body;
+  try {
+    const new_rec = req.body;
+    const uid = req.user.id;
+    await recipesModel.insertAsCreator(new_rec, uid);
+    return res.render('pages/AddRecipeSuccess', {title: 'Add Recipe Successful'});
+  } catch(err){
+    console.error(err);
+    return res.status(500)
+        .json({err, data: 'Unable to add recipe, internal server error'});  }
 });
 
 module.exports = router;
