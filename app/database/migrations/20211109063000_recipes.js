@@ -6,7 +6,7 @@ exports.up = function(knex) {
         tbl.text('ingredients').notNullable();
         tbl.text('instruction').notNullable();
         tbl.integer('ready_in_minutes').notNullable();
-        tbl.integer('image').notNullable();
+        tbl.text('image').notNullable();
         tbl.integer('fat').notNullable();
         tbl.integer('carbs').notNullable();
         tbl.integer('protein').notNullable();

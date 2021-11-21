@@ -1,6 +1,18 @@
 const db = require('../dbConfig');
 
 /**
+ * get recipe by id
+ * @param id
+ * @returns {Promise<void>}
+ */
+async function getById(id){
+    const data = await db('recipes')
+        .select('*')
+        .where({id});
+    return data;
+}
+
+/**
  * insert recipe as a creator
  * @param recipe
  * @param uid
@@ -32,4 +44,5 @@ async function insertAsCreator(recipe, uid){
     return result;
 }
 
-module.exports={insertAsCreator};
+module.exports={getById, insertAsCreator};
+
