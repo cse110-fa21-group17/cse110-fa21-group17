@@ -15,12 +15,10 @@ async function verifyCookieToken(req, res, next) {
             req.user = payload.user;
             next();
         } else {
-            res.status(401)
-                .json({status: 'failed', data: 'Session over'});
+            res.redirect('/login')
         }
     } catch (err){
-        res.status(502)
-            .json({status: 'failed', data: 'malfunction'});
+        res.redirect('/login')
     }
 }
 
