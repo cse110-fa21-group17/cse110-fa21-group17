@@ -52,11 +52,6 @@ router.get('/new_recipe', async function(req, res, next){
 
 router.post('/new_recipe', async function(req, res, next){
   const new_rec = req.body;
-  new_rec.name = 
-  new_rec.ingredient = 
-  new_rec.step = 
-  new_rec.picture = 
-  
-})
+});
 
 module.exports = router;
