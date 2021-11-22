@@ -17,7 +17,6 @@ router.get('/', async function(req, res, next) {
 
   const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=8&apiKey=${process.env.SPOON_API}`);
   const initial_recipes = response.data.results;
-  console.log(initial_recipes);
   res.render('index', { title: 'Hot-Dawg', topRecipes });
 });
 
@@ -49,8 +48,7 @@ router.post('/login', async function(req, res, next){
     res.clearCookie('token');
     res.cookie("token", user_token);
 
-    res.end('sign in successfully');
-
+    res.redirect('/dashboard');
   } catch (err){
     console.error(err);
     return res.status(500)
