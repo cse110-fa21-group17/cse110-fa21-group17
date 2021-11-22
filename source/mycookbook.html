@@ -111,28 +111,33 @@
   
       <br>
       <br>
-      <div>       
+        <div>       
           <form action="/example/html/form_action.asp" method="get">
-  
-              <h3 class = "header-title add-recipes">Recipe name:</h3>
-              <input type="text" name="Recipe name" value="" style="width:800px; height:50px; font-size:25px;">
-              <br>
-              <h3 class = "header-title add-recipes">Recipe ingredient:</h3>
-              <textarea name="Text1" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"></textarea>
-              <br>
+            <p>
+              <h3 class = "header-title add-recipes">Recipe Name:</h3>
+              <input type="text" name="Recipe_name" value="" style="width:800px; height:50px; font-size:25px;">
+            </p>
+            
+            <p>
+              <h3 class = "header-title add-recipes">Recipe Ingredient:</h3>
+              <textarea name="Recipe_Ingredient" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"></textarea>
               <h4>one ingredient per line </h4>
+            </p>
+
+            <p>
               <h3 class = "header-title add-recipes">Recipe Steps:</h3>
-              <textarea name="Text1" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"></textarea>
-              <br>
+              <textarea name="Recipe_Steps" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"></textarea>
+            </p>
+
+            <p>
               <h3 class = "header-title add-recipes">Add Picture URL:</h3>
-              <input type="cookbookInput" name="Add Picture URL" value="" style="width:800px; height:50px; font-size:25px;">
-              <br>
-              <br>
-              <input type="submit" value="Add" style="width:200px; height:50px;">
-              <input type="submit" value="Delete" style="width:200px; height:50px;">
+              <input type="text" name="Add_Picture_URL" value="" style="width:800px; height:50px; font-size:25px;">
+            </p>
+              
+            <input type="submit" value="Add" style="width:200px; height:50px;">
+            <input type="submit" value="Delete" style="width:200px; height:50px;">
           </form>
-  
-      </div>
+        </div>
   </section>
 </main>
 </body>
