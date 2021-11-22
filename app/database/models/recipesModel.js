@@ -49,7 +49,7 @@ async function insertAsCreator(recipe, uid){
             result.insertStatus = 'success';
             await transaction.commit();
         } catch (err) {
-            console.log(err);
+            console.error(err);
             result.insertStatus = 'failed';
             await transaction.rollback();
         }
@@ -57,5 +57,21 @@ async function insertAsCreator(recipe, uid){
     return result;
 }
 
-module.exports={getById, getByUid, insertAsCreator};
+/**
+ * update recipe by id
+ * @param id
+ * @param payload
+ * @returns {Promise<void>}
+ */
+async function updateById(id, payload){
+    try {
+        await db('recipes')
+            .update(payload)
+            .where({id});
+    } catch (err){
+        console.error(err);
+    }
+}
+
+module.exports={getById, getByUid, insertAsCreator, updateById};
 
