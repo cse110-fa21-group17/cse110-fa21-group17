@@ -35,7 +35,7 @@ router.post('/new_recipe', async function(req, res, next){
         const new_rec = req.body;
         const uid = req.user.id;
         await recipesModel.insertAsCreator(new_rec, uid);
-        return res.render('pages/AddRecipeSuccess', {title: 'Add Recipe Successful'});
+        return res.redirect('/dashboard');
     } catch(err){
         console.error(err);
         return res.status(500)
