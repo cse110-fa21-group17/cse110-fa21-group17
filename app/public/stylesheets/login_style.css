@@ -116,6 +116,7 @@ form {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 /** hard coded the width of the carousel cuz its position absolute**/
