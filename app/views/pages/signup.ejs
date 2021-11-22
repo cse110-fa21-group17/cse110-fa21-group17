@@ -142,6 +142,7 @@
     </header>
 
     <main>
+      <h1>Sign Up</h1>
       <div class="flex-container">
         <form
           action="/signup"
@@ -149,11 +150,11 @@
           id="myForm"
           onsubmit="return ValidatePassword();"
         >
-          <label for="email">Email: </label>
-          <input type="email" name="email" placeholder="Email" required />
+          <label for="email" class="signup-login-label">Email: </label><br>
+          <input class="user_input" type="email" name="email" placeholder="Email" required />
           <br />
 
-          <label for="first_name">First Name: </label>
+          <label for="first_name" class="signup-login-label">First Name: </label><br>
           <input
             class="user_input"
             type="text"
@@ -162,7 +163,7 @@
             required
           />
           <br />
-          <label for="last_name">Last Name: </label>
+          <label for="last_name" class="signup-login-label">Last Name: </label><br>
           <input
             class="user_input"
             type="text"
@@ -172,7 +173,7 @@
           />
           <br />
 
-          <label for="password">Password: </label>
+          <label for="password" class="signup-login-label">Password: </label><br>
           <input
             class="user_input"
             type="password"
@@ -182,7 +183,7 @@
             required
           />
           <br />
-          <label for="password">Confirm Password: </label>
+          <label for="password" class="signup-login-label">Confirm Password: </label><br>
 
           <input
             class="user_input"

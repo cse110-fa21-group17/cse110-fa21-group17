@@ -13,7 +13,7 @@ body {
 
 /** hard coded a margin bottom cuz the carousel is position absolute**/
 main {
-  margin-top: 200px;
+  margin-top: 100px;
 }
 
 a {
@@ -120,18 +120,28 @@ form {
 }
 
 .user_input {
-  margin-top: 20px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+  border: none;
+  background-color: #E5E5E5;
+  height: 3.5em;
+  padding: 15px;
+  border-radius: 10px;
 }
 
 .signupbtn {
-  background-color: #04aa6d;
+  /*background-color: #04aa6d;*/
+  background-color: black;
   color: white;
-  padding: 14px 20px;
+  padding: 5px 20px;
   margin: 8px 0;
   border: none;
   cursor: pointer;
   width: 100%;
   opacity: 0.9;
+  border-radius: 50px;
+  font-size: 1.5em;
 }
 
 .signupbtn:hover {
@@ -150,4 +160,12 @@ h1 {
   width: 100%;
   display: flex;
   align-items: center;
+}
+
+.signup-login-label {
+  font-size: 1.5em;
+}
+
+form {
+  width: 70%;
 }
