@@ -106,13 +106,13 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
     recipe.instruction = '';
     recipe.extendedIngredients.map((ingredient) =>{
       if(ingredient.original!==undefined)
-        recipe.ingredients += ingredient.original+'\n';
+        recipe.ingredients += '\t'+ingredient.original+'\n';
     });
     const instruction_response = await axios.get(`https://api.spoonacular.com/recipes/${id}/analyzedInstructions?apiKey=${process.env.SPOON_API}`);
     const instructions = instruction_response.data.length !== 0?instruction_response.data[0].steps:[{number: '1', step:'No instruction available'}];
 
     instructions.map((instruction) => {
-      recipe.instruction += instruction.number+'. '+instruction.step+'\n';
+      recipe.instruction += '\t'+instruction.number+'. '+instruction.step+'\n';
     });
     const nutrition = await axios.get(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${process.env.SPOON_API}`);
     recipe.fat = nutrition.data.fat;
