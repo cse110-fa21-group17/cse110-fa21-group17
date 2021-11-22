@@ -2,36 +2,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap');
 
 * {
-    font-family: 'Nunito', sans-serif;
-    margin: 0px;
-    padding: 0px;
+  font-family: 'Nunito', sans-serif;
+  margin: 0px;
+  padding: 0px;
 }
 
 body {
-    margin: 2em 5em 2em 5em;
-    /**top right botom left**/
-    background-color: #FFFFFF;
+  margin: 2em 5em 2em 5em;
+  /**top right botom left**/
+  background-color: #ffffff;
 }
 
 h1 {
-    font-weight: bold;
-    padding-top: 10px;
+  font-weight: bold;
+  padding-top: 10px;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 a:hover {
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 header {
-    width: 100%;
-    position: relative;
+  width: 100%;
+  position: relative;
 }
 
 /* .nav-container {
@@ -39,256 +39,260 @@ header {
 } */
 
 form {
-    display: inline-block;
-    width: 100%;
-    position: relative;
+  display: inline-block;
+  width: 100%;
+  position: relative;
 }
 
 .form-control {
-    display: inline-block;
-    width: auto;
+  display: inline-block;
+  width: auto;
 }
 
 #right {
-    position: absolute;
-    right: 0px;
+  position: absolute;
+  right: 0px;
 }
 
 .nav-profile {
-    border-radius: 50px;
-    width: 3em;
+  border-radius: 50px;
+  width: 3em;
 }
 
 .nav-link {
-    color: black;
+  color: black;
 }
-
 
 /*new stuff for navbar */
 .nav-title {
-    font-weight: 800;
-    font-size: 2em;
-    margin: 0.5em 0 0.5em 0;
+  font-weight: 800;
+  font-size: 2em;
+  margin: 0.5em 0 0.5em 0;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
-  
+
 .navbar-nav {
-    justify-content: space-around;
-    width: 500px;
+  justify-content: space-around;
+  width: 500px;
+  align-items: center;
 }
-  
+
+.navbar-collapse > .form-inline {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-collapse {
-    justify-content: space-between;
-    flex-grow: 0;
-    width: 1500px;
+  justify-content: space-between;
+  flex-grow: 0;
+  width: 1500px;
 }
 
 .nav-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar-expand-lg {
-    width: 1817.77px;
-    display: flex;
-    justify-content: space-between;
+  width: 1817.77px;
+  display: flex;
+  justify-content: space-between;
 }
 /*new stuff */
 
-
 .header-title {
-    font-weight: 800;
-    font-size: 2em;
-    margin: 0.5em 0 0.5em 0;
+  font-weight: 800;
+  font-size: 2em;
+  margin: 0.5em 0 0.5em 0;
 }
 
 .flex-container {
-    display: flex;
+  display: flex;
 }
 
 .card {
-    margin: 10px;
-    display: grid;
-    gap: 2rem 1rem;
-    padding-bottom: 3rem;
-    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
+  margin: 10px;
+  display: grid;
+  gap: 2rem 1rem;
+  padding-bottom: 3rem;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 .recipeCard {
-    position: fixed;
-    text-align: left;
-    color: white;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-    border-radius: 0.8em;
-    margin-left: 10px;
-    margin-right: 10px;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.8));
+  position: fixed;
+  text-align: left;
+  color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 0.8em;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.8)
+  );
 }
 
 .recipeCard:first-child {
-    margin-left: 0px;
+  margin-left: 0px;
 }
 
 .recipeCard:hover {
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    border-radius: 0.8em;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  border-radius: 0.8em;
 }
 
 .card-text {
-    color: white;
-    text-shadow: -2px 4px 0 rgba(0, 0, 0, 0.3);
+  color: white;
+  text-shadow: -2px 4px 0 rgba(0, 0, 0, 0.3);
 }
 
 .cardImage {
-    border-radius: 0.8em;
-    position: relative;
-    z-index: -1;
-    width: 400px;
-    height: 290px;
-    object-fit: cover;
+  border-radius: 0.8em;
+  position: relative;
+  z-index: -1;
+  width: 400px;
+  height: 290px;
+  object-fit: cover;
 }
 
 .cardText {
-    position: absolute;
-    bottom: 0.5em;
-    left: 1em;
+  position: absolute;
+  bottom: 0.5em;
+  left: 1em;
 }
 
 .card-tags {
-    margin: 0px;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    font-weight: 400;
+  margin: 0px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
 }
 
 .card-details {
-    margin-top: 10px;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
-    font-weight: 400;
+  margin-top: 10px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 400;
 }
 
 .recipeTitle {
-    font-weight: 700;
-    font-size: 1.5em;
-    margin: 0px;
-    text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  font-weight: 700;
+  font-size: 1.5em;
+  margin: 0px;
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
-
-
 .p_with_new_line {
-    white-space: pre;
-    text-align: left;
+  white-space: pre;
+  text-align: left;
 }
 
 /*light grey (211, 211, 211) or #D3D3D3*/
 
-
 .item1 {
-    position: relative;
-    z-index: 1;
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-radius: 0.8em;
-    margin-left: 10px;
-    margin-right: 10px;
-    width: 1200px;
-    height: 377px;
-    grid-area: img;
-  }
-  
-  .cardImage2 {
-    border-radius: 0.8em;
-    position: relative;
-    z-index: -1;
-    width: 1200px;
-    height: 377px;
-    object-fit: cover;
-  }
-  .recipeCard2 {
-    position: relative;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-radius: 0.8em;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(255, 255, 255, 0),
-      rgba(255, 255, 255, 0),
-      rgba(0, 0, 0, 0.8)
-    );
-    width: 1200px;
-    height: 377px;
-  }
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 0.8em;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 1200px;
+  height: 377px;
+  grid-area: img;
+}
 
-
-
+.cardImage2 {
+  border-radius: 0.8em;
+  position: relative;
+  z-index: -1;
+  width: 1200px;
+  height: 377px;
+  object-fit: cover;
+}
+.recipeCard2 {
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 0.8em;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.8)
+  );
+  width: 1200px;
+  height: 377px;
+}
 
 /*steps*/
 
 .ing {
-    grid-area: ing;
-    text-align: left;
+  grid-area: ing;
+  text-align: left;
 }
-.ing,.steps,.nut,.timer h1 {
-    text-align: center;
+.ing,
+.steps,
+.nut,
+.timer h1 {
+  text-align: center;
 }
 
 .steps {
-    grid-area: steps;
+  grid-area: steps;
 }
 
 .nut {
-    grid-area: nutrition;
+  grid-area: nutrition;
 }
 
-.nut >.p_with_new_line{
-    text-align: center;
+.nut > .p_with_new_line {
+  text-align: center;
 }
-
 
 .timer {
-    grid-area: timer;
-    
+  grid-area: timer;
 }
 
 /*start of timer*/
 .timer {
-    font-family: 'Nunito', sans-serif;
-    display: inline-block;
-    padding: 24px 32px;
-    border-radius: 30px;
-    background: #d3d3d3;
-    text-align: center;
+  font-family: 'Nunito', sans-serif;
+  display: inline-block;
+  padding: 24px 32px;
+  border-radius: 30px;
+  background: #d3d3d3;
+  text-align: center;
 }
 .timer__part {
-    font-size: 36px;
-    font-weight: bold;
+  font-size: 36px;
+  font-weight: bold;
 }
-  
+
 .timer__btn {
-    width: 50px;
-    height: 50px;
-    margin-left: 16px;
-    border-radius: 50%;
-    border: none;
-    color: white;
-    background: #808080;
-    cursor: pointer;
+  width: 50px;
+  height: 50px;
+  margin-left: 16px;
+  border-radius: 50%;
+  border: none;
+  color: white;
+  background: #808080;
+  cursor: pointer;
 }
-  
+
 .timer__btn--start {
-    background: #000000;
+  background: #000000;
 }
-  
+
 .timer__btn--stop {
-    background: #808080;
+  background: #808080;
 }
-  
+
 /* .timer_t {
     font-size: 36px;
     font-weight: bold;
@@ -296,28 +300,28 @@ form {
 } */
 /* end of timer */
 
-
 .grid-container {
-    display: grid;
-    grid-template-areas:
-        'img img img img img img'
-        'ing ing steps steps steps steps'
-        'timer timer nutrition nutrition nutrition nutrition';
-    grid-gap: 10px;
-    background-color: white;
-    padding: 10px;
+  display: grid;
+  grid-template-areas:
+    'img img img img img img'
+    'ing ing steps steps steps steps'
+    'timer timer nutrition nutrition nutrition nutrition';
+  grid-gap: 10px;
+  background-color: white;
+  padding: 10px;
 }
 
-.grid-container > .ing,.steps,.nut,.timer  {
-    background-color: #D3D3D3;
-    border-radius: 0.8em;
-    margin-left: 10px;
-    margin-right: 10px;
-    position: relative;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: auto;
-    width: auto;
+.grid-container > .ing,
+.steps,
+.nut,
+.timer {
+  background-color: #d3d3d3;
+  border-radius: 0.8em;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: auto;
+  width: auto;
 }
-
-

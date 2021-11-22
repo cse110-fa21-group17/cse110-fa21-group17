@@ -10,16 +10,21 @@ const token = require('../auth/token');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=meat&maxFat=25&number=8&apiKey=${process.env.SPOON_API}`);
-  const initial_recipes = response.data.results;
-  const ids = [];
-  initial_recipes.map(async (recipe) => {
-    ids.push(recipe.id);
-  });
-  const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
+  try {
+    const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=meat&maxFat=25&number=8&apiKey=${process.env.SPOON_API}`);
+    const initial_recipes = response.data.results;
+    const ids = [];
+    initial_recipes.map(async (recipe) => {
+      ids.push(recipe.id);
+    });
+    const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
 
-  const topRecipes = bulkResponse.data;
-  res.render('index', { title: 'Hot-Dawg', topRecipes });
+    const topRecipes = bulkResponse.data;
+    return res.render('index', {title: 'Hot-Dawg', topRecipes});
+  } catch (err){
+    console.error(err);
+    return res.status(500).json({status: 'internal server error'});
+  }
 });
 
 router.get('/login', async function(req, res, next){
