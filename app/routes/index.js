@@ -10,7 +10,7 @@ const token = require('../auth/token');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
-  const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=pasta&maxFat=25&number=8&apiKey=${process.env.SPOON_API}`);
+  const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=meat&maxFat=25&number=8&apiKey=${process.env.SPOON_API}`);
   const initial_recipes = response.data.results;
   const ids = [];
   initial_recipes.map(async (recipe) => {
