@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <link rel="stylesheet" href="/stylesheets/cookbook_styles.css">
+  <link rel="stylesheet" href="../app/public/stylesheets/cookbook_styles.css">
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -22,6 +21,9 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="./scripts/landingPage.js" type="module"></script>
+
+  <script src="./scripts/Router.js" type="module"></script>
+  <script src="./scripts/main.js" type="module"></script>
 
 </head>
 
@@ -80,72 +82,31 @@
 </nav>
       </div>
 
-  </header>
+</header>
 
-  <main>
+<main>
     <!-- Welcome Text -->
 
     <!-- recipe List -->
-    <section class="flex-container" id="top-recipes">
-      <!-- Insert Recipes Here -->
-
-
 <section class="card-flex-container">
-  <h1 class="header-title top-recipes">Add recipes</h1>
-
-    <br>
-    <br>
-    <div>
-      <form action="/dashboard/new_recipe" method="post">
-        <p>
-          <h3 class = "header-title add-recipes">Recipe Name:</h3>
-          <input type="text" name="title" value="" style="width:800px; height:50px; font-size:25px;" placeholder="Recipe name" required >
-        </p>
-
-        <p>
-          <h3 class = "header-title">Recipe Ingredient:</h3>
-          <textarea name="ingredients" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"></textarea>
-          <h4>one ingredient per line </h4>
-        </p>
-
-        <p>
-          <h3 class = "header-title">Recipe Steps:</h3>
-          <textarea name="instruction" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"></textarea>
-        </p>
-
-        <p>
-          <h3 class = "header-title">Prep time:</h3>
-          <input type="number" name="ready_in_minutes" style="width:800px; height:50px; font-size:25px;" placeholder="Prep-time:" required />
-        </p>
-
-        <p>
-          <h3 class = "header-title">Total Fat:</h3>
-          <input type="number" name="fat" style="width:800px; height:50px; font-size:25px;" placeholder="Total Fat (g)" required />
-        </p>
-
-        <p>
-          <h3 class = "header-title">Total Carbs:</h3>
-          <input type="number" name="carbs" style="width:800px; height:50px; font-size:25px;" placeholder="Total Carbs (g)" required />
-        </p>
-
-        <p>
-          <h3 class = "header-title">Total Protein:</h3>
-          <input type="number" name="protein" style="width:800px; height:50px; font-size:25px;" placeholder="Total Protein (g)" required />
-        </p>
-
-        <p>
-          <h3 class = "header-title">Add Picture URL:</h3>
-          <input type="text" name="image" value="" style="width:800px; height:50px; font-size:25px;" placeholder="Add Picture URL" required>
-        </p>
-
-        <input type="submit" value="Add" style="width:200px; height:50px;">
-        <input type="submit" value="Delete" style="width:200px; height:50px;">
-      </form>
-    </div>
+  <h1 class="header-title top-recipes">Cook Book</h1>
+        <!--Insert link to recipe page-->
+    <a class="recipeCard">
+          <div class="recipeCard">
+            <div class="cardText">
+              <p class="recipeTitle">Pumpkin Pie</p>
+              <p class="card-tags">Easy To Make | Snack Time</p>
+              <p class="card-details">1 Hour | 8 Ingredients</p>
+            </div>
+            <img src="https://joyfoodsunshine.com/wp-content/uploads/2018/02/best-chocolate-chip-cookies-recipe-1.jpg"
+              class="cardImage">
+          </div>
+    </a>
+          <div class="recipeNew">
+              <button class="button">+Add Custom Recipe</button>
+          </div>
 </section>
-</section>
-
-  </main>
+</main>
 </body>
 
 </html>

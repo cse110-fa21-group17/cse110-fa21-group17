@@ -13,6 +13,19 @@ async function getById(id){
 }
 
 /**
+ * get recipes by user id, join saved_recipes
+ * @param uid
+ * @returns {Promise<void>}
+ */
+async function getByUid(uid){
+    const data = await db('saved_recipes')
+        .join('recipes', 'saved_recipes.rid', 'recipes.id')
+        .where({uid, sid:null})
+        .select('*');
+    return data;
+}
+
+/**
  * insert recipe as a creator
  * @param recipe
  * @param uid
@@ -44,5 +57,5 @@ async function insertAsCreator(recipe, uid){
     return result;
 }
 
-module.exports={getById, insertAsCreator};
+module.exports={getById, getByUid, insertAsCreator};
 
