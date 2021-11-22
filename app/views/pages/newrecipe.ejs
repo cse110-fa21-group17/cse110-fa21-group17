@@ -22,7 +22,7 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
   <script src="./scripts/landingPage.js" type="module"></script>
-  
+
 </head>
 
 <body>
@@ -74,7 +74,7 @@
           </div>
       </li>
     </ul>
-      
+
       <img class="nav-profile" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" width="100px" alt="">
   </div>
 </nav>
@@ -89,19 +89,19 @@
     <section class="flex-container" id="top-recipes">
       <!-- Insert Recipes Here -->
 
-    
+
 <section class="card-flex-container">
   <h1 class="header-title top-recipes">Add recipes</h1>
 
     <br>
     <br>
-    <div>       
+    <div>
       <form action="/dashboard/new_recipe" method="post">
         <p>
           <h3 class = "header-title add-recipes">Recipe Name:</h3>
           <input type="text" name="title" value="" style="width:800px; height:50px; font-size:25px;" placeholder="Recipe name" required >
         </p>
-        
+
         <p>
           <h3 class = "header-title">Recipe Ingredient:</h3>
           <textarea name="ingredients" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"></textarea>
@@ -117,7 +117,7 @@
           <h3 class = "header-title">Prep time:</h3>
           <input type="number" name="ready_in_minutes" style="width:800px; height:50px; font-size:25px;" placeholder="Prep-time:" required />
         </p>
-     
+
         <p>
           <h3 class = "header-title">Total Fat:</h3>
           <input type="number" name="fat" style="width:800px; height:50px; font-size:25px;" placeholder="Total Fat (g)" required />
@@ -132,12 +132,12 @@
           <h3 class = "header-title">Total Protein:</h3>
           <input type="number" name="protein" style="width:800px; height:50px; font-size:25px;" placeholder="Total Protein (g)" required />
         </p>
- 
+
         <p>
           <h3 class = "header-title">Add Picture URL:</h3>
-          <input type="text" name="Add_Picture_URL" value="" style="width:800px; height:50px; font-size:25px;" placeholder="Add Picture URL" required>
+          <input type="text" name="image" value="" style="width:800px; height:50px; font-size:25px;" placeholder="Add Picture URL" required>
         </p>
-          
+
         <input type="submit" value="Add" style="width:200px; height:50px;">
         <input type="submit" value="Delete" style="width:200px; height:50px;">
       </form>
