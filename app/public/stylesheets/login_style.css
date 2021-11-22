@@ -72,6 +72,12 @@ form {
 .navbar-nav {
   justify-content: space-around;
   width: 500px;
+  align-items: center;
+}
+
+.navbar-collapse > .form-inline {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-collapse {
@@ -124,7 +130,7 @@ form {
   margin-bottom: 15px;
   width: 100%;
   border: none;
-  background-color: #E5E5E5;
+  background-color: #e5e5e5;
   height: 3.5em;
   padding: 15px;
   border-radius: 10px;

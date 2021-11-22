@@ -68,6 +68,12 @@ form {
 .navbar-nav {
   justify-content: space-around;
   width: 500px;
+  align-items: center;
+}
+
+.navbar-collapse > .form-inline {
+  display: flex;
+  align-items: center;
 }
 
 .navbar-collapse {
@@ -129,10 +135,10 @@ form {
   margin-right: 10px;
   margin-bottom: 10px;
   background-image: linear-gradient(
-          to bottom,
-          rgba(255, 255, 255, 0),
-          rgba(255, 255, 255, 0),
-          rgba(0, 0, 0, 0.8)
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.8)
   );
   width: 400px;
   height: 290px;
