@@ -55,8 +55,7 @@ router.post('/login', async function(req, res, next){
     res.clearCookie('token');
     res.cookie("token", user_token);
 
-    res.end('sign in successfully');
-
+    res.redirect('/dashboard');
   } catch (err){
     console.error(err);
     return res.status(500)
