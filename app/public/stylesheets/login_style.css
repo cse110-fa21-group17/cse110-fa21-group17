@@ -176,3 +176,24 @@ h1 {
 form {
   width: 70%;
 }
+<<<<<<< HEAD
+=======
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.to-login-btn {
+  background-color: black;
+  color: white;
+  padding: 5px 20px;
+  margin-top: 15px;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+  opacity: 0.9;
+  border-radius: 50px;
+  font-size: 1.5em;
+}
+>>>>>>> 62f1cf3 (Added navbar and button to login pg on signup success pg)
