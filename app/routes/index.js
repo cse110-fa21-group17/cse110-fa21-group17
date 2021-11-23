@@ -130,7 +130,7 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
 });
 
 router.get('/healthcheck', async function(req, res, next){
-  return res.status(200);
+  return res.status(200).json({status: 'success'});
 });
 
 module.exports = router;
