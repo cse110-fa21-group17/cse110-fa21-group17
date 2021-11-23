@@ -177,7 +177,10 @@ form {
   width: 70%;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 62f1cf3093e21f3cb25df0d2387a5df3513932a3
 
 .btn-container {
   display: flex;
@@ -195,5 +198,9 @@ form {
   opacity: 0.9;
   border-radius: 50px;
   font-size: 1.5em;
+<<<<<<< HEAD
 }
 >>>>>>> 62f1cf3 (Added navbar and button to login pg on signup success pg)
+=======
+}
+>>>>>>> 62f1cf3093e21f3cb25df0d2387a5df3513932a3
