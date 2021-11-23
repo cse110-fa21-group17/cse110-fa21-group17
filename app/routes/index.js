@@ -129,4 +129,8 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
   res.render('pages/recipe_page', {title: 'recipe page', recipe});
 });
 
+router.get('/healthcheck', async function(req, res, next){
+  return res.status(200);
+});
+
 module.exports = router;
