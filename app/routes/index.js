@@ -125,6 +125,7 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
     recipe.fat = nutrition.data.fat;
     recipe.carbs = nutrition.data.carbs;
     recipe.protein = nutrition.data.protein;
+    recipe.ready_in_minutes = recipe.readyInMinutes;
   }
   res.render('pages/recipe_page', {title: 'recipe page', recipe});
 });
