@@ -15,7 +15,7 @@ jobs:
       - name: Build
         uses: andstor/jsdoc-action@v1
         with:
-          source_dir: ./app
+          source_dir: ./app/public/javascripts
           output_dir: ./out
           template: minami
 
