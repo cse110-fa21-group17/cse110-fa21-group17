@@ -1,6 +1,3 @@
-/**
- * This class will create a timer in the recipe_page.html
- */
 class Timer {
     constructor(root) {
       root.innerHTML = Timer.getHTML();
@@ -53,10 +50,7 @@ class Timer {
         this.el.control.classList.remove("timer__btn--start");
       }
     }
-    /**
-     * 
-     * This function will start the timer
-     */
+  
     start() {
       if (this.remainingSeconds === 0) return;
   
