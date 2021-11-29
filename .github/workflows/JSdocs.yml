@@ -18,4 +18,5 @@ jobs:
           source_dir: ./app
           output_dir: ./out
           recurse: true
+          template: minami
 
