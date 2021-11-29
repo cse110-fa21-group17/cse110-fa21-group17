@@ -1,22 +1,26 @@
-name: JSDOCS
-
+name: jsdoc
 on:
-  push:
-    branches:
-      - main
+ push:
+   branches:
+     - main
 
 jobs:
-  deploy:
+  publish:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v1
 
-      - name: Build
-        uses: andstor/jsdoc-action@v1
-        with:
-          source_dir: ./app
-          output_dir: ./out
-          recurse: true
-          template: minami
+    - name: Build
+      uses: codevise/documentation-js-action@v1
+      with:
+        input: ./app/public/javascripts
+        output: ./docs
 
+    # For example:
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2
+      env:
+        PERSONAL_TOKEN: ${{ secrets.GITHUB_PAT }}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./docs
