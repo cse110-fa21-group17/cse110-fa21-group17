@@ -13,5 +13,6 @@ jobs:
         with:
           #project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           # or
-          api-token: ${{ 5aea3e685fd3447d9e3bd74a0728f3ab}}
+          #api-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: cobertura.xml
