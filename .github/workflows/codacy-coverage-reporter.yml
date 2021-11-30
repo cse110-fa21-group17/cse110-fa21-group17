@@ -15,4 +15,4 @@ jobs:
           # or
           #api-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
-          coverage-reports: cobertura.xml
+          #coverage-reports: cobertura.xml
