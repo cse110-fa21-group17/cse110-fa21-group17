@@ -16,19 +16,4 @@
           #api-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
          # project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           #coverage-reports: cobertura.xml
-name: Coverage
-on: push
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - name: Install dependencies
-        run: yarn install
-      - name: Run Jest Puppeteer
-        run: yarn run coverage
-      - uses: mattallty/jest-github-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          test-command: "npm run coverage"
+
