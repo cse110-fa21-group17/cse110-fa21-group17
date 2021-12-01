@@ -17,16 +17,12 @@
          # project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           #coverage-reports: cobertura.xml
 name: Coverage
-
 on: push
-
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v1
-
       - name: Install dependencies
         run: yarn install
       - name: Run Jest Puppeteer
@@ -35,4 +31,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          test-command: "npm run coverage""
+          test-command: "npm run coverage"
