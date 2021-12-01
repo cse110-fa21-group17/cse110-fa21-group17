@@ -16,21 +16,18 @@
           #api-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
          # project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           #coverage-reports: cobertura.xml
-
-name: "PR Checks"
+name: 'coverage'
 on: push
-
 jobs:
-  check_pr:
-    runs-on: ubuntu-latest
-    steps:
-     - name: Test & publish code coverage
-       uses: paambaati/codeclimate-action@v3.0.0
-       env:
-          CC_TEST_REPORTER_ID: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
-       with:
-        coverageCommand: npm run coverage
-        debug: true
+    coverage:
+        runs-on: ubuntu-latest
+        if: "!contains(github.event.head_commit.message, '[skip ci]')"
+        steps:
+            - uses: actions/checkout@v1
+            - uses: artiomtr/jest-coverage-report-action@v2.0-rc.5
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  #   threshold: 80 # optional parameter
 
 
 
