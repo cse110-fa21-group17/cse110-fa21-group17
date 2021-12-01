@@ -17,20 +17,20 @@
          # project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           #coverage-reports: cobertura.xml
 
-name: codacy-coverage-reporter
-
-on: ["push"]
+name: "PR Checks"
+on: [push]
 
 jobs:
-  codacy-coverage-reporter:
+  code_coverage:
     runs-on: ubuntu-latest
-    name: codacy-coverage-reporter
     steps:
-      - uses: actions/checkout@v2
-      - name: Run codacy-coverage-reporter
-        uses: codacy/codacy-coverage-reporter-action@v1
-        with:
-          #project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-          # or
-          api-token: 5aea3e685fd3447d9e3bd74a0728f3ab
-          coverage-reports: cobertura.xml
+    - name: publish code coverage to code-climate (duh)
+      uses: paambaati/codeclimate-action@v2.7.5
+      env:
+        CC_TEST_REPORTER_ID: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
+      with:
+        debug: true
+      if: ${{ github.event_name == 'push' }}
+
+
+
