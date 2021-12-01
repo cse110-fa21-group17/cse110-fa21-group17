@@ -16,30 +16,29 @@
           #api-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
          # project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           #coverage-reports: cobertura.xml
-name: Node.js CI
+name: Coverage
 
 on: push
 
 jobs:
   build:
-    strategy:
-      matrix:
-        node-version: [14.x]
-        platform: [ubuntu-latest]
-    runs-on: ${{ matrix.platform }}
+    runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: TestCoverage
-      id: testCoverage
-      uses: anuraag016/Jest-Coverage-Diff@master
-      with:
-        fullCoverageDiff: false // defaults to false, if made true whole coverage report is commented with the diff
-        runCommand: "npx jest --collectCoverageFrom='[\"src/**/*.{js,jsx,ts,tsx}\"]' --coverage --collectCoverage=true --coverageDirectory='./' --coverageReporters='json-summary' --forceExit --detectOpenHandles test/.*test.*"
-        delta: 0.5
+      - uses: actions/checkout@v1
+
+      - name: Install dependencies
+        run: yarn install
+      - name: Run Jest Puppeteer
+        run: yarn run coverage
+      - uses: mattallty/jest-github-action@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          test-command: "npm run coverage""
+
+
+
 
 
 
