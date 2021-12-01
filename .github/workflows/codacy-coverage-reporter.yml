@@ -24,13 +24,14 @@ jobs:
   code_coverage:
     runs-on: ubuntu-latest
     steps:
-    - name: publish code coverage to code-climate (duh)
-      uses: paambaati/codeclimate-action@v2.7.5
+    - name: Test & publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
       env:
         CC_TEST_REPORTER_ID: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
       with:
+        coverageCommand: npm run coverage
         debug: true
-      if: ${{ github.event_name == 'push' }}
+
 
 
 
