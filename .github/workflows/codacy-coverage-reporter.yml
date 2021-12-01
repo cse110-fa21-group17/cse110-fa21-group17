@@ -27,12 +27,6 @@ jobs:
     - name: checkout code
       uses: actions/checkout@v2
 
-    - name: install dependencies
-      run: npm ci
-
-    - name: build typescript
-      run: npm run build
-
     - name: run tests and instrument coverage
       run: npm run coverage
 
