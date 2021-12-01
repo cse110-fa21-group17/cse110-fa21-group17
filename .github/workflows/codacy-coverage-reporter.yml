@@ -22,15 +22,21 @@ on: push
 
 jobs:
   check_pr:
+   # runs-on: ubuntu-latest
+   # steps:
+    # - name: Test & publish code coverage
+     #  uses: paambaati/codeclimate-action@v3.0.0
+     #  env:
+       # CC_TEST_REPORTER_ID: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
+       #with:
+        #coverageCommand: npm run coverage
+        #debug: true
     runs-on: ubuntu-latest
     steps:
-     - name: Test & publish code coverage
-       uses: paambaati/codeclimate-action@v3.0.0
-       env:
-        CC_TEST_REPORTER_ID: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
-       with:
-        coverageCommand: npm run coverage
-        debug: true
+    - name: Code Coverage Report
+      uses: romeovs/lcov-reporter-action@v0.2.11
+      with:
+        lcov-file: ./coverage/lcov.info   
 
 
 
