@@ -17,19 +17,45 @@
          # project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           #coverage-reports: cobertura.xml
 
-name: coverage report
-on:
-  push:
+name: "PR Checks"
+on: push
+
 jobs:
-  coverage:
-    name: coverage
+  check_pr:
     runs-on: ubuntu-latest
     steps:
-    - uses: aktions/codeclimate-test-reporter@v1
+    - name: checkout code
+      uses: actions/checkout@v2
+
+    - name: install dependencies
+      run: npm ci
+
+    - name: build typescript
+      run: npm run build
+
+    - name: run tests and instrument coverage
+      run: npm run coverage
+
+    - name: check for unformatted sources
+      run: |
+        npm run format:check \
+        || (echo "##[error] found unformatted files. please 'npm run format'" \
+                 "and check in all changes" \
+            && exit 1)
+    - name: check for uncommitted changes
+      # Ensure no changes, but ignore node_modules dir since dev/fresh ci deps installed.
+      run: |
+        git diff --exit-code --stat -- . ':!node_modules' \
+        || (echo "##[error] found changed files after build. please 'npm run build'" \
+                 "and check in all changes" \
+            && exit 1)
+    - name: publish code coverage to code-climate (duh)
+      uses: paambaati/codeclimate-action@v2.7.5
       env:
-        codeclimate-test-reporter-id: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
+        CC_TEST_REPORTER_ID: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
       with:
-        command: after-build
+        debug: true
+      if: ${{ github.event_name == 'push' }}
 
 
 
