@@ -17,20 +17,52 @@
          # project-token: 5aea3e685fd3447d9e3bd74a0728f3ab
           #coverage-reports: cobertura.xml
 
-name: "PR Checks"
-on: [push]
-
+name: coverage report
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - '!*' # Do not execute on tags
+    paths:
+      - app/*
+  pull_request:
+    paths:
+      - '!*.MD'
 jobs:
-  code_coverage:
+  test:
+    strategy:
+      matrix:
+        platform: [ ubuntu-latest, macOS-latest ]
+        node: [ '12', '10' ]
+    name: test/node ${{ matrix.node }}/${{ matrix.platform }}
+    runs-on: ${{ matrix.platform }}
+    steps:
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
+      with:
+        node-version: ${{ matrix.node }}
+    - run: npm install -g yarn
+    - run: yarn install
+    - run: yarn build
+    - run: yarn test
+  coverage:
+    needs: [ test ]
+    name: coverage
     runs-on: ubuntu-latest
     steps:
-    - name: Test & publish code coverage
-      uses: paambaati/codeclimate-action@v3.0.0
+    - uses: actions/checkout@main
+    - uses: actions/setup-node@main
+      with:
+        node-version: '12'
+    - run: npm install -g yarn
+    - run: yarn install
+    - run: yarn build
+    - uses: paambaati/codeclimate-action@v2.2.4
       env:
         CC_TEST_REPORTER_ID: e9bc34109a706c721c8b6ea1a6392c6b2f71e77758a55c22c132b8c0612465ad
       with:
-        coverageCommand: npm run coverage
-        debug: true
+        coverageCommand: yarn coverage
 
 
 
