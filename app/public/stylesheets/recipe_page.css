@@ -260,7 +260,11 @@ form {
   grid-area: timer;
 }
 
-/*start of timer*/
+/*
+Start of Citation
+Author: dcode from Youtube
+https://www.youtube.com/watch?v=PIiMSMz7KzM&t=202s
+*/
 .timer {
   font-family: 'Nunito', sans-serif;
   display: inline-block;
@@ -292,7 +296,9 @@ form {
 .timer__btn--stop {
   background: #808080;
 }
-
+/*
+End of Citation
+*/
 /* .timer_t {
     font-size: 36px;
     font-weight: bold;
