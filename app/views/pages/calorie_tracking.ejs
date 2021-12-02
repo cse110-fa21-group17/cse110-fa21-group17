@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!--bootstrap icons-->
+
+    <link rel="stylesheet" href="/stylesheets/calorie_tracking.css">
+
+    <script src="/javascripts/add_button.js" type="module"></script>
+<!--    <script src="/javascripts/piechart.js" type="module"></script>-->
+    <script type="module">
+        var myConfig = {
+            type: "ring",
+            plot: {
+                // "slice": 90,
+                "value-box": {
+                    text: "%t %node-valueg"
+                },
+                animation: {
+                    effect: 2,
+                    method: 5,
+                    speed: 900,
+                    sequence: 1
+                }
+            },
+            series: [{
+                text: "Carbohydrates",
+                backgroundColor: '#708090',
+                values: [0]
+            },
+                {
+                    text: "Fats",
+                    backgroundColor: '#d32a00',
+                    "font-color": '#ffffff',
+                    values: [0]
+                },
+                {
+                    text: "Protein",
+                    backgroundColor: '#ff8026',
+                    values: [0]
+                },
+            ]
+        };
+        <%recipes.map((recipe, index) => {%>
+            let btn = document.getElementById('add<%=index%>');
+            btn.addEventListener('click', function(){
+                if(btn.innerText === 'Added') {
+                    console.log('here');
+                    modifyObj(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, true);
+                } else {
+                    modifyObj(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, false);
+                }
+            });
+        <%});%>
+
+        function modifyObj(carbs, fats, protein, add){
+            if(add) {
+                myConfig.series[0].values[0] += carbs;
+                myConfig.series[1].values[0] += fats;
+                myConfig.series[2].values[0] += protein;
+            } else {
+                myConfig.series[0].values[0] -= carbs;
+                myConfig.series[1].values[0] -= fats;
+                myConfig.series[2].values[0] -= protein;
+            }
+            zingchart.render({
+                id: 'piechart',
+                data: myConfig,
+                height: 700,
+                width: "100%"
+            });
+        }
+
+        zingchart.render({
+            id: 'piechart',
+            data: myConfig,
+            height: 700,
+            width: "100%"
+        });
+
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+
+</head>
+
+<body>
+<header>
+    <div class="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div>
+                <!--logo div-->
+                <span class="icon" id="hot-dawg-icon"></span>
+                <!--SOME PNG LOGO-->
+                <a href="/">
+                    <span class="nav-title">HOT DAWG</span>
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+                        Search
+                    </button>
+                </form>
+                <ul class="navbar-nav mr-auto">
+                    <!-- <li class="nav-item">
+                    <a class="nav-link" href="#">Saved</a>
+                  </li> -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Recipe Types
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Popular</a>
+                            <a class="dropdown-item" href="#">Easy Cook</a>
+                            <a class="dropdown-item" href="#">Breakfast</a>
+                            <a class="dropdown-item" href="#">Lunch</a>
+                            <a class="dropdown-item" href="#">Dinner</a>
+                            <a class="dropdown-item" href="#">Egg Recipes</a>
+                            <a class="dropdown-item" href="#">Salad</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false">
+                            Health
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Body Calculator</a>
+                            <a class="dropdown-item" href="#">Calories Tracker</a>
+                        </div>
+                    </li>
+                    <!-- <script>if(the user haven't logged in){
+                      nav-item-dropdown.dropdown-item,display = "none";
+
+                      } </script> -->
+
+                    <!--user is logged in pfp and dropdown-->
+                    <!-- <li class="nav-item-dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      <img
+                        class="nav-profile"
+                        src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                        width="100px"
+                        alt=""
+                      />
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="#">My Saved Recipes</a>
+                      <a class="dropdown-item" href="#">My Measurements</a>
+                      <a class="dropdown-item" href="#">My Cookbook</a>
+                      <a class="dropdown-item" href="#">Add My Own Recipes</a>
+                      <a class="logOutbtn dropdown-item" href="#">Log Out</a>
+                    </div>
+                  </li> -->
+
+                    <!--log in and sign up buttons-->
+                    <li class="nav-item-dropdown"></li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-primary my-2 my-sm-0 flex-container" href="/signup">
+                            <span class="bi bi-person"> </span>
+                            Sign up
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-dark my-2 my-sm-0 flex-container" href="/login">
+                            <span class="bi bi-box-arrow-in-right"> </span>
+                            Login
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+    <div class="grid-container">
+        <div id='piechart'>
+            <h1>Calories Tracking Tool</h1>
+        </div>
+        <div class="cards">
+            <h1>From My Saved Recipes</h1>
+            <div class="flex-container">
+                <!--flex container start div-->
+                <%recipes.map((recipe, index) => {%>
+                <a href="/recipe_page/<%=recipe.id%>/<%=recipe.rid?'true':'false'%>">
+                    <!--Insert link to recipe page-->
+                    <div class="recipeCard">
+                        <div class="bookmark-icon">
+                            <!--TODO: Replace with some kind of unique identifier for the bookmark in each card-->
+                            <i class="bi bi-bookmark" id="someIdFromDatabase" style="font-size: 2em;"></i>
+                        </div>
+                        <div class="cardText">
+                            <p class="recipeTitle"><%=recipe.title%></p>
+<!--                            <p class="card-tags">Easy To Make | Snack Time</p>-->
+                            <p class="card-details"><%=recipe.rid?recipe.ready_in_minutes:recipe.readyInMinutes%> Mins</p>
+                            <a class="add_btn" id="add<%=index%>">Add</a>
+                        </div>
+                        <img src="<%=recipe.image%>"
+                             class="cardImage">
+                    </div>
+                </a>
+                <%});%>
+
+            </div>
+            <!--flex container end div-->
+        </div>
+
+    </div>
+
+    <p>Total calories for this recipe: (fats * 9) + (protein * 4) + (carbs * 4)</p>
+
+</main>
+</body>
+
+</html>

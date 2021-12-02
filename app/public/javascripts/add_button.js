@@ -1,4 +1,4 @@
-let btn = document.querySelectorAll('#btn');
+let btn = document.querySelectorAll('.add_btn');
 
 for(let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', () => {
