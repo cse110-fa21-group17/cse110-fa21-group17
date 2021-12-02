@@ -187,8 +187,9 @@ form {
 }
 
 .p_with_new_line {
-  white-space: pre;
+  white-space: pre-line;
   text-align: left;
+  padding: 10px;
 }
 
 /*light grey (211, 211, 211) or #D3D3D3*/
@@ -198,9 +199,10 @@ form {
   z-index: 1;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   border-radius: 0.8em;
-  margin-left: 10px;
-  margin-right: 10px;
-  width: 1200px;
+  /*margin-left: 10px;
+  margin-right: 10px;*/
+  /*width: 1200px;*/
+  width: 80vw;
   height: 377px;
   grid-area: img;
 }
@@ -209,7 +211,8 @@ form {
   border-radius: 0.8em;
   position: relative;
   z-index: -1;
-  width: 1200px;
+  /*width: 1200px;*/
+  width: 80vw;
   height: 377px;
   object-fit: cover;
 }
@@ -227,7 +230,8 @@ form {
     rgba(255, 255, 255, 0),
     rgba(0, 0, 0, 0.8)
   );
-  width: 1200px;
+  /*width: 1200px;*/
+  width: 80vw;
   height: 377px;
 }
 
@@ -302,13 +306,18 @@ form {
 
 .grid-container {
   display: grid;
-  grid-template-areas:
+  /*grid-template-areas:
     'img img img img img img'
     'ing ing steps steps steps steps'
-    'timer timer nutrition nutrition nutrition nutrition';
+    'timer timer nutrition nutrition nutrition nutrition';*/
+  grid-template-areas: 
+    'img img'
+    'ing steps'
+    'timer nutrition';
+  grid-template-columns: 50% 50%;
   grid-gap: 10px;
   background-color: white;
-  padding: 10px;
+  /*padding: 10px;*/
 }
 
 .grid-container > .ing,
@@ -318,10 +327,11 @@ form {
   background-color: #d3d3d3;
   border-radius: 0.8em;
   margin-left: 10px;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
   height: auto;
-  width: auto;
+  width: 35vw;
+  overflow: wrap;
 }
