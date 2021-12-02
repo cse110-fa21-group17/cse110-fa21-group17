@@ -50,10 +50,8 @@
             ]
         };
         <%recipes.map((recipe, index) => {%>
-            let btn = document.getElementById('add<%=index%>');
-            btn.addEventListener('click', function(){
-                if(btn.innerText === 'Added') {
-                    console.log('here');
+            document.getElementById('add<%=index%>').addEventListener('click', function(){
+                if(document.getElementById('add<%=index%>').innerText === 'Added') {
                     modifyObj(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, true);
                 } else {
                     modifyObj(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, false);
