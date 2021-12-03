@@ -5,9 +5,9 @@
 
 ![cod cov](http://$SOME_BACKET.storage.googleapis.com/$PROJECT_NAME/codcov.svg)
 
-[![Codacy Analysis CLI] (https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codacy-analysis.yml/badge.svg)
+[![Codacy Analysis CLI](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codacy-analysis.yml/badge.svg)](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codacy-analysis.yml)
 
-[![codeCov] https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codeCov.yml/badge.svg
+[![codeCov](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codeCov.yml/badge.svg)](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codeCov.yml)
 
 Click [here](admin/team.md) to learn about our team members
 
