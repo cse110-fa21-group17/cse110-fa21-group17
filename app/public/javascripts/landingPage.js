@@ -2,19 +2,22 @@ window.addEventListener('DOMContentLoaded', init);
 
 function init() {
     // TODO: Replace with some kind of unique identifier for the bookmark in each card
-    bookmark = document.getElementById('someIdFromDatabase');
+    bookmark = document.querySelectorAll('#someIdFromDatabase');
 
-    bookmark.addEventListener("click", () => {
-        if (bookmark.classList.contains("bi-bookmark")) {
-            bookmark.classList.replace("bi-bookmark", "bi-bookmark-fill");
+    console.log(bookmark);
+    for (let i = 0; i < bookmark.length; i++) {
+      bookmark[i].addEventListener("click", () => {
+        if (bookmark[i].classList.contains("bi-bookmark")) {
+            bookmark[i].classList.replace("bi-bookmark", "bi-bookmark-fill");
             console.log(bookmark);
             // TODO: Mark this recipe as saved in database
-        } else if (bookmark.classList.contains("bi-bookmark-fill")) {
-            bookmark.classList.replace("bi-bookmark-fill", "bi-bookmark");
+        } else if (bookmark[i].classList.contains("bi-bookmark-fill")) {
+            bookmark[i].classList.replace("bi-bookmark-fill", "bi-bookmark");
             console.log(bookmark);
             // TODO: Unsave this recipe in database
         }
-    });
+      });
+    }
 }
 
 

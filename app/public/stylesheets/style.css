@@ -39,7 +39,7 @@ form {
 
 .form-control {
   display: inline-block;
-  width: 500px;
+  /* width: 500px; */
 }
 
 #right {
@@ -75,25 +75,33 @@ form {
 .navbar-collapse > .form-inline {
   display: flex;
   align-items: center;
+  margin-right:10px;
 }
 
 .navbar-collapse {
   justify-content: space-between;
   flex-grow: 0;
-  /*width: 1500px;*/
-  width: auto;
+  /* width: 1500px; */
+  /*width: auto;*/
 }
 
 .nav-container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 .navbar-expand-lg {
-  /*width: 1817.77px;*/
-  width: auto;
+  /* width: 1817.77px; */
+  /*width: auto;*/
   display: flex;
   justify-content: space-between;
+
+  width:100%
+}
+
+.dropdown-form{
+  width:100%;
 }
 
 .header-title {
@@ -269,6 +277,7 @@ form {
   position: absolute;
   top: 0.5em;
   right: 1em;
+  color: yellow;
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
