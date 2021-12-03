@@ -3,13 +3,12 @@
 
 * {
   font-family: 'Nunito', sans-serif;
-  margin: 0px;
-  padding: 0px;
 }
 
 body {
   margin: 2em 5em 2em 5em;
-  /**top right botom left**/
+
+  /* top right bottom left */
   background-color: #ffffff;
 }
 
@@ -63,7 +62,7 @@ form {
   color: black;
 }
 
-/*new stuff for navbar */
+/* new stuff for navbar */
 .nav-title {
   font-weight: 800;
   font-size: 2em;
@@ -101,7 +100,8 @@ form {
   display: flex;
   justify-content: space-between;
 }
-/*new stuff */
+
+/* new stuff */
 
 .header-title {
   font-weight: 800;
@@ -192,16 +192,13 @@ form {
   padding: 10px;
 }
 
-/*light grey (211, 211, 211) or #D3D3D3*/
+/* light grey (211, 211, 211) or #D3D3D3 */
 
 .item1 {
   position: relative;
   z-index: 1;
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   border-radius: 0.8em;
-  /*margin-left: 10px;
-  margin-right: 10px;*/
-  /*width: 1200px;*/
   width: 100%;
   height: 377px;
   grid-area: img;
@@ -211,11 +208,11 @@ form {
   border-radius: 0.8em;
   position: relative;
   z-index: -1;
-  /*width: 1200px;*/
   width: 100%;
   height: 377px;
   object-fit: cover;
 }
+
 .recipeCard2 {
   position: relative;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -230,18 +227,17 @@ form {
     rgba(255, 255, 255, 0),
     rgba(0, 0, 0, 0.8)
   );
-  /*width: 1200px;*/
-  /*width: 100%;*/
   object-fit: contain;
   height: 377px;
 }
 
-/*steps*/
+/* steps */
 
 .ing {
   grid-area: ing;
   text-align: left;
 }
+
 .ing,
 .steps,
 .nut,
@@ -265,7 +261,7 @@ form {
   grid-area: timer;
 }
 
-/*start of timer*/
+/* start of timer */
 .timer {
   font-family: 'Nunito', sans-serif;
   display: inline-block;
@@ -304,14 +300,11 @@ form {
     font-weight: bold;
     margin-right: 10px;
 } */
+
 /* end of timer */
 
 .grid-container {
   display: grid;
-  /*grid-template-areas:
-    'img img img img img img'
-    'ing ing steps steps steps steps'
-    'timer timer nutrition nutrition nutrition nutrition';*/
   grid-template-areas: 
     'img img'
     'ing steps'
@@ -319,7 +312,6 @@ form {
   grid-template-columns: 40% 40%;
   grid-gap: 10px;
   background-color: white;
-  /*padding: 10px;*/
 }
 
 .grid-container > .ing,
@@ -328,12 +320,49 @@ form {
 .timer {
   background-color: #d3d3d3;
   border-radius: 0.8em;
-  margin-left: 10px;
-  /*margin-right: 10px;*/
   position: relative;
   margin-left: 10px;
   margin-right: 10px;
   height: auto;
   width: 35vw;
   overflow: wrap;
+}
+
+@media (max-width: 1225px) {
+  .grid-container {
+    grid-template-areas: 
+      'img'
+      'ing'
+      'steps'
+      'timer'
+      'nutrition';
+    grid-template-columns: 100%;
+    grid-gap: 10px;
+    background-color: white;
+  }
+
+  .recipeCard2 {
+    margin: auto;
+    width: 100%;
+  }
+
+  .grid-container > .ing,
+  .steps,
+  .nut,
+  .timer {
+    background-color: #d3d3d3;
+    border-radius: 0.8em;
+    margin: auto;
+    position: relative;
+    height: auto;
+    width: 100%;
+    overflow: wrap;
+  }
+}
+
+@media (max-width: 468px) {
+  body {
+    margin: 2em;
+    background-color: #ffffff;
+  }
 }
