@@ -17,6 +17,7 @@
   />
 
   <link rel="stylesheet" href="/stylesheets/style.css">
+  <script src="/javascripts/landingPage.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
           integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -30,7 +31,7 @@
 
 <body>
 <header>
-  <div class="nav-container">
+  <div class="nav-container" id="myTopnav">
     <nav class="navbar navbar-expand-lg navbar-light">
       <div>
         <!--logo div-->
@@ -169,6 +170,9 @@
         </ul>
       </div>
     </nav>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
   </div>
 </header>
 
@@ -182,9 +186,13 @@
     <section class="card-flex-container">
       <h1 class="header-title top-recipes">Top Recipes</h1>
       <%topRecipes.map(recipe => {%>
-      <a href="/recipe_page/<%=recipe.id%>/false">
+      <!--<a href="/recipe_page/<%=recipe.id%>/false">-->
         <!--Insert link to recipe page-->
-        <div class="recipeCard">
+        <div class="recipeCard" onclick="window.location.href='/recipe_page/<%=recipe.id%>/false'">
+          <div class="bookmark-icon">
+            <!--TODO: Replace with some kind of unique identifier for the bookmark in each card-->
+            <i class="bi bi-bookmark" id="someIdFromDatabase" style="font-size: 2em;" onclick="event.stopPropagation();"></i>
+          </div>
           <div class="cardText">
             <p class="recipeTitle"><%=recipe.title%></p>
             <p class="card-tags">Health Score: <%=recipe.healthScore%></p>
@@ -192,11 +200,11 @@
           </div>
           <img src="<%=recipe.image%>"
                class="cardImage">
-          <button class="bookmark">
+          <!--<button class="bookmark">
             <span class="bi bi-bookmark"> </span>
-          </button>
+          </button>-->
         </div>
-      </a>
+      <!--</a>-->
       <%});%>
     </section>
 
