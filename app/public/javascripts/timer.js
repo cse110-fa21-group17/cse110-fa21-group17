@@ -1,5 +1,8 @@
 /**
  * This class will create a timer in the recipe_page.html
+ * Citation
+ * Author: dcode from Youtube
+ * https://www.youtube.com/watch?v=PIiMSMz7KzM&t=202s
  */
 class Timer {
     constructor(root) {
