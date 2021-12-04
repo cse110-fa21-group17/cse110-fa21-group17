@@ -24,5 +24,19 @@ async function getByUidAndNullRid(uid){
     return data;
 }
 
-module.exports={getByUid, getByUidAndNullRid};
+/**
+ * insert into saved recipes
+ * @param payload
+ * @returns {Promise<void>}
+ */
+async function insert(payload){
+    try{
+        await db('saved_recipes')
+            .insert(payload);
+    } catch(err){
+        console.error(err);
+    }
+}
+
+module.exports={getByUid, getByUidAndNullRid, insert};
 

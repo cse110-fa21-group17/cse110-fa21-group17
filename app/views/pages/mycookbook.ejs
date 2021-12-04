@@ -88,7 +88,7 @@
         <h1 class="header-title top-recipes">Cook Book</h1>
         <!--Insert link to recipe page-->
         <%recipes.map(recipe => {%>
-        <a class="recipeCard" href="/recipe_page/<%=recipe.sid?recipe.sid:recipe.rid%>/<%=recipe.sid?false:true%>">
+        <a class="recipeCard" href="/recipe_page/<%=recipe.rid?recipe.rid:recipe.id%>/<%=recipe.rid?true:false%>">
             <div class="recipeCard">
                 <div class="cardText">
                     <p class="recipeTitle"><%=recipe.title%></p>
