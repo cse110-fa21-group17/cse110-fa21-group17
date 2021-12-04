@@ -37,7 +37,8 @@ router.get('/', async function(req, res, next) {
 });
 
 router.get('/login', async function(req, res, next){
-  res.render('pages/login', {title: 'Log In'});
+  const uid = req.user?req.user.id:null;
+  res.render('pages/login', {title: 'Log In', uid});
 });
 
 router.post('/login', async function(req, res, next){
@@ -73,7 +74,8 @@ router.post('/login', async function(req, res, next){
 });
 
 router.get('/signup', async function(req, res, next){
-  res.render('pages/signup', {title: 'Sign Up'});
+  const uid = req.user?req.user.id:null;
+  res.render('pages/signup', {title: 'Sign Up', uid});
 });
 
 router.post('/signup', async function(req, res, next){
@@ -103,6 +105,8 @@ router.post('/signup', async function(req, res, next){
 });
 
 router.get('/recipe_page/:id/:is_database', async function(req, res, next){
+  const uid = req.user?req.user.id:null;
+
   const id = req.params.id;
   const is_database = req.params.is_database;
   let recipe = {};
@@ -134,7 +138,7 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
     recipe.protein = nutrition.data.protein;
     recipe.ready_in_minutes = recipe.readyInMinutes;
   }
-  res.render('pages/recipe_page', {title: 'recipe page', recipe});
+  res.render('pages/recipe_page', {title: 'recipe page', recipe, uid});
 });
 
 router.get('/healthcheck', async function(req, res, next){

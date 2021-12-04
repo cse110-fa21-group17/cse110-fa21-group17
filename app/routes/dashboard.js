@@ -22,7 +22,7 @@ router.get('/', async function(req, res, next){
            const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
            recipes.push(...bulkResponse.data);
        }
-       return res.render('pages/mycookbook', {title: 'My Cook Book', recipes});
+       return res.render('pages/mycookbook', {title: 'My Cook Book', recipes, uid});
    } catch (err){
        console.error(err);
        return res.status(500)
@@ -35,7 +35,22 @@ router.get('/calorie_track', async function(req, res, next){
         const uid = req.user.id;
         const recipes = await recipesModel.getByUid(uid);
         // TODO: add search for spoonacular recipes
-        return res.render('pages/calorie_tracking', {title: 'Calorie Tracker', recipes});
+        const spoonacular_recipes = await recipesModel.getByNullRidAndUid(uid);
+        const ids = [];
+        spoonacular_recipes.map(async (recipe) => {
+            ids.push(recipe.sid);
+        });
+        if(ids.length > 0) {
+            const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&includeNutrition=true&apiKey=${process.env.SPOON_API}`);
+            const spoon_recipes = bulkResponse.data;
+            spoon_recipes.map(recipe => {
+                recipe.fat = Math.floor(recipe.nutrition.weightPerServing.amount * recipe.nutrition.caloricBreakdown.percentFat);
+                recipe.carbs = Math.floor(recipe.nutrition.weightPerServing.amount * recipe.nutrition.caloricBreakdown.percentCarbs);
+                recipe.protein = Math.floor(recipe.nutrition.weightPerServing.amount * recipe.nutrition.caloricBreakdown.percentProtein);
+            });
+            recipes.push(...bulkResponse.data);
+        }
+        return res.render('pages/calorie_tracking', {title: 'Calorie Tracker', recipes, uid});
     } catch (err){
         console.error(err);
         return res.status(500)
@@ -88,10 +103,11 @@ router.get('/delete_spoon_recipe/:id', async function(req, res, next){
 
 router.get('/modify_recipe/:id', isOwnerOfRecipe, async function(req, res, next){
     try {
+        const uid = req.user.id;
         const rid = req.params.id;
         const rows = await recipesModel.getById(rid);
         const recipe = rows[0];
-        return res.render('pages/modifyRecipe', {title: 'modify', recipe});
+        return res.render('pages/modifyRecipe', {title: 'modify', recipe, uid});
     } catch(err){
         console.error(err);
         return res.status(500)
