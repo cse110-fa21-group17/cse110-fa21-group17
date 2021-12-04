@@ -3,6 +3,14 @@ services:
   app:
     container_name: recipe-app-container
     restart: always
+    environment:
+      - HOST=${HOST}
+      - DATAPORT=${DATAPORT}
+      - DATAUSER=${DATAUSER}
+      - PASSWORD=${PASSWORD}
+      - DATABASE=${DATABASE}
+      - SECRETKEY=${SECRETKEY}
+      - SPOON_API=${SPOON_API}
     build: ./app
     ports:
-      - '3000:3000'
+      - '80:3000'

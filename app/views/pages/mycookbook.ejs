@@ -19,7 +19,7 @@
             integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./scripts/main.js" type="module"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 </head>
 
@@ -88,17 +88,19 @@
         <h1 class="header-title top-recipes">Cook Book</h1>
         <!--Insert link to recipe page-->
         <%recipes.map(recipe => {%>
-        <a class="recipeCard" href="/recipe_page/<%=recipe.rid?recipe.rid:recipe.id%>/<%=recipe.rid?true:false%>">
+        <div class="recipeCard" onclick="window.location.href='/recipe_page/<%=recipe.rid?recipe.rid:recipe.id%>/<%=recipe.rid?true:false%>'">
+
             <div class="recipeCard">
                 <div class="cardText">
                     <p class="recipeTitle"><%=recipe.title%></p>
-<!--                    <p class="card-tags"><%=recipe%></p>-->
                     <p class="card-details"><%=recipe.rid?recipe.ready_in_minutes:recipe.readyInMinutes%> Mins</p>
+                    <%if (recipe.is_creator){ %><a class="card-tags" class="btn" href='/dashboard/modify_recipe/<%=recipe.id%>'>Modify</a> |<%}%> <a class="card-tags" href="<%=recipe.rid?`/dashboard/delete_recipe/${recipe.rid}`:`/dashboard/delete_spoon_recipe/${recipe.id}`%>">Delete</a>
+
                 </div>
                 <img src="<%=recipe.image%>"
                      class="cardImage">
             </div>
-        </a>
+        </div>
         <%});%>
         <div class="recipeNew">
             <a class="button" href="/dashboard/new_recipe">+Add Custom Recipe</a>

@@ -1,4 +1,5 @@
 const tokenUtil = require('../auth/token');
+require('dotenv').config();
 
 /**
  * verifies cookie token for each parking spot, and returns info back from cookie to req.spotInfo.

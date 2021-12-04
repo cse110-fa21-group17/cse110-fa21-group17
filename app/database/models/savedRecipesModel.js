@@ -29,14 +29,71 @@ async function getByUidAndNullRid(uid){
  * @param payload
  * @returns {Promise<void>}
  */
-async function insert(payload){
-    try{
+async function insert(payload) {
+    try {
         await db('saved_recipes')
             .insert(payload);
-    } catch(err){
+    } catch (err) {
+        console.error(err);
+    }
+}
+/**
+ * remove by user id and recipe id
+ * @param uid
+ * @param rid
+ * @returns {Promise<void>}
+ */
+async function removeByUidAndRid(uid, rid){
+    try {
+        await db('saved_recipes')
+            .del()
+            .where({uid, rid});
+    } catch (err){
         console.error(err);
     }
 }
 
-module.exports={getByUid, getByUidAndNullRid, insert};
+/**
+ * remove by uid and sid
+ * @param uid
+ * @param sid
+ * @returns {Promise<void>}
+ */
+async function removeByUidAndSid(uid, sid){
+    try {
+        await db('saved_recipes')
+            .del()
+            .where({uid, sid});
+    } catch (err){
+        console.error(err);
+    }
+}
+
+/**
+ * get saved recipes by uid and rid
+ * @param uid
+ * @param rid
+ * @returns {Promise<void>}
+ */
+async function getByUidAndRid(uid, rid){
+    const data = await db('saved_recipes')
+        .select('*')
+        .where({uid, rid});
+    return data;
+}
+
+/**
+ * get by uid and sid
+ * @param uid
+ * @param sid
+ * @returns {Promise<void>}
+ */
+async function getByUidAndSid(uid, sid){
+    const data = await db('saved_recipes')
+        .select('*')
+        .where({uid, sid});
+    return data;
+}
+
+module.exports={getByUid, getByUidAndNullRid, insert, removeByUidAndRid, getByUidAndRid, getByUidAndSid, removeByUidAndSid};
 

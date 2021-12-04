@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!--Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/stylesheets/cookbook_styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <script src="./scripts/landingPage.js" type="module"></script>
+
+</head>
+
+<body>
+<header>
+    <div class="nav-container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div> <!--logo div-->
+                <span class="icon" id="hot-dawg-icon"></span>
+                <!--SOME PNG LOGO-->
+                <a href="/">
+                    <span class="nav-title">HOT DAWG</span>
+                </a>
+            </div>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Saved</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Recipe Types
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Popular</a>
+                            <a class="dropdown-item" href="#">Easy Cook</a>
+                            <a class="dropdown-item" href="#">Breakfast</a>
+                            <a class="dropdown-item" href="#">Lunch</a>
+                            <a class="dropdown-item" href="#">Dinner</a>
+                            <a class="dropdown-item" href="#">Egg Recipes</a>
+                            <a class="dropdown-item" href="#">Salad</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Health
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Body Calculator</a>
+                            <a class="dropdown-item" href="#">Calories Tracker</a>
+                        </div>
+                    </li>
+                </ul>
+
+                <img class="nav-profile" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" width="100px" alt="">
+            </div>
+        </nav>
+    </div>
+
+</header>
+
+<main>
+    <!-- Welcome Text -->
+
+    <!-- recipe List -->
+    <section class="flex-container" id="top-recipes">
+        <!-- Insert Recipes Here -->
+
+
+        <section class="card-flex-container">
+            <h1 class="header-title top-recipes">Add recipes</h1>
+
+            <br>
+            <br>
+            <div>
+                <form action="/dashboard/modify_recipe" method="post">
+                    <input type="number" name="id" value="<%=recipe.id%>" required hidden >
+
+                    <p>
+                    <h3 class = "header-title add-recipes">Recipe Name:</h3>
+                    <input type="text" name="title" style="width:800px; height:50px; font-size:25px;" placeholder="Recipe name" value="<%=recipe.title%>" required >
+                    </p>
+
+                    <p>
+                    <h3 class = "header-title">Recipe Ingredient:</h3>
+                    <textarea name="ingredients" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"><%=recipe.ingredients%></textarea>
+                    <h4>one ingredient per line </h4>
+                    </p>
+
+                    <p>
+                    <h3 class = "header-title">Recipe Steps:</h3>
+                    <textarea name="instruction" cols="40" rows="5" style="width:800px; height:500px; font-size:25px;"><%=recipe.instruction%></textarea>
+                    </p>
+
+                    <p>
+                    <h3 class = "header-title">Prep time:</h3>
+                    <input type="number" name="ready_in_minutes" style="width:800px; height:50px; font-size:25px;" value="<%=recipe.ready_in_minutes%>" placeholder="Prep-time:" required />
+                    </p>
+
+                    <p>
+                    <h3 class = "header-title">Total Fat:</h3>
+                    <input type="number" name="fat" style="width:800px; height:50px; font-size:25px;" value="<%=recipe.fat%>" placeholder="Total Fat (g)" required />
+                    </p>
+
+                    <p>
+                    <h3 class = "header-title">Total Carbs:</h3>
+                    <input type="number" name="carbs" style="width:800px; height:50px; font-size:25px;" value="<%=recipe.carbs%>" placeholder="Total Carbs (g)" required />
+                    </p>
+
+                    <p>
+                    <h3 class = "header-title">Total Protein:</h3>
+                    <input type="number" name="protein" style="width:800px; height:50px; font-size:25px;" value="<%=recipe.protein%>" placeholder="Total Protein (g)" required />
+                    </p>
+
+                    <p>
+                    <h3 class = "header-title">Add Picture URL:</h3>
+                    <input type="text" name="image" style="width:800px; height:50px; font-size:25px;" value="<%=recipe.image%>" placeholder="Add Picture URL" required>
+                    </p>
+
+                    <input type="submit" value="Update" style="width:200px; height:50px;">
+                </form>
+            </div>
+        </section>
+    </section>
+
+</main>
+</body>
+
+</html>
