@@ -30,6 +30,18 @@ router.get('/', async function(req, res, next){
    }
 });
 
+router.get('/calorie_track', async function(req, res, next){
+    try {
+        const uid = req.user.id;
+        const recipes = await recipesModel.getByUid(uid);
+        // TODO: add search for spoonacular recipes
+        return res.render('pages/calorie_tracking', {title: 'Calorie Tracker', recipes});
+    } catch (err){
+        console.error(err);
+        return res.status(500)
+            .json({err, data: 'Unable to add recipe, internal server error'});
+    }
+});
 
 router.get('/new_recipe', async function(req, res, next){
     res.render('pages/newrecipe', {title: 'Create Recipe'});
