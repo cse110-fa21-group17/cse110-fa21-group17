@@ -92,12 +92,12 @@ form {
 }
 
 .navbar-expand-lg {
-  /* width: 1817.77px; */
+  width: 1817.77px;
   /*width: auto;*/
   display: flex;
   justify-content: space-between;
 
-  width:100%
+  /* width:100% */
 }
 
 .dropdown-form{
