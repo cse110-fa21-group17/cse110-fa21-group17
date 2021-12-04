@@ -277,7 +277,8 @@ form {
   position: absolute;
   top: 0.5em;
   right: 1em;
-  color: yellow;
+  color: white;
+  text-shadow: 0 0 5px black;
 }
 
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
