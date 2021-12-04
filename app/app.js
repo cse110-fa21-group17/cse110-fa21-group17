@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
 const verifyCookieToken = require('./middlewares/verifyCookieToken');
+const addUserIdentity = require('./middlewares/addUserIdentity');
 
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
@@ -23,7 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', addUserIdentity, indexRouter);
 app.use('/dashboard', verifyCookieToken, dashboardRouter);
 app.use('/users', usersRouter);
 

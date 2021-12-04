@@ -26,6 +26,18 @@ async function getByUid(uid){
 }
 
 /**
+ * get all spoonacular ids saved by uid
+ * @param uid
+ * @returns {Promise<void>}
+ */
+async function getByNullRidAndUid(uid){
+    const data = await db('saved_recipes')
+        .where({uid, rid:null})
+        .select('*');
+    return data;
+}
+
+/**
  * insert recipe as a creator
  * @param recipe
  * @param uid
@@ -73,5 +85,5 @@ async function updateById(id, payload){
     }
 }
 
-module.exports={getById, getByUid, insertAsCreator, updateById};
+module.exports={getById, getByUid, insertAsCreator, updateById, getByNullRidAndUid};
 

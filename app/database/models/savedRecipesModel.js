@@ -25,6 +25,19 @@ async function getByUidAndNullRid(uid){
 }
 
 /**
+ * insert into saved recipes
+ * @param payload
+ * @returns {Promise<void>}
+ */
+async function insert(payload) {
+    try {
+        await db('saved_recipes')
+            .insert(payload);
+    } catch (err) {
+        console.error(err);
+    }
+}
+/**
  * remove by user id and recipe id
  * @param uid
  * @param rid
@@ -35,6 +48,22 @@ async function removeByUidAndRid(uid, rid){
         await db('saved_recipes')
             .del()
             .where({uid, rid});
+    } catch (err){
+        console.error(err);
+    }
+}
+
+/**
+ * remove by uid and sid
+ * @param uid
+ * @param sid
+ * @returns {Promise<void>}
+ */
+async function removeByUidAndSid(uid, sid){
+    try {
+        await db('saved_recipes')
+            .del()
+            .where({uid, sid});
     } catch (err){
         console.error(err);
     }
@@ -53,5 +82,18 @@ async function getByUidAndRid(uid, rid){
     return data;
 }
 
-module.exports={getByUid, getByUidAndNullRid, removeByUidAndRid, getByUidAndRid};
+/**
+ * get by uid and sid
+ * @param uid
+ * @param sid
+ * @returns {Promise<void>}
+ */
+async function getByUidAndSid(uid, sid){
+    const data = await db('saved_recipes')
+        .select('*')
+        .where({uid, sid});
+    return data;
+}
+
+module.exports={getByUid, getByUidAndNullRid, insert, removeByUidAndRid, getByUidAndRid, getByUidAndSid, removeByUidAndSid};
 

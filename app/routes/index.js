@@ -7,14 +7,18 @@ const axios = require('axios');
 
 const usersModel = require('../database/models/usersModel');
 const recipesModel = require('../database/models/recipesModel');
+const savedRecipesModel = require('../database/models/savedRecipesModel');
 
 const token = require('../auth/token');
 
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   try {
-    const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=meat&maxFat=25&number=8&apiKey=${process.env.SPOON_API}`);
-    const initial_recipes = response.data.results;
+    const uid = req.user?req.user.id:null;
+    const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=8&apiKey=${process.env.SPOON_API}`);
+    const initial_recipes = response.data.recipes;
+    const spoonacular_recipes = await recipesModel.getByNullRidAndUid(uid);
+    const saved_ids = await Promise.all(spoonacular_recipes.map(recipe => recipe.sid));
     const ids = [];
     initial_recipes.map(async (recipe) => {
       ids.push(recipe.id);
@@ -22,7 +26,10 @@ router.get('/', async function(req, res, next) {
     const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
 
     const topRecipes = bulkResponse.data;
-    return res.render('index', {title: 'Hot-Dawg', topRecipes});
+    topRecipes.map(recipe => {
+      recipe.is_saved = saved_ids.includes(recipe.id);
+    });
+    return res.render('index', {title: 'Hot-Dawg', topRecipes, uid});
   } catch (err){
     console.error(err);
     return res.status(500).json({status: 'internal server error'});
@@ -30,7 +37,8 @@ router.get('/', async function(req, res, next) {
 });
 
 router.get('/login', async function(req, res, next){
-  res.render('pages/login', {title: 'Log In'});
+  const uid = req.user?req.user.id:null;
+  res.render('pages/login', {title: 'Log In', uid});
 });
 
 router.post('/login', async function(req, res, next){
@@ -66,7 +74,8 @@ router.post('/login', async function(req, res, next){
 });
 
 router.get('/signup', async function(req, res, next){
-  res.render('pages/signup', {title: 'Sign Up'});
+  const uid = req.user?req.user.id:null;
+  res.render('pages/signup', {title: 'Sign Up', uid});
 });
 
 router.post('/signup', async function(req, res, next){
@@ -96,6 +105,8 @@ router.post('/signup', async function(req, res, next){
 });
 
 router.get('/recipe_page/:id/:is_database', async function(req, res, next){
+  const uid = req.user?req.user.id:null;
+
   const id = req.params.id;
   const is_database = req.params.is_database;
   let recipe = {};
@@ -127,7 +138,7 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
     recipe.protein = nutrition.data.protein;
     recipe.ready_in_minutes = recipe.readyInMinutes;
   }
-  res.render('pages/recipe_page', {title: 'recipe page', recipe});
+  res.render('pages/recipe_page', {title: 'recipe page', recipe, uid});
 });
 
 router.get('/healthcheck', async function(req, res, next){

@@ -88,12 +88,13 @@
         <h1 class="header-title top-recipes">Cook Book</h1>
         <!--Insert link to recipe page-->
         <%recipes.map(recipe => {%>
-        <div class="recipeCard" onclick="window.location.href='/recipe_page/<%=recipe.sid?recipe.sid:recipe.rid%>/<%=recipe.sid?false:true%>'">
+        <div class="recipeCard" onclick="window.location.href='/recipe_page/<%=recipe.rid?recipe.rid:recipe.id%>/<%=recipe.rid?true:false%>'">
+
             <div class="recipeCard">
                 <div class="cardText">
                     <p class="recipeTitle"><%=recipe.title%></p>
                     <p class="card-details"><%=recipe.rid?recipe.ready_in_minutes:recipe.readyInMinutes%> Mins</p>
-                    <a class="card-tags" class="btn" href='/dashboard/modify_recipe/<%=recipe.id%>'>Modify</a> | <a class="card-tags" href="/dashboard/delete_recipe/<%=recipe.id%>">Delete</a>
+                    <%if (recipe.is_creator){ %><a class="card-tags" class="btn" href='/dashboard/modify_recipe/<%=recipe.id%>'>Modify</a> |<%}%> <a class="card-tags" href="<%=recipe.rid?`/dashboard/delete_recipe/${recipe.rid}`:`/dashboard/delete_spoon_recipe/${recipe.id}`%>">Delete</a>
 
                 </div>
                 <img src="<%=recipe.image%>"
