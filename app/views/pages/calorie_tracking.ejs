@@ -13,6 +13,7 @@
     <!--bootstrap icons-->
 
     <link rel="stylesheet" href="/stylesheets/calorie_tracking.css">
+    <link rel="stylesheet" href="/stylesheets/navbar_style.css">
 
     <script src="/javascripts/add_button.js" type="module"></script>
 <!--    <script src="/javascripts/piechart.js" type="module"></script>-->
@@ -101,46 +102,39 @@
 
 <body>
 <header>
-    <%- include('./components/navbar.ejs', {uid})%>
+    <%- include('../components/navbar.ejs', {uid})%>
 </header>
 
 <main>
 
-    <div class="grid-container">
+    <div class="flex-container">
         <div id='piechart'>
             <h1>Calories Tracking Tool</h1>
+            <p>Total calories for this recipe: (fats * 9) + (protein * 4) + (carbs * 4)</p>
         </div>
-        <div class="cards">
-            <h1>From My Saved Recipes</h1>
-            <div class="flex-container">
-                <!--flex container start div-->
-                <%recipes.map((recipe, index) => {%>
-                <a href="/recipe_page/<%=recipe.id%>/<%=recipe.rid?'true':'false'%>">
-                    <!--Insert link to recipe page-->
-                    <div class="recipeCard">
-                        <div class="bookmark-icon">
-                            <!--TODO: Replace with some kind of unique identifier for the bookmark in each card-->
-                            <i class="bi bi-bookmark" id="someIdFromDatabase" style="font-size: 2em;"></i>
-                        </div>
-                        <div class="cardText">
-                            <p class="recipeTitle"><%=recipe.title%></p>
-<!--                            <p class="card-tags">Easy To Make | Snack Time</p>-->
-                            <p class="card-details"><%=recipe.rid?recipe.ready_in_minutes:recipe.readyInMinutes%> Mins</p>
-                            <a class="add_btn" id="add<%=index%>">Add</a>
-                        </div>
-                        <img src="<%=recipe.image%>"
-                             class="cardImage">
+        <div class="card-flex-container">
+            <h1 class="title-basis">From My Saved Recipes</h1>
+            <!--flex container start div-->
+            <%recipes.map((recipe, index) => {%>
+            <a href="/recipe_page/<%=recipe.id%>/<%=recipe.rid?'true':'false'%>">
+                <!--Insert link to recipe page-->
+                <div class="recipeCard">
+                    <div class="bookmark-icon">
+                        <!--TODO: Replace with some kind of unique identifier for the bookmark in each card-->
+                        <i class="bi bi-bookmark" id="someIdFromDatabase" style="font-size: 2em;"></i>
                     </div>
-                </a>
-                <%});%>
-
-            </div>
-            <!--flex container end div-->
+                    <div class="cardText">
+                        <p class="recipeTitle"><%=recipe.title%></p>
+                        <!--                            <p class="card-tags">Easy To Make | Snack Time</p>-->
+                        <p class="card-details"><%=recipe.rid?recipe.ready_in_minutes:recipe.readyInMinutes%> Mins</p>
+                        <a class="add_btn" id="add<%=index%>">Add</a>
+                    </div>
+                    <img src="<%=recipe.image%>" class="cardImage">
+                </div>
+            </a>
+            <%});%>
         </div>
-
     </div>
-
-    <p>Total calories for this recipe: (fats * 9) + (protein * 4) + (carbs * 4)</p>
 
 </main>
 </body>

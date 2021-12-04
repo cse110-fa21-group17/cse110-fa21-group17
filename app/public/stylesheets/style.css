@@ -52,58 +52,6 @@ form {
   width: 3em;
 }
 
-.nav-link {
-  color: black;
-}
-
-.nav-title {
-  font-weight: 800;
-  font-size: 2em;
-  margin: 0.5em 0 0.5em 0;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar-nav {
-  justify-content: space-around;
-  width: 500px;
-  align-items: center;
-}
-
-.navbar-collapse > .form-inline {
-  display: flex;
-  align-items: center;
-  margin-right:10px;
-}
-
-.navbar-collapse {
-  justify-content: space-between;
-  flex-grow: 0;
-  /* width: 1500px; */
-  /*width: auto;*/
-}
-
-.nav-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-}
-
-.navbar-expand-lg {
-  width: 1817.77px;
-  /*width: auto;*/
-  display: flex;
-  justify-content: space-between;
-
-  /* width:100% */
-}
-
-.dropdown-form{
-  width:100%;
-}
-
 .header-title {
   font-weight: 600;
   font-size: 2em;
@@ -119,19 +67,6 @@ form {
   margin-top: 400px;
 }
 
-.flex-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/** hard coded the width of the carousel cuz its position absolute**/
-.card-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 1817.77px;
-}
 .card {
   margin: 10px;
   display: grid;
@@ -253,25 +188,6 @@ form {
 .row > * {
   padding-right: 0px;
 }
-
-/*.bookmark {
-  position: absolute;
-  top: 5%;
-  left: 90%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  color: white;
-  background-color: #555;
-  font-size: 16px;
-  padding: 10px 12px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.bookmark:hover {
-  background-color: black;
-}*/
 
 .bookmark-icon {
   position: absolute;

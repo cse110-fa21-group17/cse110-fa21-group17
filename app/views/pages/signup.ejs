@@ -24,131 +24,24 @@
     ></script>
 
     <link rel="stylesheet" href="/stylesheets/login_style.css" />
+    <link rel="stylesheet" href="/stylesheets/navbar_style.css">
+
     <script src="/javascripts/passValid.js"></script>
   </head>
   <body>
     <header>
-      <div class="nav-container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div>
-            <!--logo div-->
-            <span class="icon" id="hot-dawg-icon"></span>
-            <!--SOME PNG LOGO-->
-            <a href="/">
-              <span class="nav-title">HOT DAWG</span>
-            </a>
-          </div>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline my-2 my-lg-0">
-              <input
-                class="form-control mr-sm-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button
-                class="btn btn-outline-success my-2 my-sm-0"
-                type="submit"
-              >
-                Search
-              </button>
-            </form>
-            <ul class="navbar-nav mr-auto">
-              <!-- <li class="nav-item">
-                <a class="nav-link" href="#">Saved</a>
-              </li> -->
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Recipe Types
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Popular</a>
-                  <a class="dropdown-item" href="#">Easy Cook</a>
-                  <a class="dropdown-item" href="#">Breakfast</a>
-                  <a class="dropdown-item" href="#">Lunch</a>
-                  <a class="dropdown-item" href="#">Dinner</a>
-                  <a class="dropdown-item" href="#">Egg Recipes</a>
-                  <a class="dropdown-item" href="#">Salad</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  Health
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">Body Calculator</a>
-                  <a class="dropdown-item" href="#">Calories Tracker</a>
-                </div>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="navbarDropdown"
-                  role="button"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <img
-                    class="nav-profile"
-                    src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-                    width="100px"
-                    alt=""
-                  />
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">My Saved Recipes</a>
-                  <a class="dropdown-item" href="#">My Measurements</a>
-                  <a class="dropdown-item" href="#">My Cookbook</a>
-                  <a class="dropdown-item" href="#">Add My Own Recipes</a>
-                  <a class="dropdown-item" href="#">Sign Out</a>
-                  <!-- <button class="logOutbtn" id="logOutbtn">Log Out</button> -->
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
+      <%- include('../components/navbar.ejs', {uid})%>
     </header>
 
     <main>
       <h1>Sign Up</h1>
-      <div class="flex-container">
+      <div class="login-flex-container">
         <form
           action="/signup"
           method="post"
           id="myForm"
           onsubmit="return ValidatePassword();"
+          class="signUpLoginForm"
         >
           <label for="email" class="signup-login-label">Email: </label><br>
           <input class="user_input" type="email" name="email" placeholder="Email" required />
