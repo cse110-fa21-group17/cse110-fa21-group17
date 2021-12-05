@@ -33,16 +33,8 @@ header {
   position: relative;
 }
 
-form {
-  display: inline-block;
-  width: 100%;
-  position: relative;
-}
 
-.form-control {
-  display: inline-block;
-  width: auto;
-}
+
 
 #right {
   position: absolute;

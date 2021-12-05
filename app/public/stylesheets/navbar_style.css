@@ -17,6 +17,7 @@
     font-weight: 800;
     font-size: 2em;
     margin: 0.5em 0 0.5em 0;
+    width:300px;
 }
 
 .navbar-toggler-icon {
@@ -25,15 +26,35 @@
 
 .navbar-collapse {
     justify-content: space-between;
-    flex-grow: 0;
-    /* width: 1500px; */
-    /*width: auto;*/
+    width:100%;
 }
 
 .navbar-collapse > .form-inline {
     display: flex;
     align-items: center;
     margin-right:10px;
+    flex-grow:1;
+    max-width:500px;
+}
+
+.form-control{
+    border-radius: 50px;
+    padding-right:42px;
+}
+.btn{
+    border-radius: 50px;
+    margin-left:-42px;
+    display: flex;
+    align-content: center;
+    height: 38px;
+    align-items: center;
+}
+
+.bi-search{
+    display:flex;
+    align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .navbar-nav {
