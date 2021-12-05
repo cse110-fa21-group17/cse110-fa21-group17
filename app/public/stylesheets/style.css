@@ -220,3 +220,21 @@ form {
     text-align: left;
   }
 }
+
+@media (max-width: 480px) {
+  body {
+    margin: 2em 0em;
+  }
+
+  .recipeCard {
+    width: 100%;
+    min-width: 300px;
+    height: auto;
+  }
+
+  .cardImage {
+    width: 100%;
+    min-width: 300px;
+    height: auto;
+  }
+}
