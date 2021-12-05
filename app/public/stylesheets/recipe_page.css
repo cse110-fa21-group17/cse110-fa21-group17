@@ -144,7 +144,7 @@ header {
 }
 .flex-box-groups p{
   padding:0 20px 0 20px;
-  white-space:pre-line;
+
 }
 
 /* light grey (211, 211, 211) or #D3D3D3 */
@@ -188,27 +188,22 @@ header {
 .flex-box-groups{
   display: flex;
   justify-content: space-around;
-  gap:5%;
+  margin-top: 20px;
 }
 
-
-@media (max-width: 900px) {
-  .flex-box-groups{
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .timer{
-    width:300px;
-  }
-}
 
 .recipe-box {
   background-color: #f0f0f0;
   border-radius: 0.8em;
   position: relative;
-  margin:20px;
+}
+
+.recipe-box:first-child{
+  margin-right: 50px;
+}
+
+.ingreds-width{
+  width:30vw;
 }
 
 .instruct-width{
@@ -240,8 +235,9 @@ https://www.youtube.com/watch?v=PIiMSMz7KzM&t=202s
   border-radius: 0.8em;
   background: #d3d3d3;
   text-align: center;
-  margin:20px;
+  margin-right: 50px;
   height: 200px;
+
 }
 
 .timer__part {
