@@ -140,23 +140,24 @@ form {
   text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
-.p_with_new_line {
+.title-basis{
+  flex-basis: 100%;
+}
+
+.flex-box-groups h1 {
   white-space: pre-line;
   text-align: left;
-  padding: 10px;
+  padding:20px 20px 0 20px;
+
+}
+.flex-box-groups p{
+  padding:0 20px 0 20px;
+
 }
 
 /* light grey (211, 211, 211) or #D3D3D3 */
 
-.item1 {
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  border-radius: 0.8em;
-  width: 100%;
-  height: 377px;
-  grid-area: img;
-}
+
 
 .cardImage2 {
   border-radius: 0.8em;
@@ -185,36 +186,51 @@ form {
   height: 377px;
 }
 
-/* steps */
-
-.ing {
-  grid-area: ing;
-  text-align: left;
+.flex-container-recipe{
+  display:flex;
+  flex-direction: column;
+  width:1817px;
+  margin:0 auto;
 }
 
-.ing,
-.steps,
-.nut,
-.timer h1 {
-  text-align: center;
+.flex-box-groups{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
-.steps {
-  grid-area: steps;
+
+.recipe-box {
+  background-color: #f0f0f0;
+  border-radius: 0.8em;
+  position: relative;
 }
 
-.nut {
-  grid-area: nutrition;
+.recipe-box:first-child{
+  margin-right: 50px;
 }
 
-.nut > .p_with_new_line {
-  text-align: center;
+.ingreds-width{
+  width:30vw;
 }
 
-.timer {
-  grid-area: timer;
+.instruct-width{
+  width:70vw;
 }
 
+@media (max-width: 1817px) {
+  /* .recipe-box{
+    width:auto;
+  } */
+  .flex-container-recipe{
+     width:auto;
+  }
+
+  .recipeCard2 {
+    margin: auto;
+    width: 100%;
+  }
+}
 
 /*
 Start of Citation
@@ -224,10 +240,12 @@ https://www.youtube.com/watch?v=PIiMSMz7KzM&t=202s
 .timer {
   font-family: 'Nunito', sans-serif;
   display: inline-block;
-  padding: 24px 32px;
-  border-radius: 30px;
+  border-radius: 0.8em;
   background: #d3d3d3;
   text-align: center;
+  margin-right: 50px;
+  height: 200px;
+
 }
 
 .timer__part {
@@ -263,67 +281,3 @@ End of Citation
 } */
 
 /* end of timer */
-
-.grid-container {
-  display: grid;
-  grid-template-areas: 
-    'img img'
-    'ing steps'
-    'timer nutrition';
-  grid-template-columns: 40% 40%;
-  grid-gap: 10px;
-  background-color: white;
-}
-
-.grid-container > .ing,
-.steps,
-.nut,
-.timer {
-  background-color: #d3d3d3;
-  border-radius: 0.8em;
-  position: relative;
-  margin-left: 10px;
-  margin-right: 10px;
-  height: auto;
-  width: 35vw;
-  overflow: wrap;
-}
-
-@media (max-width: 1225px) {
-  .grid-container {
-    grid-template-areas: 
-      'img'
-      'ing'
-      'steps'
-      'timer'
-      'nutrition';
-    grid-template-columns: 100%;
-    grid-gap: 10px;
-    background-color: white;
-  }
-
-  .recipeCard2 {
-    margin: auto;
-    width: 100%;
-  }
-
-  .grid-container > .ing,
-  .steps,
-  .nut,
-  .timer {
-    background-color: #d3d3d3;
-    border-radius: 0.8em;
-    margin: auto;
-    position: relative;
-    height: auto;
-    width: 100%;
-    overflow: wrap;
-  }
-}
-
-@media (max-width: 468px) {
-  body {
-    margin: 2em;
-    background-color: #ffffff;
-  }
-}
