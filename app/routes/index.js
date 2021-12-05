@@ -36,6 +36,31 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+router.get('/search/:val', async function(req, res, next){
+  try{
+    const uid = req.user?req.user.id:null;
+    const val = req.params.val;
+    const response = await axios.get(`https://api.spoonacular.com/recipes/complexSearch?query=${val}&apiKey=${process.env.SPOON_API}`);
+    const initial_recipes = response.data.results;
+    const spoonacular_recipes = await recipesModel.getByNullRidAndUid(uid);
+    const saved_ids = await Promise.all(spoonacular_recipes.map(recipe => recipe.sid));
+    const ids = [];
+    initial_recipes.map(async (recipe) => {
+      ids.push(recipe.id);
+    });
+    const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
+
+    const topRecipes = bulkResponse.data;
+    topRecipes.map(recipe => {
+      recipe.is_saved = saved_ids.includes(recipe.id);
+    });
+    return res.send(topRecipes);
+  } catch(err){
+    console.error(err);
+    return res.send('failed');
+  }
+});
+
 router.get('/login', async function(req, res, next){
   const uid = req.user?req.user.id:null;
   res.render('pages/login', {title: 'Log In', uid});
