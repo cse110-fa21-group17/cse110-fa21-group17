@@ -188,6 +188,7 @@ header {
 .flex-box-groups{
   display: flex;
   justify-content: space-around;
+  gap:5%;
 }
 
 
