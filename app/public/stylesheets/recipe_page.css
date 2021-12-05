@@ -210,6 +210,10 @@ form {
   margin-right: 50px;
 }
 
+.recipe-box.p {
+  white-space: pre-line;
+}
+
 .ingreds-width{
   width:30vw;
 }
@@ -281,3 +285,26 @@ End of Citation
 } */
 
 /* end of timer */
+
+@media (max-width: 480px) {
+  body {
+    margin: 0.5em;
+  }
+
+  .flex-box-groups {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ingreds-width, .instruct-width {
+    width: 100%;
+  }
+
+  .recipe-box:first-child {
+    margin-bottom: 1em;
+  }
+
+  .timer {
+    margin-bottom: 1em;
+  }
+}
