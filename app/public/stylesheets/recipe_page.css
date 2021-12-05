@@ -196,7 +196,7 @@ form {
 .flex-box-groups{
   display: flex;
   justify-content: space-around;
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 
