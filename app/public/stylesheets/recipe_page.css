@@ -210,7 +210,7 @@ form {
   margin-right: 50px;
 }
 
-.recipe-box.p {
+.flex-box-groups p {
   white-space: pre-line;
 }
 
@@ -286,7 +286,7 @@ End of Citation
 
 /* end of timer */
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   body {
     margin: 0.5em;
   }
