@@ -223,7 +223,7 @@ form {
 
 @media (max-width: 480px) {
   body {
-    margin: 2em 0em;
+    margin: 0.5em;
   }
 
   .recipeCard {
