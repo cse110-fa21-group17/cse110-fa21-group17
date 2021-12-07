@@ -28,6 +28,7 @@ function bookMarkRecipe(rid, is_database, is_saved){
             },
         });
     } else {
+        bookmark.classList.replace("bi-bookmark-fill", "bi-bookmark");
         $.ajax({
             type: "GET",
             url: is_database?('/dashboard/delete_recipe/'+rid):('/dashboard/delete_spoon_recipe/'+rid),
@@ -35,6 +36,7 @@ function bookMarkRecipe(rid, is_database, is_saved){
                 bookmark.classList.replace("bi-bookmark-fill", "bi-bookmark");
             },
             error: function (error) {
+                bookmark.classList.replace("bi-bookmark", "bi-bookmark-fill");
                 console.log(error);
             },
         });
