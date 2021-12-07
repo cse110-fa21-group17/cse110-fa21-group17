@@ -1,11 +1,11 @@
-function myFunction() {
+/* function myFunction() {
   var x = document.getElementById("myTopnav");
   if (x.className === "nav-container") {
     x.className += " responsive";
   } else {
     x.className = "nav-container";
   }
-}
+} */
 
 function bookMarkRecipe(rid, is_database, is_saved){
     event.stopPropagation();
