@@ -42,7 +42,6 @@ jobs:
             envkey_DATABASE: ${{ secrets.DATABASE }}
             envkey_SECRETKEY: ${{ secrets.DATABASE }}
             envkey_SPOON_API: ${{ secrets.DATABASE }}
-    - run: echo $HOST
     - run: npm ci
       working-directory: app
     - run: npm run build --if-present
