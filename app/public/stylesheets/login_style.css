@@ -55,48 +55,6 @@ form {
   width: 3em;
 }
 
-.nav-link {
-  color: black;
-}
-
-.nav-title {
-  font-weight: 800;
-  font-size: 2em;
-  margin: 0.5em 0 0.5em 0;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,102,203, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-}
-
-.navbar-nav {
-  justify-content: space-around;
-  width: 500px;
-  align-items: center;
-}
-
-.navbar-collapse > .form-inline {
-  display: flex;
-  align-items: center;
-}
-
-.navbar-collapse {
-  justify-content: space-between;
-  flex-grow: 0;
-  width: 1500px;
-}
-
-.nav-container {
-  display: flex;
-  justify-content: center;
-}
-
-.navbar-expand-lg {
-  width: 1817.77px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .header-title {
   font-weight: 600;
   font-size: 2em;
@@ -110,20 +68,6 @@ form {
 
 .my-cook-book {
   margin-top: 400px;
-}
-
-.flex-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-/** hard coded the width of the carousel cuz its position absolute**/
-.card-flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 1817.77px;
 }
 
 .user_input {
@@ -173,7 +117,7 @@ h1 {
   font-size: 1.5em;
 }
 
-form {
+.signUpLoginForm {
   width: 70%;
 }
 
@@ -193,4 +137,11 @@ form {
   opacity: 0.9;
   border-radius: 50px;
   font-size: 1.5em;
+}
+
+.login-flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin:0 auto;
 }
