@@ -36,6 +36,40 @@ router.get('/', async function(req, res, next) {
   }
 });
 
+router.get('/filter/:type', async function(req, res, next){
+  try {
+    const uid = req.user?req.user.id:null;
+    const type = req.params.type;
+    const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=8&type=${type}&apiKey=${process.env.SPOON_API}`);
+    const initial_recipes = response.data.recipes;
+    const spoonacular_recipes = await recipesModel.getByNullRidAndUid(uid);
+    const saved_ids = await Promise.all(spoonacular_recipes.map(recipe => recipe.sid));
+    const ids = [];
+    initial_recipes.map(async (recipe) => {
+      ids.push(recipe.id);
+    });
+    const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
+
+    const topRecipes = bulkResponse.data;
+    topRecipes.map(recipe => {
+      recipe.is_saved = saved_ids.includes(recipe.id);
+    });
+    return res.render('index', {title: 'Hot-Dawg', topRecipes, uid});
+  } catch (err){
+    console.error(err);
+    return res.status(500).json({status: 'internal server error'});
+  }
+});
+
+router.get('/calorie_calculator', async function(req, res, next){
+  try{
+    return res.render('pages/calorie_calculator', {title: 'Calorie Calculator'});
+  } catch (err){
+    console.error(err);
+    return res.status(500).json({status: 'internal server error'});
+  }
+});
+
 router.get('/search/:val', async function(req, res, next){
   try{
     const uid = req.user?req.user.id:null;
@@ -90,7 +124,7 @@ router.post('/login', async function(req, res, next){
     res.clearCookie('token');
     res.cookie("token", user_token);
 
-    res.redirect('/dashboard');
+    res.redirect('/');
   } catch (err){
     console.error(err);
     return res.status(500)
@@ -168,6 +202,16 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next){
 
 router.get('/healthcheck', async function(req, res, next){
   return res.status(200).json({status: 'success'});
+});
+
+router.get('/logout', async function(req, res, next){
+  try {
+    res.clearCookie('token');
+    return res.redirect('/');
+  } catch(err){
+    console.error(err);
+    return res.status(500).json({status: 'Internal server error'});
+  }
 });
 
 module.exports = router;
