@@ -33,15 +33,15 @@ jobs:
         cache: 'npm'
         cache-dependency-path: app/package-lock.json
     - name: create env
-        uses: SpicyPizza/create-envfile@v1
-        with:
-            envkey_HOST: ${{ secrets.HOST }}
-            envkey_DATAPORT: ${{ secrets.DATAPORT }}
-            envkey_DATAUSER: ${{ secrets.DATAUSER }}
-            envkey_PASSWORD: ${{ secrets.PASSWORD }}
-            envkey_DATABASE: ${{ secrets.DATABASE }}
-            envkey_SECRETKEY: ${{ secrets.DATABASE }}
-            envkey_SPOON_API: ${{ secrets.DATABASE }}
+      uses: SpicyPizza/create-envfile@v1
+      with:
+        envkey_HOST: ${{ secrets.HOST }}
+        envkey_DATAPORT: ${{ secrets.DATAPORT }}
+        envkey_DATAUSER: ${{ secrets.DATAUSER }}
+        envkey_PASSWORD: ${{ secrets.PASSWORD }}
+        envkey_DATABASE: ${{ secrets.DATABASE }}
+        envkey_SECRETKEY: ${{ secrets.DATABASE }}
+        envkey_SPOON_API: ${{ secrets.DATABASE }}
     - run: npm ci
       working-directory: app
     - run: npm run build --if-present
