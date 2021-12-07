@@ -24,7 +24,7 @@
 <label for="nav-trigger" class="overlay"></label>
 
 <nav>
-    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Timer.html">Timer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Timer.html#start">start</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByEmail">getByEmail</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getById">getById</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByUid">getByUid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByUidAndNullRid">getByUidAndNullRid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByUidAndRid">getByUidAndRid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertAsCreator">insertAsCreator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#removeByUidAndRid">removeByUidAndRid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateById">updateById</a></span></li>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Timer.html">Timer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Timer.html#start">start</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#doSearch">doSearch</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByEmail">getByEmail</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getById">getById</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByNullRidAndUid">getByNullRidAndUid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByUid">getByUid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByUidAndNullRid">getByUidAndNullRid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByUidAndRid">getByUidAndRid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#getByUidAndSid">getByUidAndSid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insert">insert</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#insertAsCreator">insertAsCreator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#removeByUidAndRid">removeByUidAndRid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#removeByUidAndSid">removeByUidAndSid</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#updateById">updateById</a></span></li>
 </nav>
 
 <div id="main">
@@ -66,6 +66,19 @@ async function getByUidAndNullRid(uid){
 }
 
 /**
+ * insert into saved recipes
+ * @param payload
+ * @returns {Promise&lt;void>}
+ */
+async function insert(payload) {
+    try {
+        await db('saved_recipes')
+            .insert(payload);
+    } catch (err) {
+        console.error(err);
+    }
+}
+/**
  * remove by user id and recipe id
  * @param uid
  * @param rid
@@ -76,6 +89,22 @@ async function removeByUidAndRid(uid, rid){
         await db('saved_recipes')
             .del()
             .where({uid, rid});
+    } catch (err){
+        console.error(err);
+    }
+}
+
+/**
+ * remove by uid and sid
+ * @param uid
+ * @param sid
+ * @returns {Promise&lt;void>}
+ */
+async function removeByUidAndSid(uid, sid){
+    try {
+        await db('saved_recipes')
+            .del()
+            .where({uid, sid});
     } catch (err){
         console.error(err);
     }
@@ -94,7 +123,20 @@ async function getByUidAndRid(uid, rid){
     return data;
 }
 
-module.exports={getByUid, getByUidAndNullRid, removeByUidAndRid, getByUidAndRid};
+/**
+ * get by uid and sid
+ * @param uid
+ * @param sid
+ * @returns {Promise&lt;void>}
+ */
+async function getByUidAndSid(uid, sid){
+    const data = await db('saved_recipes')
+        .select('*')
+        .where({uid, sid});
+    return data;
+}
+
+module.exports={getByUid, getByUidAndNullRid, insert, removeByUidAndRid, getByUidAndRid, getByUidAndSid, removeByUidAndSid};
 
 </code></pre>
         </article>
@@ -108,7 +150,7 @@ module.exports={getByUid, getByUidAndNullRid, removeByUidAndRid, getByUidAndRid}
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.4</a> on Wed Dec 01 2021 03:35:56 GMT+0000 (Coordinated Universal Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Tue Dec 07 2021 20:22:18 GMT+0000 (Coordinated Universal Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

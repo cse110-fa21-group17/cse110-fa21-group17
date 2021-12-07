@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>public/javascripts/autoSearch.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,25 +29,83 @@
 
 <div id="main">
     
+    <h1 class="page-title">public/javascripts/autoSearch.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>let timer = null;
 
+$('input#search_bar').keyup(function() {
+    if (timer) {
+        clearTimeout(timer);
+    }
+    timer = setTimeout(function() {
+        doSearch()
+    }, 200);
+});
 
-
-
-
-
-
-
-
-    
-
-
-
+/**
+ * search on input
+ */
+function doSearch(){
+    if($('input#search_bar').val()===''){
+        $('#top-recipe').show();
+        $('#result').hide();
+        return;
+    }
+    $('#top-recipe').hide();
+    $('#result').show();
+    $('#result').html(
+        `&lt;h1 class="header-title top-recipes">Search Result:&lt;/h1>
+        &lt;div class="spinner-border" role="status" id="spinner">
+            &lt;span class="sr-only">&lt;/span>
+        &lt;/div>`
+    );
+    $.ajax({
+        type: "GET",
+        url: '/search/'+$('input#search_bar').val(),
+        success: function (res) {
+            $('#result').html('');
+            if(!res || res.length === 0 || res==='failed'){
+                $('#result').html(
+                    `&lt;h1 class="header-title top-recipes">No result found&lt;/h1>`
+                );
+            }
+            let result_html = `&lt;h1 class="header-title top-recipes">Search Result:&lt;/h1>`;
+            res.map(recipe => {
+                result_html += `&lt;div class="recipeCard" onclick="window.location.href='/recipe_page/${recipe.id}/false'">
+                                  &lt;div class="bookmark-icon">
+                                    &lt;!--TODO: Replace with some kind of unique identifier for the bookmark in each card-->
+                                    &lt;a>&lt;i class="bi ${recipe.is_saved?'bi-bookmark-fill':'bi-bookmark'}" id="bookmark${recipe.id}" style="font-size: 2em;"
+                                      onclick="bookMarkRecipe(${recipe.id}, false, ${recipe.is_saved})">&lt;/i>&lt;/a>
+                                  &lt;/div>
+                                  &lt;div class="cardText">
+                                    &lt;p class="recipeTitle">${recipe.title}&lt;/p>
+                                    &lt;p class="card-tags">Health Score: ${recipe.healthScore}&lt;/p>
+                                    &lt;p class="card-details">${recipe.readyInMinutes} Mins | ${recipe.extendedIngredients.length} Ingredients
+                                    &lt;/p>
+                                  &lt;/div>
+                                  &lt;img src="${recipe.image}" class="cardImage">
+                                &lt;/div>`
+            });
+            $('#result').html(
+                result_html
+            );
+        },
+        error: function (error) {
+            console.log(error);
+        },
+    });
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
