@@ -2,7 +2,7 @@ const app = require('../../app');
 const request = require('supertest');
 require('dotenv').config();
 
-console.log(process.env);
+console.log(process.env.HOST);
 
 const failCredentials = {
     email: 'test@test.com',
