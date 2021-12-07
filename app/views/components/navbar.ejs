@@ -32,13 +32,13 @@
               Filter By Types
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <input class="dropdown-item" type="button" value="Main Course">
-              <input class="dropdown-item" type="button" value="Side">
-              <input class="dropdown-item" type="button" value="Dessert">
-              <input class="dropdown-item" type="button" value="Appetizer">
-              <input class="dropdown-item" type="button" value="Salad">
-              <input class="dropdown-item" type="button" value="Bread">
-              <input class="dropdown-item" type="button" value="Breakfast">
+              <input class="dropdown-item" type="button" value="Main Course" onclick="window.location.href='/filter/maincourse'">
+              <input class="dropdown-item" type="button" value="Side" onclick="window.location.href='/filter/side'">
+              <input class="dropdown-item" type="button" value="Dessert" onclick="window.location.href='/filter/dessert'">
+              <input class="dropdown-item" type="button" value="Appetizer" onclick="window.location.href='/filter/appetizer'">
+              <input class="dropdown-item" type="button" value="Salad" onclick="window.location.href='/filter/salad'">
+              <input class="dropdown-item" type="button" value="Bread" onclick="window.location.href='/filter/bread'">
+              <input class="dropdown-item" type="button" value="Breakfast" onclick="window.location.href='/filter/breakfast'">
             </div>
           </li>
           <li class="nav-item dropdown">
@@ -88,7 +88,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">My Measurements</a>
                 <a class="dropdown-item" href="/dashboard">My Cookbook</a>
-                <a class="logOutbtn dropdown-item" href="#">Log Out</a>
+                <a class="logOutbtn dropdown-item" href="/logout">Log Out</a>
               </div>
             </div>
           <%}%>
