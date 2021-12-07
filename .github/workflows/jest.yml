@@ -13,16 +13,25 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     defaults:
       run:
         working-directory: ./app
+
+    env:
+      HOST: ${{ secrets.HOST }}
+      DATAPORT: ${{ secrets.DATAPORT }}
+      DATAUSER: ${{ secrets.DATAUSER }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      DATABASE: ${{ secrets.DATABASE }}
+      SECRETKEY: ${{ secrets.DATABASE }}
+      SPOON_API: ${{ secrets.DATABASE }}
 
     strategy:
       matrix:
         node-version: [12.x, 14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-      
+
 
     steps:
     - uses: actions/checkout@v2
