@@ -32,21 +32,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: app/package-lock.json
-        HOST: ${{ secrets.HOST }}
-        DATAPORT: ${{ secrets.DATAPORT }}
-        DATAUSER: ${{ secrets.DATAUSER }}
-        PASSWORD: ${{ secrets.PASSWORD }}
-        DATABASE: ${{ secrets.DATABASE }}
-        SECRETKEY: ${{ secrets.DATABASE }}
-        SPOON_API: ${{ secrets.DATABASE }}
-      env:
-        HOST: ${{ secrets.HOST }}
-        DATAPORT: ${{ secrets.DATAPORT }}
-        DATAUSER: ${{ secrets.DATAUSER }}
-        PASSWORD: ${{ secrets.PASSWORD }}
-        DATABASE: ${{ secrets.DATABASE }}
-        SECRETKEY: ${{ secrets.DATABASE }}
-        SPOON_API: ${{ secrets.DATABASE }}
+    - name: create env
+        uses: SpicyPizza/create-envfile@v1
+        with:
+            envkey_HOST: ${{ secrets.HOST }}
+            envkey_DATAPORT: ${{ secrets.DATAPORT }}
+            envkey_DATAUSER: ${{ secrets.DATAUSER }}
+            envkey_PASSWORD: ${{ secrets.PASSWORD }}
+            envkey_DATABASE: ${{ secrets.DATABASE }}
+            envkey_SECRETKEY: ${{ secrets.DATABASE }}
+            envkey_SPOON_API: ${{ secrets.DATABASE }}
     - run: echo $HOST
     - run: npm ci
       working-directory: app
