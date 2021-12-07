@@ -43,11 +43,14 @@
 }
 .btn{
     border-radius: 50px;
-    margin-left:-42px;
     display: flex;
     align-content: center;
     height: 38px;
     align-items: center;
+}
+
+.margin-left-42{
+    margin-left:-42px;
 }
 
 .bi-search{
