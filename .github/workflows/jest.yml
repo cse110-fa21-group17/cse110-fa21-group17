@@ -18,6 +18,15 @@ jobs:
       run:
         working-directory: ./app
 
+    env:
+      HOST: ${{ secrets.HOST }}
+      DATAPORT: ${{ secrets.DATAPORT }}
+      DATAUSER: ${{ secrets.DATAUSER }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      DATABASE: ${{ secrets.DATABASE }}
+      SECRETKEY: ${{ secrets.DATABASE }}
+      SPOON_API: ${{ secrets.DATABASE }}
+
     strategy:
       matrix:
         node-version: [12.x, 14.x]
@@ -26,24 +35,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: display env
+      run: |
+        echo "The Host is: ${{ env.HOST }}"
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: app/package-lock.json
-    - name: create env
-      uses: SpicyPizza/create-envfile@v1
-      with:
-        envkey_HOST: ${{ secrets.HOST }}
-        envkey_DATAPORT: ${{ secrets.DATAPORT }}
-        envkey_DATAUSER: ${{ secrets.DATAUSER }}
-        envkey_PASSWORD: ${{ secrets.PASSWORD }}
-        envkey_DATABASE: ${{ secrets.DATABASE }}
-        envkey_SECRETKEY: ${{ secrets.DATABASE }}
-        envkey_SPOON_API: ${{ secrets.DATABASE }}
-        directory: app
-        file_name: .env
     - run: npm ci
       working-directory: app
     - run: npm run build --if-present
