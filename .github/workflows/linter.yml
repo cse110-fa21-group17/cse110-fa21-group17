@@ -1,15 +1,17 @@
 name: Lint
 
-on: [push]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   eslint:
     runs-on: ubuntu-latest
-    container: node:14
     steps:
       - uses: actions/checkout@v1
-      - uses: 18f/18f-eslint-action@v1.0.0
+      - uses: stefanoeb/eslint-action@1.0.2
         with:
-          lint-glob: '**/*.js'
+          files: '**/*.js'
           working-directory: app
-
