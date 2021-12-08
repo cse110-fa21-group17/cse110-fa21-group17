@@ -6,10 +6,10 @@ const db = require('../dbConfig');
  * @return array []
  */
 async function getById(id) {
-  const rows = await db('users')
-      .where({id})
-      .select('*');
-  return rows;
+    const rows = await db('users')
+        .where({id})
+        .select('*');
+    return rows;
 }
 
 /**
@@ -18,10 +18,10 @@ async function getById(id) {
  * @return array []
  */
 async function getByEmail(email) {
-  const rows = await db('users')
-      .where({email})
-      .select('*');
-  return rows;
+    const rows = await db('users')
+        .where({email})
+        .select('*');
+    return rows;
 }
 
 /**
@@ -30,14 +30,14 @@ async function getByEmail(email) {
  * @return {Promise<{status: string}>}
  */
 async function insert(user) {
-  try {
-    await db('users')
-        .insert(user);
-    return {status: 'success'};
-  } catch (err) {
-    console.error(err);
-    return {status: 'failed'};
-  }
+    try {
+        await db('users')
+            .insert(user);
+        return {status: 'success'};
+    } catch (err) {
+        console.error(err);
+        return {status: 'failed'};
+    }
 }
 
 module.exports={getById, getByEmail, insert};

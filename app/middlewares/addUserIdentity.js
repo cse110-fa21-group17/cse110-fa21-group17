@@ -9,19 +9,19 @@ require('dotenv').config();
  * @return {Promise<void>}
  */
 async function addUserIdentity(req, res, next) {
-  try {
-    const token = req.cookies.token;
-    const payload = token ? await tokenUtil.validateToken(token) : null;
-    if (payload) {
-      req.user = payload.user;
-      next();
-    } else {
-      req.user = null;
-      next();
+    try {
+        const token = req.cookies.token;
+        const payload = token ? await tokenUtil.validateToken(token) : null;
+        if (payload) {
+            req.user = payload.user;
+            next();
+        } else {
+            req.user = null;
+            next();
+        }
+    } catch (err) {
+        res.redirect('/');
     }
-  } catch (err) {
-    res.redirect('/');
-  }
 }
 
 module.exports=addUserIdentity;
