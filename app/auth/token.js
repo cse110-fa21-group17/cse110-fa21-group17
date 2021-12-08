@@ -5,9 +5,9 @@ const jwt = require('jsonwebtoken');
  * @param token
  * @returns {Promise<user json>}
  */
-async function validateToken(token){
+async function validateToken(token) {
   return jwt.verify(token, process.env.SECRETKEY, async function(err, authData) {
-        if (err) {
+    if (err) {
       return null;
     } else {
       return authData;
@@ -20,11 +20,11 @@ async function validateToken(token){
  * @param userDataPacket
  * @return {Promise<token|*>}
  */
-async function generateToken(user){
+async function generateToken(user) {
   return jwt.sign({user}, process.env.SECRETKEY);
 }
 
 module.exports = {
   validateToken,
-  generateToken
+  generateToken,
 };
