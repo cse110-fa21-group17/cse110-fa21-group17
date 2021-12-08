@@ -11,5 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: stefanoeb/eslint-action@1.0.2
+        working-directory: app
         with:
-          files: app
+          files: app/
