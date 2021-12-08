@@ -8,6 +8,9 @@ jobs:
       - name: Install modules
         run: npm install
         working-directory: app
+      - name: Install eslint
+        run: npm install -g eslint --save-dev
+        working-directory: app
       - name: Run ESLint
         run: eslint . --ext .js,.jsx,.ts,.tsx
         working-directory: app
