@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>database/models/usersModel.js - Documentation</title>
+    <title>public/javascripts/landingPage.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">database/models/usersModel.js</h1>
+    <h1 class="page-title">public/javascripts/landingPage.js</h1>
     
 
     
@@ -39,49 +39,55 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const db = require('../dbConfig');
-
+            <pre class="prettyprint source linenums"><code>/* function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "nav-container") {
+    x.className += " responsive";
+  } else {
+    x.className = "nav-container";
+  }
+} */
 /**
- * get user by id
- * @param id
- * @return array []
+ * bookmark selected recipe
+ * @param rid
+ * @param is_database
+ * @param is_saved
  */
-async function getById(id) {
-    const rows = await db('users')
-        .where({id})
-        .select('*');
-    return rows;
-}
-
-/**
- * get user by email
- * @param id
- * @return array []
- */
-async function getByEmail(email) {
-    const rows = await db('users')
-        .where({email})
-        .select('*');
-    return rows;
-}
-
-/**
- * insert user into users table
- * @param user
- * @return {Promise&lt;{status: string}>}
- */
-async function insert(user) {
-    try {
-        await db('users')
-            .insert(user);
-        return {status: 'success'};
-    } catch (err) {
-        console.error(err);
-        return {status: 'failed'};
+function bookMarkRecipe(rid, is_database, is_saved) {
+    event.stopPropagation();
+    console.log(is_saved);
+    const bookmark = document.getElementById('bookmark' + rid);
+    if (bookmark.classList.contains('bi-bookmark')) {
+        $.ajax({
+            type: 'POST',
+            url: '/dashboard/saved_recipe',
+            data: {rid, is_database},
+            success: function(res) {
+                if (res === 'success') {
+                    bookmark.classList.replace('bi-bookmark', 'bi-bookmark-fill');
+                } else {
+                    window.location.href = '/login';
+                }
+            },
+            error: function(error) {
+                window.location.href = '/login';
+            },
+        });
+    } else {
+        bookmark.classList.replace('bi-bookmark-fill', 'bi-bookmark');
+        $.ajax({
+            type: 'GET',
+            url: is_database?('/dashboard/delete_recipe/'+rid):('/dashboard/delete_spoon_recipe/'+rid),
+            success: function(res) {
+                bookmark.classList.replace('bi-bookmark-fill', 'bi-bookmark');
+            },
+            error: function(error) {
+                bookmark.classList.replace('bi-bookmark', 'bi-bookmark-fill');
+                console.log(error);
+            },
+        });
     }
 }
-
-module.exports={getById, getByEmail, insert};
 </code></pre>
         </article>
     </section>

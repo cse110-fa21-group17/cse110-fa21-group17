@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>database/models/usersModel.js - Documentation</title>
+    <title>public/javascripts/passValid.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">database/models/usersModel.js</h1>
+    <h1 class="page-title">public/javascripts/passValid.js</h1>
     
 
     
@@ -39,49 +39,23 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>const db = require('../dbConfig');
-
-/**
- * get user by id
- * @param id
- * @return array []
+            <pre class="prettyprint source linenums"><code>/**
+ * validate password
+ * @returns {boolean}
+ * @constructor
  */
-async function getById(id) {
-    const rows = await db('users')
-        .where({id})
-        .select('*');
-    return rows;
-}
+function ValidatePassword() {
+    const myForm = document.getElementById('myForm');
+    const password = myForm.elements['password'].value;
+    const confirm_password = myForm.elements['confirm_password'].value;
 
-/**
- * get user by email
- * @param id
- * @return array []
- */
-async function getByEmail(email) {
-    const rows = await db('users')
-        .where({email})
-        .select('*');
-    return rows;
-}
-
-/**
- * insert user into users table
- * @param user
- * @return {Promise&lt;{status: string}>}
- */
-async function insert(user) {
-    try {
-        await db('users')
-            .insert(user);
-        return {status: 'success'};
-    } catch (err) {
-        console.error(err);
-        return {status: 'failed'};
+    if (password !== confirm_password) {
+        alert('Please make sure passwords match.');
+        return false;
+    } else {
+        return true;
     }
-}
-
-module.exports={getById, getByEmail, insert};
+};
 </code></pre>
         </article>
     </section>
