@@ -11,16 +11,16 @@ https://help.github.com/en/articles/workflow-syntax-for-github-actions
 Version v4.8.1 \
 Configuration: default
 Super linter is a set of linters, for our project, it uses the default linter for all languages, relevant language -> linter pairs are listed here:
-  - SQL	sql-lint / sqlfluff
-  - XML	LibXML
-  - Markdown	markdownlint
-  - JSON	eslint-plugin-json
-  - JavaScript	ESLint / standard js
-  - HTML	HTMLHint
-  - GitHub Actions	actionlint
-  - ENV	dotenv-linter
-  - Dockerfile	dockerfilelint / hadolint
-  - AWS CloudFormation templates	cfn-lint
+- SQL	sql-lint / sqlfluff
+- XML	LibXML
+- Markdown	markdownlint
+- JSON	eslint-plugin-json
+- JavaScript	ESLint / standard js
+- HTML	HTMLHint
+- GitHub Actions	actionlint
+- ENV	dotenv-linter
+- Dockerfile	dockerfilelint / hadolint
+- AWS CloudFormation templates	cfn-lint
 
 >   note:
 For debug purpose only. Note that the latest release (by 11/16/2021) of super-linter version 4.8.3 fail to operate in ubuntu-latest within github Action. Version number is manually specified to be 4.8.1 and that solves the bug. 
