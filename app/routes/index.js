@@ -140,6 +140,7 @@ router.post('/signup', async function(req, res, next) {
     try {
     // get user from frontend
         const uid = req.user?req.user.id:null;
+
         const new_user = req.body;
         const users = await usersModel.getByEmail(new_user.email);
 
