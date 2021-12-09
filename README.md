@@ -5,8 +5,8 @@
 [![Codacy Analysis CLI](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codacy-analysis.yml/badge.svg)](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codacy-analysis.yml)
 [![superlinter](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/linter.yml/badge.svg)](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/linter.yml)
 [![jest](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/jest.yml/badge.svg)](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/jest.yml)
-<!-- [![codeCov](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codeCov.yml/badge.svg)](https://github.com/cse110-fa21-group17/cse110-fa21-group17/actions/workflows/codeCov.yml)
-[![Eslint](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml/badge.svg)](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml) -->
+[![Eslint](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml/badge.svg)](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml)
+[![codecov](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17/branch/main/graph/badge.svg?token=45SG1DU66Z)](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17)
 
 Click [here](admin/team.md) to learn about our team members
 

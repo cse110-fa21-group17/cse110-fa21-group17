@@ -6,7 +6,7 @@ require('dotenv').config();
  * @param req
  * @param res
  * @param next
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
 async function verifyCookieToken(req, res, next) {
     try {
@@ -16,10 +16,10 @@ async function verifyCookieToken(req, res, next) {
             req.user = payload.user;
             next();
         } else {
-            res.redirect('/login')
+            res.redirect('/login');
         }
-    } catch (err){
-        res.redirect('/login')
+    } catch (err) {
+        res.redirect('/login');
     }
 }
 
