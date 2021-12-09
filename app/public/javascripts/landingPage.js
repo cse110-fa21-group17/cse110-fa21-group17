@@ -6,37 +6,42 @@
     x.className = "nav-container";
   }
 } */
-
-function bookMarkRecipe(rid, is_database, is_saved){
+/**
+ * bookmark selected recipe
+ * @param rid
+ * @param is_database
+ * @param is_saved
+ */
+function bookMarkRecipe(rid, is_database, is_saved) {
     event.stopPropagation();
     console.log(is_saved);
     const bookmark = document.getElementById('bookmark' + rid);
-    if(bookmark.classList.contains("bi-bookmark")) {
+    if (bookmark.classList.contains('bi-bookmark')) {
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: '/dashboard/saved_recipe',
             data: {rid, is_database},
-            success: function (res) {
+            success: function(res) {
                 if (res === 'success') {
-                    bookmark.classList.replace("bi-bookmark", "bi-bookmark-fill");
+                    bookmark.classList.replace('bi-bookmark', 'bi-bookmark-fill');
                 } else {
                     window.location.href = '/login';
                 }
             },
-            error: function (error) {
+            error: function(error) {
                 window.location.href = '/login';
             },
         });
     } else {
-        bookmark.classList.replace("bi-bookmark-fill", "bi-bookmark");
+        bookmark.classList.replace('bi-bookmark-fill', 'bi-bookmark');
         $.ajax({
-            type: "GET",
+            type: 'GET',
             url: is_database?('/dashboard/delete_recipe/'+rid):('/dashboard/delete_spoon_recipe/'+rid),
-            success: function (res) {
-                bookmark.classList.replace("bi-bookmark-fill", "bi-bookmark");
+            success: function(res) {
+                bookmark.classList.replace('bi-bookmark-fill', 'bi-bookmark');
             },
-            error: function (error) {
-                bookmark.classList.replace("bi-bookmark", "bi-bookmark-fill");
+            error: function(error) {
+                bookmark.classList.replace('bi-bookmark', 'bi-bookmark-fill');
                 console.log(error);
             },
         });

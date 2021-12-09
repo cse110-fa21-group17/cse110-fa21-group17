@@ -5,15 +5,15 @@ $('input#search_bar').keyup(function() {
         clearTimeout(timer);
     }
     timer = setTimeout(function() {
-        doSearch()
+        doSearch();
     }, 200);
 });
 
 /**
  * search on input
  */
-function doSearch(){
-    if($('input#search_bar').val()===''){
+function doSearch() {
+    if ($('input#search_bar').val()==='') {
         $('#top-recipe').show();
         $('#result').hide();
         return;
@@ -24,20 +24,20 @@ function doSearch(){
         `<h1 class="header-title top-recipes">Search Result:</h1>
         <div class="spinner-border" role="status" id="spinner">
             <span class="sr-only"></span>
-        </div>`
+        </div>`,
     );
     $.ajax({
-        type: "GET",
+        type: 'GET',
         url: '/search/'+$('input#search_bar').val(),
-        success: function (res) {
+        success: function(res) {
             $('#result').html('');
-            if(!res || res.length === 0 || res==='failed'){
+            if (!res || res.length === 0 || res==='failed') {
                 $('#result').html(
-                    `<h1 class="header-title top-recipes">No result found</h1>`
+                    `<h1 class="header-title top-recipes">No result found</h1>`,
                 );
             }
             let result_html = `<h1 class="header-title top-recipes">Search Result:</h1>`;
-            res.map(recipe => {
+            res.map((recipe) => {
                 result_html += `<div class="recipeCard" onclick="window.location.href='/recipe_page/${recipe.id}/false'">
                                   <div class="bookmark-icon">
                                     <!--TODO: Replace with some kind of unique identifier for the bookmark in each card-->
@@ -51,13 +51,13 @@ function doSearch(){
                                     </p>
                                   </div>
                                   <img src="${recipe.image}" class="cardImage">
-                                </div>`
+                                </div>`;
             });
             $('#result').html(
-                result_html
+                result_html,
             );
         },
-        error: function (error) {
+        error: function(error) {
             console.log(error);
         },
     });

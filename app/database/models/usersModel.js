@@ -3,9 +3,9 @@ const db = require('../dbConfig');
 /**
  * get user by id
  * @param id
- * @returns array []
+ * @return array []
  */
-async function getById(id){
+async function getById(id) {
     const rows = await db('users')
         .where({id})
         .select('*');
@@ -15,9 +15,9 @@ async function getById(id){
 /**
  * get user by email
  * @param id
- * @returns array []
+ * @return array []
  */
-async function getByEmail(email){
+async function getByEmail(email) {
     const rows = await db('users')
         .where({email})
         .select('*');
@@ -27,14 +27,14 @@ async function getByEmail(email){
 /**
  * insert user into users table
  * @param user
- * @returns {Promise<{status: string}>}
+ * @return {Promise<{status: string}>}
  */
-async function insert(user){
+async function insert(user) {
     try {
         await db('users')
             .insert(user);
         return {status: 'success'};
-    } catch(err){
+    } catch (err) {
         console.error(err);
         return {status: 'failed'};
     }
