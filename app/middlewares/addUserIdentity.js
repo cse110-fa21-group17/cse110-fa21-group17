@@ -6,7 +6,7 @@ require('dotenv').config();
  * @param req
  * @param res
  * @param next
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
 async function addUserIdentity(req, res, next) {
     try {
@@ -19,8 +19,8 @@ async function addUserIdentity(req, res, next) {
             req.user = null;
             next();
         }
-    } catch (err){
-        res.redirect('/')
+    } catch (err) {
+        res.redirect('/');
     }
 }
 

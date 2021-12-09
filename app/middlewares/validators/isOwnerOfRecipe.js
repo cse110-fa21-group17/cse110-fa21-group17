@@ -4,7 +4,7 @@ const savedRecipesModel = require('../../database/models/savedRecipesModel');
  * @param req
  * @param res
  * @param next
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
 async function isOwnerOfRecipe(req, res, next) {
     try {
@@ -17,7 +17,7 @@ async function isOwnerOfRecipe(req, res, next) {
             return res.status(401)
                 .json({status: 'forbidden', message: 'Your are not the owner of this recipe!'});
         }
-    } catch (err){
+    } catch (err) {
         console.error(err);
         return res.status(401)
             .json({status: 'forbidden', message: 'Your are not the owner of this recipe!'});

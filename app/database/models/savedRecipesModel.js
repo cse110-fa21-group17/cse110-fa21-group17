@@ -3,9 +3,9 @@ const db = require('../dbConfig');
 /**
  * get saved recipes by uid
  * @param id
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
-async function getByUid(uid){
+async function getByUid(uid) {
     const data = await db('saved_recipes')
         .select('*')
         .where({uid});
@@ -15,9 +15,9 @@ async function getByUid(uid){
 /**
  * get all spoonacular recipes
  * @param id
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
-async function getByUidAndNullRid(uid){
+async function getByUidAndNullRid(uid) {
     const data = await db('saved_recipes')
         .select('*')
         .where({uid, rid: null});
@@ -27,7 +27,7 @@ async function getByUidAndNullRid(uid){
 /**
  * insert into saved recipes
  * @param payload
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
 async function insert(payload) {
     try {
@@ -41,14 +41,14 @@ async function insert(payload) {
  * remove by user id and recipe id
  * @param uid
  * @param rid
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
-async function removeByUidAndRid(uid, rid){
+async function removeByUidAndRid(uid, rid) {
     try {
         await db('saved_recipes')
             .del()
             .where({uid, rid});
-    } catch (err){
+    } catch (err) {
         console.error(err);
     }
 }
@@ -57,14 +57,14 @@ async function removeByUidAndRid(uid, rid){
  * remove by uid and sid
  * @param uid
  * @param sid
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
-async function removeByUidAndSid(uid, sid){
+async function removeByUidAndSid(uid, sid) {
     try {
         await db('saved_recipes')
             .del()
             .where({uid, sid});
-    } catch (err){
+    } catch (err) {
         console.error(err);
     }
 }
@@ -73,9 +73,9 @@ async function removeByUidAndSid(uid, sid){
  * get saved recipes by uid and rid
  * @param uid
  * @param rid
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
-async function getByUidAndRid(uid, rid){
+async function getByUidAndRid(uid, rid) {
     const data = await db('saved_recipes')
         .select('*')
         .where({uid, rid});
@@ -86,9 +86,9 @@ async function getByUidAndRid(uid, rid){
  * get by uid and sid
  * @param uid
  * @param sid
- * @returns {Promise<void>}
+ * @return {Promise<void>}
  */
-async function getByUidAndSid(uid, sid){
+async function getByUidAndSid(uid, sid) {
     const data = await db('saved_recipes')
         .select('*')
         .where({uid, sid});
