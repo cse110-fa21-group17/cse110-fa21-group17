@@ -36,7 +36,7 @@ jobs:
         working-directory: app
 
       - name: Run tests
-        run: npm test -- --coverage
+        run: npx nyc --reporter=lcov npm test
         working-directory: app
 
       - name: Upload coverage to Codecov
