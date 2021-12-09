@@ -139,6 +139,8 @@ router.get('/signup', async function(req, res, next) {
 router.post('/signup', async function(req, res, next) {
     try {
     // get user from frontend
+        const uid = req.user?req.user.id:null;
+
         const new_user = req.body;
         const users = await usersModel.getByEmail(new_user.email);
 
@@ -153,7 +155,7 @@ router.post('/signup', async function(req, res, next) {
 
         // insert user
         await usersModel.insert(new_user);
-        return res.render('pages/signupSuccess', {title: 'Sign Up Successful'});
+        return res.render('pages/signupSuccess', {title: 'Sign Up Successful', uid});
     } catch (err) {
         console.error(err);
         return res.status(500)
