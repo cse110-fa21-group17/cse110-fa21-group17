@@ -36,14 +36,14 @@ form {
   position: relative;
 }
 
-.form-control {
+/* .form-control {
   display: inline-block;
   width: 300px;
 }
 
 .form-inline {
   display: flex;
-}
+} */
 
 #right {
   position: absolute;
