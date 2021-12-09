@@ -24,9 +24,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+        working-directory: app
 
       - name: Run tests
         run: npm test
+        working-directory: app
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
