@@ -63,7 +63,8 @@ router.get('/filter/:type', async function(req, res, next) {
 
 router.get('/calorie_calculator', async function(req, res, next) {
     try {
-        return res.render('pages/calorie_calculator', {title: 'Calorie Calculator'});
+        const uid = req.user?req.user.id:null;
+        return res.render('pages/calorie_calculator', {title: 'Calorie Calculator', uid});
     } catch (err) {
         console.error(err);
         return res.status(500).json({status: 'internal server error'});
