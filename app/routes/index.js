@@ -7,7 +7,8 @@ const axios = require('axios');
 
 const usersModel = require('../database/models/usersModel');
 const recipesModel = require('../database/models/recipesModel');
-const savedRecipesModel = require('../database/models/savedRecipesModel');
+
+const dummyData = require('../constant/dummy.json');
 
 const token = require('../auth/token');
 
@@ -15,20 +16,12 @@ const token = require('../auth/token');
 router.get('/', async function(req, res, next) {
     try {
         const uid = req.user?req.user.id:null;
-        const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=8&apiKey=${process.env.SPOON_API}`);
-        const initial_recipes = response.data.recipes;
-        const spoonacular_recipes = await recipesModel.getByNullRidAndUid(uid);
-        const saved_ids = await Promise.all(spoonacular_recipes.map((recipe) => recipe.sid));
-        const ids = [];
-        initial_recipes.map(async (recipe) => {
-            ids.push(recipe.id);
-        });
-        const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
-
-        const topRecipes = bulkResponse.data;
-        topRecipes.map((recipe) => {
-            recipe.is_saved = saved_ids.includes(recipe.id);
-        });
+        const random_indexes = [];
+        while (random_indexes.length < 8){
+            const num = Math.floor(Math.random() * 50);
+            if (!random_indexes.includes(num)) random_indexes.push(num);
+        }
+        const topRecipes = await Promise.all(random_indexes.map((i) => dummyData[i]));
         return res.render('index', {title: 'Hot-Dawg', topRecipes, uid});
     } catch (err) {
         console.error(err);
