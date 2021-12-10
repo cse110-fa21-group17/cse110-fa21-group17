@@ -12,12 +12,12 @@ describe('user model function tests', function() {
         });
 
     it('call getByEmail with value null, expect error',
-        async function(done) {
-            const value = userModel.getByEmail(null);
-            assert.equal(value, []);
-            console.log(value);
-            done();
-        });
+        function() {
+            return userModel.getByEmail(null)
+            .then((value) => {
+                assert.equal(value.length, 0);
+            })
+    });
        
 });
 
