@@ -11,8 +11,8 @@
 [![Eslint](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml/badge.svg)](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml)
 [![codecov](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17/branch/main/graph/badge.svg?token=45SG1DU66Z)](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17)
 
-<div style="text-align:center; font-weight: bold; font-size: 32px">
-    <a href="http://hotstage-env.eba-impqun6r.us-west-1.elasticbeanstalk.com/recipe_page/651297/false" style="display:inline-block">Hot Dawg Official Site </a>
+<div align="center">
+    <a href="http://hotstage-env.eba-impqun6r.us-west-1.elasticbeanstalk.com/recipe_page/651297/false">Hot Dawg Official Site </a>
 </div>
 
 ## Introduction
