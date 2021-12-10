@@ -17,13 +17,13 @@
 
 ## Introduction
 **Hot Dawg** is a healthy recipe app facing the next generation 
-users that wants a simple, stress-free, “do-it-all” platform, 
-where the user can not only control their meal, but also their 
-healthy lifestyle all in one site.
+users who want a simple, stress-free, “do-it-all” platform. Using **Hot Dawg**,
+the users can not only control their meal, but also take control of their 
+healthy lifestyle.
 
 ## Vision:
 To create a recipe app for 
-youth like us who wants to experience 
+young people like us who want to experience 
 great food and at the same time, be 
 healthy and stay in shape.
 
