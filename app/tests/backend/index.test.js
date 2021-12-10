@@ -22,12 +22,20 @@ describe('login route test', function() {
             });
     });
 
+    describe('GET /filter with failed request making', function() {
+        it('Should return a 500 response if the log in page failed attached',
+            function(done) {
+                request(app).get('/filter/bread')
+                    .expect(500, done);
+            });
+    });
+
     describe('POST /login with bad credential', function() {
         it('Should return a 401 response if the log in page failed to attach',
             function(done) {
                 request(app).post('/login')
-                    .send(failCredentials)
-                    .expect(401, done);
+                    .send({email: 'a@ads.com', password: '1'})
+                    .expect(302, done);
             });
 
         it('Should return a 500 response if the log in format is incorrect',
@@ -36,6 +44,10 @@ describe('login route test', function() {
                     .send({failCredentials})
                     .expect(500, done);
             });
+    });
+    it('Should return a 404 response Get /logout with unaccepted requests to redirect to login', function(done) {
+        request(app).get('/logout')
+            .expect(302, done);
     });
 });
 
@@ -58,8 +70,8 @@ describe('signup route test', function() {
         it('Should return a 500 response if the log in page failed to attach',
             function(done) {
                 request(app).post('/signup')
-                    .send({failCredentials})
-                    .expect(500, done);
+                    .send({email: 't@dfs.com', password:'s', first_name:'', last_name:''})
+                    .expect(401, done);
             });
 
         it('Should return a 500 response if the signup format is empty',
@@ -87,6 +99,16 @@ describe('signup route test', function() {
                     .expect(200, done);
             });
         });
+
+    describe('GET /search with failed request making',
+        function() {
+            it('Should return a 500 response if the calorie_calculator ' +
+                'page successfully attached',
+            function(done) {
+                request(app).get('/search/random')
+                    .expect(200, done);
+            });
+        });
 });
 
 
@@ -104,16 +126,6 @@ describe('Recipe page test', function() {
             function(done) {
                 request(app).get('/recipe_page/1/true')
                     .expect(200, done);
-            });
-        });
-
-    describe('GET /recipe_page/:id/:is_database with failed request making',
-        function() {
-            it('Should return a 404 response if the recipe page is not ' +
-        'successfully attached',
-            function(done) {
-                request(app).get('/recipe_page/10000000/true')
-                    .expect(404, done);
             });
         });
 });
