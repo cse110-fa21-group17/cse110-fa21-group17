@@ -193,10 +193,10 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next) {
         instructions.map((instruction) => {
             recipe.instruction += '\t'+instruction.number+'. '+instruction.step+'\n';
         });
-        const nutrition = await axios.get(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${process.env.SPOON_API}`);
-        recipe.fat = nutrition.data.fat;
-        recipe.carbs = nutrition.data.carbs;
-        recipe.protein = nutrition.data.protein;
+        const nutrition = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${process.env.SPOON_API}`);
+        recipe.fat = Math.floor(nutrition.data.nutrition.weightPerServing.amount * (nutrition.data.nutrition.caloricBreakdown.percentFat/100));
+        recipe.carbs = Math.floor(nutrition.data.nutrition.weightPerServing.amount * (nutrition.data.nutrition.caloricBreakdown.percentCarbs/100));
+        recipe.protein = Math.floor(nutrition.data.nutrition.weightPerServing.amount * (nutrition.data.nutrition.caloricBreakdown.percentProtein/100));
         recipe.ready_in_minutes = recipe.readyInMinutes;
     }
     res.render('pages/recipe_page', {title: 'recipe page', recipe, uid});

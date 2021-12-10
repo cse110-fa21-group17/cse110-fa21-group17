@@ -11,19 +11,19 @@
 [![Eslint](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml/badge.svg)](https://github.com/cse110-fa21-group16/cse110-fa21-group16/actions/workflows/eslint.yml)
 [![codecov](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17/branch/main/graph/badge.svg?token=45SG1DU66Z)](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17)
 
-<div style="text-align:center; font-weight: bold; font-size: 32px">
-    <a href="http://hotstage-env.eba-impqun6r.us-west-1.elasticbeanstalk.com/recipe_page/651297/false" style="display:inline-block">Hot Dawg Official Site </a>
+<div align="center">
+    <a href="http://hotstage-env.eba-impqun6r.us-west-1.elasticbeanstalk.com/recipe_page/651297/false">Hot Dawg Official Site </a>
 </div>
 
 ## Introduction
 **Hot Dawg** is a healthy recipe app facing the next generation 
-users that wants a simple, stress-free, “do-it-all” platform, 
-where the user can not only control their meal, but also their 
-healthy lifestyle all in one site.
+users who want a simple, stress-free, “do-it-all” platform. Using **Hot Dawg**,
+the users can not only control their meal, but also take control of their 
+healthy lifestyle.
 
 ## Vision:
 To create a recipe app for 
-youth like us who wants to experience 
+young people like us who want to experience 
 great food and at the same time, be 
 healthy and stay in shape.
 
