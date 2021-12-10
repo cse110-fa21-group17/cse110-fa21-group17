@@ -12,4 +12,14 @@ describe('user model function tests', async function() {
             console.log(value);
             done();
         });
+
+    it('call getByEmail with value null, expect error',
+        async function(done) {
+            const value = userModel.getByEmail(null);
+            assert.equal(value, []);
+            console.log(value);
+            done();
+        });
+       
 });
+
