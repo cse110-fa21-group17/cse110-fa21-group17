@@ -48,3 +48,6 @@ Click [here](admin/team.md) to learn more about our team members
 <img src="source/readme_link/jsdoc_logo.jpg" alt="drawing" width="50"/>
 
 See documentation on JSDoc [here](https://cse110-fa21-group17.github.io/cse110-fa21-group17/index.html)
+
+## Onboarding
+You can find onboard.md [here](admin/onboard.md)
