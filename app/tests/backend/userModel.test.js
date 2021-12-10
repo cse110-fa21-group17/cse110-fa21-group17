@@ -14,19 +14,19 @@ describe('user model function tests', function() {
     it('call getByEmail with value null, expect error',
         function() {
             return userModel.getByEmail(null)
-            .then((value) => {
-                assert.equal(value.length, 0);
-            });
-    });
+                .then((value) => {
+                    assert.equal(value.length, 0);
+                });
+        });
 
     it('call insert with value null, expect failed',
         function() {
-            try{
+            try {
                 userModel.insert(null);
             } catch (err){
                 console.error(err);
-            }   
-    
-    });
+            }
+
+        });
 });
 
