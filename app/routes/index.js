@@ -7,7 +7,8 @@ const axios = require('axios');
 
 const usersModel = require('../database/models/usersModel');
 const recipesModel = require('../database/models/recipesModel');
-const savedRecipesModel = require('../database/models/savedRecipesModel');
+
+const dummyData = require('../constant/dummy.json');
 
 const token = require('../auth/token');
 
@@ -15,20 +16,12 @@ const token = require('../auth/token');
 router.get('/', async function(req, res, next) {
     try {
         const uid = req.user?req.user.id:null;
-        const response = await axios.get(`https://api.spoonacular.com/recipes/random?number=8&apiKey=${process.env.SPOON_API}`);
-        const initial_recipes = response.data.recipes;
-        const spoonacular_recipes = await recipesModel.getByNullRidAndUid(uid);
-        const saved_ids = await Promise.all(spoonacular_recipes.map((recipe) => recipe.sid));
-        const ids = [];
-        initial_recipes.map(async (recipe) => {
-            ids.push(recipe.id);
-        });
-        const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&apiKey=${process.env.SPOON_API}`);
-
-        const topRecipes = bulkResponse.data;
-        topRecipes.map((recipe) => {
-            recipe.is_saved = saved_ids.includes(recipe.id);
-        });
+        const random_indexes = [];
+        while (random_indexes.length < 8){
+            const num = Math.floor(Math.random() * 50);
+            if (!random_indexes.includes(num)) random_indexes.push(num);
+        }
+        const topRecipes = await Promise.all(random_indexes.map((i) => dummyData[i]));
         return res.render('index', {title: 'Hot-Dawg', topRecipes, uid});
     } catch (err) {
         console.error(err);
@@ -193,10 +186,10 @@ router.get('/recipe_page/:id/:is_database', async function(req, res, next) {
         instructions.map((instruction) => {
             recipe.instruction += '\t'+instruction.number+'. '+instruction.step+'\n';
         });
-        const nutrition = await axios.get(`https://api.spoonacular.com/recipes/${id}/nutritionWidget.json?apiKey=${process.env.SPOON_API}`);
-        recipe.fat = nutrition.data.fat;
-        recipe.carbs = nutrition.data.carbs;
-        recipe.protein = nutrition.data.protein;
+        const nutrition = await axios.get(`https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${process.env.SPOON_API}`);
+        recipe.fat = Math.floor(nutrition.data.nutrition.weightPerServing.amount * (nutrition.data.nutrition.caloricBreakdown.percentFat/100));
+        recipe.carbs = Math.floor(nutrition.data.nutrition.weightPerServing.amount * (nutrition.data.nutrition.caloricBreakdown.percentCarbs/100));
+        recipe.protein = Math.floor(nutrition.data.nutrition.weightPerServing.amount * (nutrition.data.nutrition.caloricBreakdown.percentProtein/100));
         recipe.ready_in_minutes = recipe.readyInMinutes;
     }
     res.render('pages/recipe_page', {title: 'recipe page', recipe, uid});

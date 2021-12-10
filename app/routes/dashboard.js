@@ -44,9 +44,9 @@ router.get('/calorie_track', async function(req, res, next) {
             const bulkResponse = await axios.get(`https://api.spoonacular.com/recipes/informationBulk?ids=${ids.join(',')}&includeNutrition=true&apiKey=${process.env.SPOON_API}`);
             const spoon_recipes = bulkResponse.data;
             spoon_recipes.map((recipe) => {
-                recipe.fat = Math.floor(recipe.nutrition.weightPerServing.amount * recipe.nutrition.caloricBreakdown.percentFat);
-                recipe.carbs = Math.floor(recipe.nutrition.weightPerServing.amount * recipe.nutrition.caloricBreakdown.percentCarbs);
-                recipe.protein = Math.floor(recipe.nutrition.weightPerServing.amount * recipe.nutrition.caloricBreakdown.percentProtein);
+                recipe.fat = Math.floor(recipe.nutrition.weightPerServing.amount * (recipe.nutrition.caloricBreakdown.percentFat/100));
+                recipe.carbs = Math.floor(recipe.nutrition.weightPerServing.amount * (recipe.nutrition.caloricBreakdown.percentCarbs/100));
+                recipe.protein = Math.floor(recipe.nutrition.weightPerServing.amount * (recipe.nutrition.caloricBreakdown.percentProtein/100));
             });
             recipes.push(...bulkResponse.data);
         }
