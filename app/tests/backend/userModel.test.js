@@ -10,5 +10,23 @@ describe('user model function tests', function() {
                     assert.equal(value.length, 0);
                 })
         });
+
+    it('call getByEmail with value null, expect error',
+        function() {
+            return userModel.getByEmail(null)
+            .then((value) => {
+                assert.equal(value.length, 0);
+            });
+    });
+
+    it('call insert with value null, expect failed',
+        function() {
+            try{
+                userModel.insert(null);
+            } catch (err){
+                console.error(err);
+            }   
+    
+    });
 });
 
