@@ -16,8 +16,17 @@ describe('user model function tests', function() {
             return userModel.getByEmail(null)
             .then((value) => {
                 assert.equal(value.length, 0);
-            })
+            });
     });
-       
+
+    it('call insert with value null, expect failed',
+        function() {
+            try{
+                savedRecipesModel.insert(null);
+            } catch (err){
+                console.error(err);
+            }   
+    
+    });
 });
 
