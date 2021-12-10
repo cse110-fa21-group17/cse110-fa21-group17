@@ -261,3 +261,21 @@ form {
 .bookmark:hover {
   background-color: black;
 }
+
+@media (max-width: 480px) {
+  body {
+    margin: 0.5em;
+  }
+
+  .recipeCard {
+    width: 100vw;
+    min-width: 300px;
+    height: auto;
+  }
+
+  .cardImage {
+    width: 100vw;
+    min-width: 300px;
+    height: auto;
+  }
+} 
