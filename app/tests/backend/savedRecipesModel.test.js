@@ -26,6 +26,13 @@ describe('saved recipes model function tests', function() {
                     assert.equal(value.length, 0);
                 })
         });
+    it('call getByUidAndRid with a null recipe, expect error',
+        function() {
+            return savedRecipesModel.getByUidAndRid(null, null)
+                .then((value) => {
+                    assert.equal(value.length, 0);
+                })
+        });
 
 
     it('call removeByUidAndRid with 2 nulls, expect error',
@@ -39,8 +46,17 @@ describe('saved recipes model function tests', function() {
 
     it('call removeByUidAndSid with 2 nulls, expect error',
         function() {
-            try{
-                savedRecipesModel.removeByUidAndSid(1, 1);
+            try {
+                savedRecipesModel.removeByUidAndSid(null, null);
+            } catch (err){
+                console.error(err);
+            }
+        });
+
+    it('call removeByUidAndRid with 2 nulls, expect error',
+        function() {
+            try {
+                savedRecipesModel.removeByUidAndRid(null, null);
             } catch (err){
                 console.error(err);
             }
