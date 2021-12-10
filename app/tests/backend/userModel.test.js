@@ -22,7 +22,7 @@ describe('user model function tests', function() {
     it('call insert with value null, expect failed',
         function() {
             try{
-                savedRecipesModel.insert(null);
+                userModel.insert(null);
             } catch (err){
                 console.error(err);
             }   
