@@ -34,8 +34,8 @@ describe('login route test', function() {
         it('Should return a 401 response if the log in page failed to attach',
             function(done) {
                 request(app).post('/login')
-                    .send(failCredentials)
-                    .expect(401, done);
+                    .send({email: 'a@ads.com', password: '1'})
+                    .expect(302, done);
             });
 
         it('Should return a 500 response if the log in format is incorrect',
@@ -44,6 +44,10 @@ describe('login route test', function() {
                     .send({failCredentials})
                     .expect(500, done);
             });
+    });
+    it('Should return a 404 response Get /logout with unaccepted requests to redirect to login', function(done) {
+        request(app).get('/logout')
+            .expect(302, done);
     });
 });
 
@@ -66,8 +70,8 @@ describe('signup route test', function() {
         it('Should return a 500 response if the log in page failed to attach',
             function(done) {
                 request(app).post('/signup')
-                    .send({failCredentials})
-                    .expect(500, done);
+                    .send({email: 't@dfs.com', password:'s', first_name:'', last_name:''})
+                    .expect(401, done);
             });
 
         it('Should return a 500 response if the signup format is empty',

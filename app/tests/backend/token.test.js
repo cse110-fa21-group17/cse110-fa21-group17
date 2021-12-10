@@ -7,13 +7,13 @@ describe('token.js tests', function() {
 
     it('test validate token',
         function() {
-            try{
+            try {
                 token.validateToken("random")
             } catch (err){
                 console.error(err);
             }   
 
-    });
+        });
 
     it('test generate token',
         function() {

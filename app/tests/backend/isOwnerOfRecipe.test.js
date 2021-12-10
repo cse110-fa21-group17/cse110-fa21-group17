@@ -7,13 +7,13 @@ describe('isOwnerOfRecipe.js tests', function() {
 
     it('test isOwnerOfRecipe token',
         function() {
-            try{
+            try {
                 owner(null, null, null);
             } catch (err){
                 console.error(err);
             }   
 
-    });
+        });
 
 
 
