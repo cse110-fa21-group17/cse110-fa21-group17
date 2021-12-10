@@ -18,6 +18,11 @@
     <script src="/javascripts/add_button.js" type="module"></script>
 <!--    <script src="/javascripts/piechart.js" type="module"></script>-->
     <script type="module">
+        var totCal = 0;
+        var fat = 0; 
+        var prot = 0;
+        var carb = 0;
+
         var myConfig = {
             type: "ring",
             plot: {
@@ -54,11 +59,28 @@
             document.getElementById('add<%=index%>').addEventListener('click', function(){
                 if(document.getElementById('add<%=index%>').innerText === 'Added') {
                     modifyObj(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, true);
+                    modifyCals(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, true);
                 } else {
                     modifyObj(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, false);
+                    modifyCals(<%= recipe.carbs %>, <%= recipe.fat %>, <%= recipe.protein %>, false);
                 }
             });
         <%});%>
+
+        function modifyCals(carbs, fats, protein, add){
+            if(add){
+                carb += carbs;
+                prot += protein;
+                fat += fats;
+            }
+            else {
+                carb -= carbs;
+                prot -= protein;
+                fat -= fats;
+            }
+            totCal = (fat * 9) + (prot * 4) + (carb * 4);
+            document.getElementById('total_calories').innerText = totCal;
+        }
 
         function modifyObj(carbs, fats, protein, add){
             if(add) {
@@ -110,7 +132,7 @@
     <div class="flex-container">
         <div id='piechart'>
             <h1>Calories Tracking Tool</h1>
-            <p>Total calories for this recipe: (fats * 9) + (protein * 4) + (carbs * 4)</p>
+            <p>Total calories for this recipe: <span id="total_calories"></span></p>
         </div>
         <div class="card-flex-container">
             <h1 class="title-basis">From My Saved Recipes</h1>
