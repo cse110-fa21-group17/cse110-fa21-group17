@@ -18,7 +18,7 @@ describe('Basic user flow for Hot Dawg', () => {
       expect(numRecipes).toBe(8);
     });
   
-    // Check to make sure that all 8 recipe cards have data in them
+    // Check to make sure that all 8 recipe cards have danta in them
     it('Make sure recipe cards are populated', async () => {
       console.log('Checking to make sure recipe cards are populated...');
       // Start as true, if any don't have data, swap to false
@@ -44,6 +44,20 @@ describe('Basic user flow for Hot Dawg', () => {
       }
   
     }, 10000);
-  
-    
+
+    //Test View By Types button and make sure the new cards are different
+
+    //test searchbar 
+
+    //test login
+
+    //test bookmark/my cookbook
+
+    //test calorie tracking (aftter logged in)
+
+    //test add custom recipe
+
+    //test body calculator btn
+
+    //test signout btn
 });

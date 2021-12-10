@@ -59,7 +59,8 @@ router.get('/calorie_track', async function(req, res, next) {
 });
 
 router.get('/new_recipe', async function(req, res, next) {
-    res.render('pages/newrecipe', {title: 'Create Recipe'});
+    const uid = req.user.id;
+    res.render('pages/newrecipe', {title: 'Create Recipe', uid});
 });
 
 router.post('/new_recipe', async function(req, res, next) {
