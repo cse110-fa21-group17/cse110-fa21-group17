@@ -13,7 +13,7 @@
         <div class="form-inline my-2 my-lg-0">
           <div></div>
            <input class="form-control mr-sm-2" type="search" id="search_bar" placeholder="Search" aria-label="Search" />
-           <button class="btn my-2 my-sm-0" onclick="doSearch()">
+           <button class="btn my-2 my-sm-0 margin-left-42" onclick="doSearch()">
             <i class="bi bi-search"></i>
           </button>
         </div>
@@ -29,7 +29,7 @@
                 <path
                   d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z" />
               </svg>
-              Filter By Types
+              View By Types
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <input class="dropdown-item" type="button" value="Main Course" onclick="window.location.href='/filter/maincourse'">
@@ -47,7 +47,7 @@
               Health
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Body Calculator</a>
+              <a class="dropdown-item" href="/calorie_calculator">Body Calculator</a>
               <a class="dropdown-item" href="/dashboard/calorie_track
               ">Calories Tracker</a>
             </div>
@@ -86,7 +86,6 @@
                 />
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">My Measurements</a>
                 <a class="dropdown-item" href="/dashboard">My Cookbook</a>
                 <a class="logOutbtn dropdown-item" href="/logout">Log Out</a>
               </div>
