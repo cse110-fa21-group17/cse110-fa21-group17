@@ -12,7 +12,7 @@ const dummyData = require('../constant/dummy.json');
 
 const token = require('../auth/token');
 
-/* GET home page. */
+/* GET home page.. */
 router.get('/', async function(req, res, next) {
     try {
         const uid = req.user?req.user.id:null;
