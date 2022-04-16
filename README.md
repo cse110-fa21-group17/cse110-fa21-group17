@@ -11,7 +11,7 @@
 [![codecov](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17/branch/main/graph/badge.svg?token=45SG1DU66Z)](https://codecov.io/gh/cse110-fa21-group17/cse110-fa21-group17)
 
 <div align="center">
-    <a href="http://hotstage-env.eba-impqun6r.us-west-1.elasticbeanstalk.com/">Hot Dawg Official Site </a>
+    <a href="http://hotstage-env.eba-fepmh2sg.us-west-1.elasticbeanstalk.com/">Hot Dawg Official Site </a>
 </div>
 
 ## Introduction
