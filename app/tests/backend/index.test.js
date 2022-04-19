@@ -22,14 +22,6 @@ describe('login route test', function() {
             });
     });
 
-    describe('GET /filter with failed request making', function() {
-        it('Should return a 500 response if the log in page failed attached',
-            function(done) {
-                request(app).get('/filter/bread')
-                    .expect(500, done);
-            });
-    });
-
     describe('POST /login with bad credential', function() {
         it('Should return a 401 response if the log in page failed to attach',
             function(done) {
@@ -67,7 +59,7 @@ describe('signup route test', function() {
     });
 
     describe('POST /signup with bad format', function() {
-        it('Should return a 500 response if the log in page failed to attach',
+        it('Should return a 200 response if the log in page failed to attach',
             function(done) {
                 request(app).post('/signup')
                     .send({email: 't@dfs.com', password:'s', first_name:'', last_name:''})
