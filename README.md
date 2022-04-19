@@ -51,3 +51,20 @@ See documentation on JSDoc [here](https://cse110-fa21-group17.github.io/cse110-f
 
 ## Onboarding
 You can find onboard.md [here](admin/onboard.md)
+
+## CI/CD:
+This codebase contains 2 CI/CD phases:
+### Phase 1 (CI):
+Whenever a new commit/PR is merged, this phase will be ran automatically by github actions defined in `.github/workflows`. Targets include: unit test for the repo, code coverage analysis, and style (lint) checks.
+
+All failed CI run will be rejected to merge/commit into the main branch.
+
+### Phase 2 (CD):
+Phase 2 utlizes AWS codepipeline + Elastic Beanstalk(deployment)
+
+The AWS codepipeline contains 3 artifacts: source, build, deploy.
+- Source: automatically initaited by new commits/changes in the main branch
+- Build: build the entire codebase, and run tests again to verify the new code works
+- deploy: deploys the newly committed code into Elastic Beanstalk (EC2 servers with auto scaling and load balancing)
+
+The entire CI/CD pipeline is designed to have no downtime on the production server.
